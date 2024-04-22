@@ -1,3 +1,7 @@
+import "./styles/index.css";
+
+
+export * from "./Badge";
 export * from "./BasicForm";
 export * from "./Flag";
 export * from "./FormField";

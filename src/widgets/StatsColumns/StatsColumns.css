@@ -2,7 +2,22 @@
 {
     width: 100%;
     display: grid;
+    column-gap: 1em;
+}
+
+.statscolumns.statscolumns-inversed
+{
+    background: var(--color-ink-black);
+    color: var(--color-background-light);
+}
+
+.statscolumns.statscolumns-auto
+{
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
-    column-gap: 1em;
+}
+
+.statscolumns.statscolumns-listing
+{
+    grid-template-columns: 2fr 1fr 100px 100px 100px 100px;
 }

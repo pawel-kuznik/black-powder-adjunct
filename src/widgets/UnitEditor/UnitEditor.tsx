@@ -39,8 +39,8 @@ export function UnitEditor() {
                 <FormField label="Type" type="select" name="type" options={unitTypes} labels={(o: string) => o}/>
                 <FormField label="Arnament" type="select" name="arnament" options={weaponsTypes} labels={(o: string) => o} onChange={handleWeaponChange}/>
                 <FormField label="Hand to hand" name="handToHand" type="number" min="1" defaultValue="1"/>
-                <FormField label="Morale" name="morale" type="number" min="1" defaultValue="1"/>
                 <ShootingField label="Shooting" name="shooting" weapon={weapon}/>
+                <FormField label="Morale" name="morale" type="number" min="1" defaultValue="1"/>
                 <FormField label="Stamina" name="stamina" type="number" min="1" defaultValue="1"/>
             </StatsColumns>
             <SpecialsField label="Specials" name="special" />

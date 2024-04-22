@@ -3,7 +3,7 @@ import { StatsColumns } from "../StatsColumns";
 export function ColumnsHeader() {
 
     return (
-        <StatsColumns>
+        <StatsColumns inversed sizePreset="listing">
             <div>
                 Name
             </div>
@@ -11,19 +11,16 @@ export function ColumnsHeader() {
                 Arnament
             </div>
             <div>
-                Hand to hand
-            </div>
-            <div>
-                Morale
+                Hand to Hand
             </div>
             <div>
                 Shooting
             </div>
             <div>
-                Stamina
+                Morale
             </div>
             <div>
-                Special
+                Stamina
             </div>
         </StatsColumns>
     );

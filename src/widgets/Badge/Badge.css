@@ -1,0 +1,15 @@
+.badge
+{
+    display: inline-block;
+    font-size: .65em;
+    font-weight: bold;
+    border-radius: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.badge.badge-red
+{
+    color: var(--color-background-light);
+    background: var(--color-ink-red);
+}

@@ -1,6 +1,11 @@
 .page
 {
+    background: var(--color-background-light);
+
+    min-height: 100vh;
     width: 960px;
     margin-left: auto;
     margin-right: auto;
+
+    box-shadow: 0 0 64px 64px var(--color-background);
 }

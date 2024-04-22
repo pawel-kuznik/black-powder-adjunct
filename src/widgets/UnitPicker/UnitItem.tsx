@@ -1,5 +1,6 @@
 import { UnitDescriptor } from "../../data/units";
-import { calcUnitCost } from "../../logic";
+import { calcUnitCost, calcWeaponRange } from "../../logic";
+import { Badge } from "../Badge";
 import { Flag } from "../Flag";
 import { StatsColumns } from "../StatsColumns";
 
@@ -9,11 +10,14 @@ export interface UnitItemProps {
 
 export function UnitItem({ unit } : UnitItemProps) {
 
+    const range = calcWeaponRange(unit.arnament);
+
     return (
-        <StatsColumns>
+        <StatsColumns sizePreset="listing">
             <div>
-                <Flag which={unit.affiliation}/> {unit.key} ({calcUnitCost(unit)})<br/>
+                <Flag which={unit.affiliation}/> {unit.key} <Badge>{calcUnitCost(unit)} pts</Badge><br/>
                 <small>{unit.type}</small>
+                {unit.special.join(", ")}
             </div>
             <div>
                 {unit.arnament}
@@ -22,16 +26,13 @@ export function UnitItem({ unit } : UnitItemProps) {
                 {unit.handToHand}
             </div>
             <div>
-                {unit.morale}
+                {unit.shooting} {range && (<span>at {range}''</span>)}
             </div>
             <div>
-                {unit.shooting}
+                {unit.morale}+
             </div>
             <div>
                 {unit.stamina}
-            </div>
-            <div>
-                {unit.special.join(", ")}
             </div>
         </StatsColumns>
     );

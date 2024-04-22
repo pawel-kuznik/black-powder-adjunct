@@ -5,7 +5,7 @@ import "./Flag.css";
 
 export interface FlagProps {
 
-    which: "french" | string;
+    which: "french" | string | undefined;
 };
 
 export function Flag({ which }: FlagProps) {
