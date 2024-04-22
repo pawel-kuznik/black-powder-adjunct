@@ -1,0 +1,9 @@
+.flag
+{
+    width: 20px;
+    height: 15px;
+
+    margin-bottom: -1px;
+
+    border-radius: 1px;
+}

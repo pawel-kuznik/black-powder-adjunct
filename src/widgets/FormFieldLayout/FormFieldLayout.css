@@ -1,0 +1,11 @@
+.formfieldlayout > label
+{
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.formfieldlayout-layout-column
+{
+    display: grid;
+    grid-auto-flow: row;
+}
