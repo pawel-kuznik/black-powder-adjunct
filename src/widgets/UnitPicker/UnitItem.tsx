@@ -9,19 +9,29 @@ import "./UnitItem.css";
 export interface UnitItemProps {
     unit: UnitDescriptor;
     onPick?: (unit: UnitDescriptor) => void;
+    onRemove?: (unit: UnitDescriptor) => void;
 };
 
-export function UnitItem({ unit, onPick } : UnitItemProps) {
+export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
 
     const range = calcWeaponRange(unit.arnament);
 
-    const handleClick = () => {
-
+    const handlePickClick = () => {
         onPick?.(unit);
     };
 
+    const handleRemoveClick = () => {
+        onRemove?.(unit);
+    };
+
     return (
-        <div className="unitpicker-unititem" onClick={handleClick}>
+        <div className="unitpicker-unititem">
+            {(onPick || onRemove) && (
+                <div className="unitpicker-unititem-controls">
+                    {onPick && (<button type="button" onClick={handlePickClick}>Pick</button>)}
+                    {onRemove && (<button type="button" onClick={handleRemoveClick}>Remove</button>)}
+                </div>
+            )}
             <StatsColumns sizePreset="listing">
                 <div className="unitpicker-unititem-name">
                     <Flag which={unit.affiliation}/> {unit.key} <small>{unit.type}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>

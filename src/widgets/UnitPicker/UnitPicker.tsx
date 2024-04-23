@@ -6,9 +6,10 @@ import { UnitItem } from "./UnitItem";
 export interface UnitPickerProps {
 
     onPick?: (model: UnitDescriptor) => void;
+    onRemove?: (model: UnitDescriptor) => void;
 };
 
-export function UnitPicker({ onPick } : UnitPickerProps) {
+export function UnitPicker({ onPick, onRemove } : UnitPickerProps) {
 
     const unitDescriptorStore = useUnitDescriptorsStore();
 
@@ -17,7 +18,7 @@ export function UnitPicker({ onPick } : UnitPickerProps) {
     return (
         <div>
             <ColumnsHeader/>
-            {descriptors.map(u => (<UnitItem key={u.key} unit={u} onPick={onPick}/>))}
+            {descriptors.map(u => (<UnitItem key={u.key} unit={u} onPick={onPick} onRemove={onRemove}/>))}
         </div>
     );
 }

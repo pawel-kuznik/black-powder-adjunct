@@ -18,6 +18,12 @@ function preparePersonality(input: any, fallback: CommanderPersonalityType) : Co
     return fallback;
 }
 
+function prepareAffiliation(input: any, fallback: string | undefined) : string | undefined {
+
+    if (input === undefined || typeof(input) === "string") return input;
+    return fallback;
+}
+
 export function prepareCommanderData(input: object, fallback: CommanderDescriptor = { ...baseCommander }) : CommanderDescriptor {
 
     const commander = { ...fallback };
@@ -26,6 +32,7 @@ export function prepareCommanderData(input: object, fallback: CommanderDescripto
     if ('staffRating' in input) commander.staffRating = prepareNumber(input.staffRating, fallback.staffRating);
     if ('move' in input) commander.move = prepareMove(input.move, fallback.move);
     if ('personality' in input) commander.personality = preparePersonality(input.personality, fallback.personality);
+    if ('affiliation' in input) commander.affiliation = prepareAffiliation(input.affiliation, fallback.affiliation);
 
     return commander;
 };

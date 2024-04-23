@@ -27,11 +27,13 @@ export interface CommanderDescriptor {
     staffRating: number;
     move: CommanderMovementType;
     personality: CommanderPersonalityType;
+    affiliation: undefined | string;
 };
 
 export const baseCommander: CommanderDescriptor = {
     name: "commander",
     staffRating: 7,
     move: "horse",
-    personality: "blank"
+    personality: "blank",
+    affiliation: undefined
 };

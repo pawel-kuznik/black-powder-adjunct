@@ -1,0 +1,13 @@
+.title
+{
+    font-size: 3em;
+    font-family: var(--font-handwriting);
+    line-height: 0.6em;
+    color: var(--color-ink-red);
+    border-bottom: 1px solid var(--color-ink-red);
+
+    padding-bottom: 0;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

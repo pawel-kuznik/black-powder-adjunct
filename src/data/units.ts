@@ -20,7 +20,7 @@ export interface UnitDescriptor {
     type: UnitType;
     arnament: WeaponType;
     handToHand: number;
-    shooting: ShotingType;
+shooting: ShotingType;
     morale: number;
     stamina: number;
     special: SpecialType[];

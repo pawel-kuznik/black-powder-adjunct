@@ -1,19 +1,32 @@
-import { useState } from "react";
 import { UnitDescriptor } from "../../data/units";
-import { Page, UnitEditor, UnitPicker } from "../../widgets";
+import { Page, Title, UnitPicker, useModalControls } from "../../widgets";
+import { prepareUnitData } from "../../logic";
+import { UnitDialog } from "./UnitDialog";
+import { useUnitDescriptorsStore } from "../../state";
 
 export function UnitsPage() {
-    const [ editing, setEditing ] = useState<UnitDescriptor|undefined>(undefined);
+    const { show } = useModalControls();
+    const unitDescriptorsStore = useUnitDescriptorsStore();
+
 
     const handlePick = (unit: UnitDescriptor) => {
-  
-      setEditing(unit);
+        show("edit-unit", UnitDialog, { unit });
     };
-    
+
+    const handleRemove = (unit: UnitDescriptor) => {
+        unitDescriptorsStore.remove(unit);
+    };
+
+    const handleNewUnitClick = () => {
+
+        show("edit-unit", UnitDialog, { unit: prepareUnitData({ }) });
+    };
+
     return (
         <Page>
-          <UnitEditor model={editing}/>
-          <UnitPicker onPick={handlePick}/>
+            <Title text="Units"/>
+            <button type="button" onClick={handleNewUnitClick}>Create new</button>
+            <UnitPicker onPick={handlePick} onRemove={handleRemove}/>
         </Page>
-      );
+    );
 };
