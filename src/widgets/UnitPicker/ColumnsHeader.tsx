@@ -1,27 +1,30 @@
 import { StatsColumns } from "../StatsColumns";
 
-export function ColumnsHeader() {
+import "./ColumnsHeader.css";
 
+export function ColumnsHeader() {
     return (
-        <StatsColumns inversed sizePreset="listing">
-            <div>
-                Name
-            </div>
-            <div>
-                Arnament
-            </div>
-            <div>
-                Hand to Hand
-            </div>
-            <div>
-                Shooting
-            </div>
-            <div>
-                Morale
-            </div>
-            <div>
-                Stamina
-            </div>
-        </StatsColumns>
+        <div className="unitpicker-columnsheader">
+            <StatsColumns inversed sizePreset="listing">
+                <div className="unitpicker-columnsheader-name">
+                    Unit
+                </div>
+                <div className="unitpicker-columnsheader-center">
+                    Arnament
+                </div>
+                <div className="unitpicker-columnsheader-center">
+                    H-to-H
+                </div>
+                <div className="unitpicker-columnsheader-center">
+                    Shooting
+                </div>
+                <div className="unitpicker-columnsheader-center">
+                    Morale
+                </div>
+                <div className="unitpicker-columnsheader-center">
+                    Stamina
+                </div>
+            </StatsColumns>
+        </div>
     );
 };

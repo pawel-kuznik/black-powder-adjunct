@@ -5,9 +5,10 @@ export interface ShootingInputProps {
 
     weapon: WeaponType;
     name: string;
+    defaultValue?: string | number;
 };
 
-export function ShootingInput({ weapon, name }: ShootingInputProps) {
+export function ShootingInput({ weapon, name, defaultValue }: ShootingInputProps) {
 
     const isMelee = isWeaponMelee(weapon);
 
@@ -22,6 +23,6 @@ export function ShootingInput({ weapon, name }: ShootingInputProps) {
     );
 
     return (
-        <input name={name} type="number"/>
+        <input name={name} type="number" defaultValue={defaultValue}/>
     );
 };

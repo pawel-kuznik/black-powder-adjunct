@@ -9,7 +9,7 @@ export interface UnitDescriptorStore {
 };
 
 /**
- *  This is an application-wide store with all unit descriptors for user to use.
+ *  This is an application-wide store with all unit descriptors for ,ser to use.
  *  It can be used to define new units, remove definitions, and use it as a unit
  *  stats block.
  */

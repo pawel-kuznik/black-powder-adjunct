@@ -1,0 +1,28 @@
+.unitpicker-unititem
+{
+    border-bottom: 1px solid var(--color-ink-blue);
+}
+
+.unitpicker-unititem:nth-child(2n)
+{
+    background: rgba(220, 220, 220, 0.25);
+}
+
+.unitpicker-unititem-name, 
+.unitpicker-unititem-arnament,
+.unitpicker-unititem-number
+{
+    padding: 2px;
+    border-left: 1px solid var(--color-ink-blue);
+}
+
+.unitpicker-unititem-number:last-of-type
+{
+    border-right: 1px solid var(--color-ink-blue);
+}
+
+.unitpicker-unititem-number,
+.unitpicker-unititem-arnament
+{
+    text-align: center;
+}

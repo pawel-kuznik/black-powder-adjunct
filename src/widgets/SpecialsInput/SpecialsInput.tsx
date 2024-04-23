@@ -5,11 +5,16 @@ import { SpecialTag } from "./SpecialTag";
 
 export interface SpecialsInputProps {
     name: string;
+    defaultValue?: string | string[];
 };
 
-export function SpecialsInput({ name }: SpecialsInputProps) {
+export function SpecialsInput({ name, defaultValue }: SpecialsInputProps) {
 
-    const [ value, setValue ] = useState<string>("");
+    const [ value, setValue ] = useState<string>(() => {
+        if (Array.isArray(defaultValue)) return defaultValue.join(",");
+        if (defaultValue) return defaultValue;
+        return "";
+    });
     const [ adding, setAdding ] = useState<boolean>(false);
 
     const handleOnChange = (newValue: string) => {

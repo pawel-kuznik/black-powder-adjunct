@@ -1,0 +1,6 @@
+.uniteditor-firstline
+{
+    display: grid;
+    grid-template-columns: 3fr 1fr auto auto;
+    column-gap: 1em;
+}

@@ -4,6 +4,9 @@
     --color-ink-blue: #0A1D55;
     --color-ink-red: #A31C2B;
 
-    --color-background: #EEEFF4;
-    --color-background-light: #FCFCFC;
+    --color-letter-border: #efe1cc;
+
+    /* --color-background: #FFF0D9; */
+    --color-background: rgba(200, 200, 200, .2);
+    --color-background-light: #f7f1e9;
 }

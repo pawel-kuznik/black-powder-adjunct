@@ -1,0 +1,12 @@
+.mainmenu
+{
+    float: left;
+}
+
+.mainmenu a
+{
+    display: block;
+    color: grey;
+
+    text-decoration: none;
+}

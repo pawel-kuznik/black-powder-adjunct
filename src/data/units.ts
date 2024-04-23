@@ -30,7 +30,7 @@ export interface UnitDescriptor {
 export const baseUnit : UnitDescriptor = {
     key: "",
     type: "regular-infantry",
-    arnament: "pistol",
+    arnament: "pistols",
     handToHand: 1,
     shooting: 3,
     morale: 4,
