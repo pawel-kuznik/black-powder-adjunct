@@ -19,6 +19,7 @@ export * from "./SpecialsField";
 export * from "./MainMenu";
 export * from "./Modal";
 export * from "./SpecialsInput";
+export * from "./SpecialTag";
 export * from "./StatsColumns";
 export * from "./Title";
 export * from "./UnitEditor";

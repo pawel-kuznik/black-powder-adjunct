@@ -18,6 +18,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3",
+    "i18next": "^22.4.15",
+    "react-i18next": "^12.2.2",
     "uuid": "^9.0.1",
     "zustand": "^4.5.2"
   },

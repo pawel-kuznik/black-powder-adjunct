@@ -27,4 +27,6 @@ export const specialTypes = [
     "wavering"
 ] as const;
 
+// @todo add mounted-infantry, poor-shooters, 
+
 export type SpecialType = typeof specialTypes[number];
