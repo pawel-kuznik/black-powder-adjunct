@@ -10,7 +10,7 @@ import { CommandersPage } from './pages/CommandersPage';
 function App() {
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/black-powder-adjunct">
             <ModalRoot>
                 <MainMenu />
                 <Routes>
