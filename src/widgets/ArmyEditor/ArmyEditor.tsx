@@ -51,7 +51,7 @@ export function ArmyEditor() {
             </div>
 
             <div>
-                {brigades.map(b => <BrigadeEditor/>)}
+                {brigades.map(b => <BrigadeEditor key={b.id}/>)}
             </div>
         </div>
     );

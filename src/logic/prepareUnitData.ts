@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 import { SpecialType, specialTypes } from "../data/special";
 import { ShotingType, UnitDescriptor, UnitType, baseUnit, unitTypes } from "../data/units";
 import { WeaponType, weaponsTypes } from "../data/weapons";
@@ -56,6 +57,9 @@ function prepareAffiliation(input: any, fallback: string | undefined) : string |
 export function prepareUnitData(input: object, fallback: UnitDescriptor = { ...baseUnit }) : UnitDescriptor {
 
     const unit = { ...baseUnit };
+
+    if ('id' in input) unit.id = String(input.id);
+    else unit.id = uuid();
 
     if ('key' in input) unit.key = String(input.key);
 

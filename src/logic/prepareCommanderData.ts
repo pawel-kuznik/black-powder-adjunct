@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 import { CommanderDescriptor, CommanderMovementType, CommanderPersonalityType, baseCommander, commanderMovementTypes, commanderPersonalityTypes } from "../data/commanders";
 
 function prepareNumber(input: any, fallback: number) : number {
@@ -27,6 +28,9 @@ function prepareAffiliation(input: any, fallback: string | undefined) : string |
 export function prepareCommanderData(input: object, fallback: CommanderDescriptor = { ...baseCommander }) : CommanderDescriptor {
 
     const commander = { ...fallback };
+
+    if ('id' in input) commander.id = String(input.id);
+    else commander.id = uuid();
 
     if ('name' in input) commander.name = String(input.name);
     if ('staffRating' in input) commander.staffRating = prepareNumber(input.staffRating, fallback.staffRating);

@@ -27,6 +27,7 @@ export * from "./isUnitInfantry";
 export * from "./isWeaponArtillery";
 export * from "./isWeaponMelee";
 export * from "./isWeaponRanged";
+export * from "./prepareAnew";
 export * from "./prepareBrigadeData";
 export * from "./prepareCommanderData";
 export * from "./prepareUnitData";

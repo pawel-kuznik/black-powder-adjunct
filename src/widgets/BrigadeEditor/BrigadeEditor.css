@@ -1,0 +1,103 @@
+.brigadeeditor
+{
+    border-left: 0px solid var(--color-ink-blue);
+}
+
+.brigadeeditor-commander,
+.brigadeeditor-unit,
+.brigadeeditor-data
+{
+    background: rgba(220, 220, 200, 0.2);
+    background-clip: content-box;
+}
+
+.brigadeeditor-unit
+{
+    position: relative;
+    padding-left: 1rem;
+}
+
+.brigadeeditor-meta
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+.brigadeeditor-data
+{
+    border: 1px solid var(--color-ink-blue);
+    padding: 2px;
+}
+
+.brigadeeditor-unit::before,
+.brigadeeditor-addunit::before
+{
+    content: "";
+    width: 1rem;
+    border-top: 1px solid var(--color-ink-blue);
+
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+}
+
+.brigadeeditor-unit::after,
+.brigadeeditor-addunit::after
+{
+    content: "";
+    height: calc(100% + 1rem);
+    border-left: 1px solid var(--color-ink-blue);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(calc(-100% + 0.75rem));
+}
+
+.brigadeeditor-unit:first-child::after,
+.brigadeeditor-addunit:first-child::after
+{
+    height: 1.75rem;
+}
+
+.brigadeeditor-addunit::after
+{
+    height: 9rem;
+}
+
+.brigadeeditor-addunit
+{
+    position: relative;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.brigadeeditor-commander
+{
+    position: relative
+}
+
+.brigadeeditor-commander::before
+{
+    content: "";
+    position: absolute;
+    width: 1rem;
+    top: 1rem;
+    left: -1rem;
+    border-top: 1px solid var(--color-ink-blue);
+}
+
+.brigadeeditor-commander > button
+{
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.brigadeeditor-composition
+{
+    margin-left: 1rem;
+}

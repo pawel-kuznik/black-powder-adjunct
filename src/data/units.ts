@@ -16,11 +16,12 @@ export type UnitType = typeof unitTypes[number];
 export type ShotingType = number | "artillery" | "melee";
 
 export interface UnitDescriptor {
+    id: string;
     key: string;
     type: UnitType;
     arnament: WeaponType;
     handToHand: number;
-shooting: ShotingType;
+    shooting: ShotingType;
     morale: number;
     stamina: number;
     special: SpecialType[];
@@ -28,6 +29,7 @@ shooting: ShotingType;
 };
 
 export const baseUnit : UnitDescriptor = {
+    id: "",
     key: "",
     type: "regular-infantry",
     arnament: "pistols",

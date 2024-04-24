@@ -1,0 +1,37 @@
+.unitcard
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-ink-blue);   
+}
+
+.unitcard-header
+{
+    border-bottom: 1px solid var(--color-ink-blue);   
+}
+
+.unitcard-statsheader,
+.unitcard-statsrow
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) repeat(4, 120px);
+    border-bottom: 1px solid var(--color-ink-blue);
+}
+
+.unitcard-header,
+.unitcard-statsheader > div,
+.unitcard-statsrow > div
+{
+    padding: 2px;
+}
+
+.unitcard-statsheader > div
+{
+    font-size: .8em;
+}
+
+.unitcard-statsheader > div:not(:last-of-type),
+.unitcard-statsrow > div:not(:last-of-type)
+{
+    border-right: 1px solid var(--color-ink-blue);
+}

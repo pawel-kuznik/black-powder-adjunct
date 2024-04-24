@@ -23,6 +23,7 @@ export const commanderPersonalityTypes = [
 export type CommanderPersonalityType = typeof commanderPersonalityTypes[number];
 
 export interface CommanderDescriptor {
+    id: string;
     name: string;
     staffRating: number;
     move: CommanderMovementType;
@@ -31,6 +32,7 @@ export interface CommanderDescriptor {
 };
 
 export const baseCommander: CommanderDescriptor = {
+    id: '',
     name: "commander",
     staffRating: 7,
     move: "horse",

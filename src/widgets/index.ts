@@ -5,6 +5,7 @@ export * from "./ArmyEditor";
 export * from "./Badge";
 export * from "./BasicForm";
 export * from "./BrigadeEditor";
+export * from "./CommanderCard";
 export * from "./CommanderEditor";
 export * from "./CommanderPicker";
 export * from "./Flag";

@@ -30,7 +30,7 @@ export function ModalRoot({ children } : ModalRootProps) {
         <ModalRootContext.Provider value={modals}>
             <ModalRootControlsContext.Provider value={controls}>
                 {children}
-                {modals.map(d => {
+                {modals.map((d, k) => {
 
                     const id = d[0];
                     const Component = d[1];
@@ -42,7 +42,7 @@ export function ModalRoot({ children } : ModalRootProps) {
                         setModals(filtered);
                     };
 
-                    return <Component {...params} onClose={handleClose} />;
+                    return <Component key={`${id}-${k}`} {...params} onClose={handleClose} />;
                 })}
             </ModalRootControlsContext.Provider>
         </ModalRootContext.Provider>

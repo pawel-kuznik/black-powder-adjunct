@@ -1,11 +1,21 @@
 import { useState } from "react";
 import { useModalControls } from "../Modal";
 import { ChooseCommanderDialog } from "./ChooseCommanderDialog";
-import { CommanderDescriptor } from "../../data/commanders";
+import { CommanderDescriptor, baseCommander } from "../../data/commanders";
 import { UnitDescriptor } from "../../data/units";
 import { ChooseUnitDialog } from "./ChooseUnitDialog";
 import { WrittenField } from "../WrittenField";
-import { calcBrigadeCost, prepareBrigadeData } from "../../logic";
+import { calcBrigadeCost, prepareAnew, prepareBrigadeData } from "../../logic";
+import { BrigadeDescriptor } from "../../data/brigades";
+import { UnitCard } from "../UnitCard";
+
+import "./BrigadeEditor.css";
+import { CommanderCard } from "../CommanderCard";
+
+export interface BrigadeEditorProps {
+
+    onChange?: (brigade: BrigadeDescriptor) => void;
+};
 
 /**
  *  This editor allows for naming the brigade, selecting a commander,
@@ -16,15 +26,15 @@ import { calcBrigadeCost, prepareBrigadeData } from "../../logic";
  *  brigades. It's an interesting idea, but these limits will be
  *  omitted from the editor. 
  */
-export function BrigadeEditor() {
+export function BrigadeEditor({ onChange } : BrigadeEditorProps) {
 
     const { show } = useModalControls();
 
     const [ points, setPoints ] = useState<number>(0);
-    const [ commander, setCommander ] = useState<CommanderDescriptor|undefined>(undefined);
+    const [ commander, setCommander ] = useState<CommanderDescriptor>(prepareAnew(baseCommander));
     const [ units, setUnits ] = useState<UnitDescriptor[]>([]);
 
-    const updatePoints = (commander: CommanderDescriptor | undefined, units: UnitDescriptor[]) => {
+    const updatePoints = (commander: CommanderDescriptor, units: UnitDescriptor[]) => {
 
         const brigade = prepareBrigadeData({ commander, units });
         setPoints(calcBrigadeCost(brigade));
@@ -43,7 +53,7 @@ export function BrigadeEditor() {
 
     const handleUnitPick = (unit: UnitDescriptor) => {
         
-        const updatedUnits = [ ...units, unit ]; 
+        const updatedUnits = [ ...units, prepareAnew(unit) ]; 
         setUnits(updatedUnits);
         updatePoints(commander, updatedUnits);
     };
@@ -54,19 +64,28 @@ export function BrigadeEditor() {
     };
 
     return (
-        <section>
-            <WrittenField name="name"/>
-            <header>
-                <span> {points} points</span>
-            </header>
-            <button type="button" onClick={handleClickChooseCommander}>Choose commander</button>
-            <button type="button" onClick={handleClickChooseUnit}>Add unit</button>
-
-            <div>
-                Commander {commander?.name}
+        <section className="brigadeeditor">
+            <div className="brigadeeditor-meta">
+                <div className="brigadeeditor-data">
+                    <WrittenField name="name" placeholder="Brigade name"/>
+                    <header>
+                        <span> {points} points</span>
+                    </header>
+                </div>
+                <div className="brigadeeditor-commander">
+                    <CommanderCard commander={commander}/>
+                    <button type="button" onClick={handleClickChooseCommander}>Choose commander</button>
+                </div>    
             </div>
-            <div>
-                {units.map((u, k) => <span key={k}>{u.key}</span>)}
+            <div className="brigadeeditor-composition">
+                {units.map(u => (
+                    <div className="brigadeeditor-unit">
+                        <UnitCard key={u.id} unit={u}/>
+                    </div>
+                ))}
+                <div className="brigadeeditor-addunit">
+                    <button type="button" onClick={handleClickChooseUnit}>Add unit</button>
+                </div>
             </div>
         </section>
     );
