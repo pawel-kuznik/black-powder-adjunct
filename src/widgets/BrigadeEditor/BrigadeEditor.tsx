@@ -26,7 +26,7 @@ export interface BrigadeEditorProps {
  *  brigades. It's an interesting idea, but these limits will be
  *  omitted from the editor. 
  */
-export function BrigadeEditor({ onChange } : BrigadeEditorProps) {
+export function BrigadeEditor({ } : BrigadeEditorProps) {
 
     const { show } = useModalControls();
 

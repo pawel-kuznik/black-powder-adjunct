@@ -10,5 +10,5 @@ export type ModalControls = {
 };
 
 export const ModalRootControlsContext = createContext<ModalControls>({ 
-    show: (id: string, Component: FunctionComponent<any>, params: any) => { }
+    show: () => { }
 });
