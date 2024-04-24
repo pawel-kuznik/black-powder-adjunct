@@ -1,4 +1,6 @@
 import { CommanderDescriptor } from "../../data/commanders";
+import { calcCommanderCost } from "../../logic";
+import { Badge } from "../Badge";
 import { Flag } from "../Flag";
 import { StatsColumns } from "../StatsColumns";
 
@@ -24,6 +26,8 @@ export function CommanderItem({ commander, onPick, onRemove }: CommanderItemProp
         onRemove?.(commander);
     };
 
+    const points = calcCommanderCost(commander);
+
     return (
         <div className="commanderpicker-commanderitem">
             {(onPick || onRemove) && (
@@ -35,7 +39,7 @@ export function CommanderItem({ commander, onPick, onRemove }: CommanderItemProp
             <StatsColumns>
                 <div className="commanderpicker-commanderitem-name">
                     <Flag which={commander.affiliation}/>
-                    {commander.name}
+                    {commander.name} <Badge>{points} pts</Badge>
                 </div>
                 <div className="commanderpicker-commanderitem-cell">
                     {commander.staffRating}

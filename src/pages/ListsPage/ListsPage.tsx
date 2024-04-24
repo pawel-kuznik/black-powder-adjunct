@@ -1,10 +1,10 @@
-import { BrigadeEditor, Page } from "../../widgets";
+import { ArmyEditor, Page } from "../../widgets";
 
 export function ListsPage() {
 
     return (
         <Page>
-            <BrigadeEditor/>
+            <ArmyEditor/>
         </Page>
     );
 };

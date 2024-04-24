@@ -1,3 +1,4 @@
+export * from "./calcArmyCost";
 export * from "./calcArtilleryCost";
 export * from "./calcArtilleryHandToHandCost";
 export * from "./calcArtilleryMoraleCost";
@@ -10,6 +11,7 @@ export * from "./calcCavalryMoraleCost";
 export * from "./calcCavalryMoraleCost";
 export * from "./calcCavalryStaminaCost";
 export * from "./calcCavalryWeaponCost";
+export * from "./calcCommanderCost";
 export * from "./calcInfantryCost";
 export * from "./calcInfantryHandToHandCost";
 export * from "./calcInfantryMoraleCost";

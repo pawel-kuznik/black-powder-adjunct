@@ -1,6 +1,7 @@
 import "./styles/index.css";
 
 
+export * from "./ArmyEditor";
 export * from "./Badge";
 export * from "./BasicForm";
 export * from "./BrigadeEditor";
