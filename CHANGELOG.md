@@ -1,7 +1,8 @@
-# CHANGELOG
-
 ## [Unreleased]
 
+## [0.1.0] - 25/04/2024
+
+- Added changelog page.
 - Added some British and French default units.
 - Added ability to create, edit, and remove armies.
 - Disabled Rules page.
@@ -10,7 +11,7 @@
 - Added setup for localization.
 - Updated README.md
 
-## [0.0.0] - 25/04/2024
+## [0.0.0] - 24/04/2024
 
 - Added prototype for list management.
 - Added stub for rules.

@@ -12,6 +12,7 @@ export function MainMenu() {
             <Link to="/units">Units</Link>
             <Link to="/lists">Lists</Link>
             <Link to="/about">About</Link>
+            <Link to="/changelog">Changelog</Link>
         </nav>
     );
 };
