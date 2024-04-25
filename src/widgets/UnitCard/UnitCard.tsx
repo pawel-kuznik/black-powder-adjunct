@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { UnitDescriptor } from "../../data/units";
 import { calcUnitCost } from "../../logic";
 import { Badge } from "../Badge";
@@ -13,6 +14,7 @@ export interface UnitCardProps {
 
 export function UnitCard({ unit }: UnitCardProps) {
 
+    const { t } = useTranslation();
     const points = calcUnitCost(unit);
 
     return (
@@ -42,10 +44,10 @@ export function UnitCard({ unit }: UnitCardProps) {
             </div>
             <div className="unitcard-statsrow">
                 <div>
-                    {unit.type}
+                    {t(`unit-type.label.${unit.type}`)}
                 </div>
                 <div>
-                    {unit.arnament}
+                    {t(`weapon.label.${unit.arnament}`)}
                 </div>
                 <div>
                     {unit.handToHand}

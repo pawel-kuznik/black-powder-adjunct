@@ -4,7 +4,7 @@ export const weaponsTypes = [
     "lances",
     "pistols",
     "shotguns",
-    "thrown weapons",
+    "thrown-weapons",
     "bow-and-arrows",
     "smoothbore-carbines",
     "smoothbore-muskets",
@@ -40,7 +40,7 @@ export const artilleryWeapons = [
 export const rangedWeapons = [
     "pistol",
     "shotgun",
-    "thrown weapon",
+    "thrown-weapon",
     "bow-and-arrow",
     "smoothbore-carbines",
     "smoothbore-muskets",
@@ -57,7 +57,7 @@ export type WeaponType = typeof weaponsTypes[number];
 export const weaponsRange = {
     "pistols": 6,
     "shotguns": 6,
-    "thrown weapons": 6,
+    "thrown-weapons": 6,
     "bow-and-arrows": 12,
     "smoothbore-carbines": 12,
     "smoothbore-muskets": 18,

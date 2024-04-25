@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- Localized weapons.
 - Localized special traits.
 - Added setup for localization.
 

@@ -11,6 +11,7 @@ import { WrittenField } from "../WrittenField";
 
 import "./UnitEditor.css";
 import { useUnitDescriptorsStore } from "../../state";
+import { useTranslation } from "react-i18next";
 
 export interface UnitEditorProps {
 
@@ -20,6 +21,8 @@ export interface UnitEditorProps {
 };
 
 export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
+
+    const { t } = useTranslation();
 
     const [ weapon, setWeapon ] = useState<WeaponType>("pistols");
     const [ points, setPoints ] = useState<number>(unit ? calcUnitCost(unit) : 0);
@@ -59,14 +62,14 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                 <button>Save</button>
             </div>
             <StatsColumns>
-                <FormField label="Type" type="select" name="type" options={unitTypes} labels={(o: string) => o} defaultValue={unit?.type}/>
-                <FormField label="Arnament" type="select" name="arnament" options={weaponsTypes} labels={(o: string) => o} onChange={handleWeaponChange} defaultValue={unit?.arnament}/>
-                <FormField label="Hand to hand" name="handToHand" type="number" min="1" defaultValue={unit?.handToHand}/>
-                <ShootingField label="Shooting" name="shooting" weapon={weapon} defaultValue={unit?.shooting}/>
-                <FormField label="Morale" name="morale" type="number" min="1" defaultValue={unit?.morale}/>
-                <FormField label="Stamina" name="stamina" type="number" min="1" defaultValue={unit?.stamina}/>
+                <FormField label={t("uniteditor.label.type")} type="select" name="type" options={unitTypes} labels={(o: string) => o} defaultValue={unit?.type}/>
+                <FormField label={t("uniteditor.label.arnament")} type="select" name="arnament" options={weaponsTypes} labels={(o: string) => t(`weapon.label.${o}`)} onChange={handleWeaponChange} defaultValue={unit?.arnament}/>
+                <FormField label={t("uniteditor.label.hand-to-hand")} name="handToHand" type="number" min="1" defaultValue={unit?.handToHand}/>
+                <ShootingField label={t("uniteditor.label.shooting")} name="shooting" weapon={weapon} defaultValue={unit?.shooting}/>
+                <FormField label={t("uniteditor.label.morale")} name="morale" type="number" min="1" defaultValue={unit?.morale}/>
+                <FormField label={t("uniteditor.label.stamina")} name="stamina" type="number" min="1" defaultValue={unit?.stamina}/>
             </StatsColumns>
-            <SpecialsField label="Specials" name="special" defaultValue={unit?.special} />
+            <SpecialsField label={t("uniteditor.label.special")} name="special" defaultValue={unit?.special} />
         </BasicForm>
     );
 };
