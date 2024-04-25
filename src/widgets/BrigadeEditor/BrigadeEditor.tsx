@@ -11,6 +11,7 @@ import { UnitCard } from "../UnitCard";
 
 import "./BrigadeEditor.css";
 import { CommanderCard } from "../CommanderCard";
+import { BrigadeUnit } from "./BrigadeUnit";
 
 export interface BrigadeEditorProps {
 
@@ -75,6 +76,15 @@ export function BrigadeEditor({ brigade, onChange } : BrigadeEditorProps) {
         onChange?.(updated);
     };
 
+    const handleUnitRemove = (unit: UnitDescriptor) => {
+        
+        const filteredUnits = units.filter(u => u.id !== unit.id);
+        setUnits(filteredUnits);
+        const updated = prepareBrigadeData({ id: brigade.id, name: nameRef.current, commander, units: filteredUnits });
+        updatePoints(updated);
+        onChange?.(updated);
+    };
+
     return (
         <section className="brigadeeditor">
             <div className="brigadeeditor-meta">
@@ -91,9 +101,7 @@ export function BrigadeEditor({ brigade, onChange } : BrigadeEditorProps) {
             </div>
             <div className="brigadeeditor-composition">
                 {units.map(u => (
-                    <div key={u.id} className="brigadeeditor-unit">
-                        <UnitCard key={u.id} unit={u}/>
-                    </div>
+                    <BrigadeUnit key={u.id} unit={u} onRemove={handleUnitRemove}/>
                 ))}
                 <div className="brigadeeditor-addunit">
                     <button type="button" onClick={handleClickChooseUnit}>Add unit</button>

@@ -9,6 +9,7 @@ export * from "./BrigadeEditor";
 export * from "./CommanderCard";
 export * from "./CommanderEditor";
 export * from "./CommanderPicker";
+export * from "./ControlsWrapper";
 export * from "./Flag";
 export * from "./FormField";
 export * from "./Page";
