@@ -2,6 +2,7 @@ import { UnitDescriptor } from "../../data/units";
 import { calcUnitCost, calcWeaponRange } from "../../logic";
 import { Badge } from "../Badge";
 import { Flag } from "../Flag";
+import { SpecialTags } from "../SpecialTags";
 import { StatsColumns } from "../StatsColumns";
 
 import "./UnitItem.css";
@@ -35,7 +36,7 @@ export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
             <StatsColumns sizePreset="listing">
                 <div className="unitpicker-unititem-name">
                     <Flag which={unit.affiliation}/> {unit.key} <small>{unit.type}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>
-                    {unit.special.join(", ")}
+                    <SpecialTags specials={unit.special}/>
                 </div>
                 <div className="unitpicker-unititem-arnament">
                     {unit.arnament}

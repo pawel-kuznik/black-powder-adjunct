@@ -18,7 +18,7 @@ export const specialTypes = [
     "steady",
     "stubborn",
     "skirmishers",
-    "superbly",
+    "superbly-drilled",
     "terrifying-charge",
     "tough-fighters",
     "unreliable",

@@ -1,4 +1,5 @@
 {
+    "specialsinput.add": "Add special trait",
     "special.label.bloodthirsty": "Bloodthirsty",
     "special.label.brave": "Brave",
     "special.label.crack": "Crack",
@@ -18,7 +19,7 @@
     "special.label.steady": "Steady",
     "special.label.stubborn": "Stubborn",
     "special.label.skirmishers": "Skirmishers",
-    "special.label.superbly": "Superbly",
+    "special.label.superbly-drilled": "Superbly drilled",
     "special.label.terrifying-charge": "Terrifying charge",
     "special.label.tough-fighters": "Tough fighters",
     "special.label.unreliable": "Unreliable",
@@ -30,7 +31,7 @@
     "special.description.crack": "Re-roll one failed morale save if you have no casualties already.",
     "special.description.determined-charge": "Must charge where able to do so.",
     "special.description.elite": "Overcome disorder at start of Command on roll 4+.",
-    "special.description.fanatic": "Ferocious Charge + Terrifying Charge.",
+    "special.description.fanatic": "Ferocious Charge + Terrifying Charge: Re-roll misses on combat following charge. Charged enemy must take a Break Test.",
     "special.description.ferocious-charge": "Re-roll misses on combat following charge.",
     "special.description.first-fire": "+1 dice on fisrt shot of battle.",
     "special.description.form-square": "Can and must form a square when charged by cavalry.",

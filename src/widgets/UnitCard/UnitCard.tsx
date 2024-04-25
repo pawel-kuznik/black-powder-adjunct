@@ -3,6 +3,7 @@ import { calcUnitCost } from "../../logic";
 import { Badge } from "../Badge";
 import { Flag } from "../Flag";
 import { SpecialTag } from "../SpecialTag";
+import { SpecialTags } from "../SpecialTags";
 
 import "./UnitCard.css";
 
@@ -60,7 +61,7 @@ export function UnitCard({ unit }: UnitCardProps) {
                 </div>
             </div>
             <div>
-                {unit.special.map(s => (<><SpecialTag key={s} special={s}/>, </>))}
+                <SpecialTags specials={unit.special}/>
             </div>
         </div>
     );

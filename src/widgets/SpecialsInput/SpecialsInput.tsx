@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { SelectInput } from "../SelectInput";
 import { SpecialType, specialTypes } from "../../data/special";
-import { SpecialTag } from "./SpecialTag";
+import { SpecialTags } from "../SpecialTags";
+import { useTranslation } from "react-i18next";
 
 export interface SpecialsInputProps {
     name: string;
     defaultValue?: string | string[];
 };
 
+/**
+ *  This is a widget that allows for management of a collection of special traits
+ *  of a unit in as one input.
+ * 
+ *  When the list of special traits is modified, it can be detected as a DOM "change"
+ *  event. Useful for when looking for changes inside a form.
+ */
 export function SpecialsInput({ name, defaultValue }: SpecialsInputProps) {
+
+    const { t } = useTranslation();
 
     const [ value, setValue ] = useState<string>(() => {
         if (Array.isArray(defaultValue)) return defaultValue.join(",");
@@ -43,14 +53,21 @@ export function SpecialsInput({ name, defaultValue }: SpecialsInputProps) {
         setValue(specials.filter(a => a !== special).join(","));
     };
 
-    const specials = value.split(',');
+    const specials = value.split(',').filter(a => a) as SpecialType[];
+
+    // we sort the special types after they are translated so that it's
+    // in alphabetical order regardless of the language.
+    const sortedSpecialTypes = [...specialTypes].sort((a, b) => String(t(`special.label.${a}`)).localeCompare(String(t(`special.label.${b}`))));
+
+    const translateLabel = (o: string) => o === "---" ? '---' : t(`special.label.${o}`);
+    const translateDescription = (o: string) => o === "---" ? '' : t(`special.description.${o}`);
 
     return (
         <div>
             <input type="hidden" name={name} value={value}/>
-            {specials.map(s => <SpecialTag key={s} special={s as SpecialType} onRemove={handleOnRemove}/>)}
-            {adding && (<SelectInput options={[ "---", ...specialTypes]} labels={(o: string) => o} onChange={handleOnChange}/>)}
-            {!adding && (<button onClick={handleAddClick}>Add</button>)}
+            <SpecialTags specials={specials} onClick={handleOnRemove}/>
+            {adding && (<SelectInput options={[ "---", ...sortedSpecialTypes]} labels={translateLabel} titles={translateDescription} onChange={handleOnChange}/>)}
+            {!adding && (<button onClick={handleAddClick}>{t("specialsinput.add")}</button>)}
         </div>
     );
 };

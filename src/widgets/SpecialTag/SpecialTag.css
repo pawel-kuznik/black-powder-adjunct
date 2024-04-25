@@ -1,4 +1,11 @@
 .specialtag
 {
-    
+    display: inline-block;
+    cursor: default;
+}
+
+.specialtag.spacialtag-clickable:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
 }
