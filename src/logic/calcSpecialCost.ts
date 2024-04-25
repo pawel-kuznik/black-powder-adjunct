@@ -37,7 +37,7 @@ export function calcSpecialCost(special: SpecialType, unit: UnitDescriptor) {
         case 'sharp-shooters': return 3;
         case 'steady': return 5;
         case 'stubborn': return 5;
-        case 'superbly': return 5;
+        case 'superbly-drilled': return 5;
         case 'terrifying-charge': return 5;
         case 'tough-fighters':
             if (isUnitInfantry(unit)) return 1;

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useModalControls } from "../Modal";
 import { ChooseCommanderDialog } from "./ChooseCommanderDialog";
-import { CommanderDescriptor, baseCommander } from "../../data/commanders";
+import { CommanderDescriptor } from "../../data/commanders";
 import { UnitDescriptor } from "../../data/units";
 import { ChooseUnitDialog } from "./ChooseUnitDialog";
 import { WrittenField } from "../WrittenField";
