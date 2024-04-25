@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Added some British and French default units.
+- Added ability to create, edit, and remove armies.
+- Disabled Rules page.
 - Localized weapons.
 - Localized special traits.
 - Added setup for localization.

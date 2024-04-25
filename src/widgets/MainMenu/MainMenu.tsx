@@ -6,7 +6,7 @@ export function MainMenu() {
 
     return (
         <nav className="mainmenu">
-            <Link to="/rules">Rules</Link>
+            {/* <Link to="/rules">Rules</Link> */}
             <Link to="/scenarios">Scenarios</Link>
             <Link to="/commanders">Commanders</Link>
             <Link to="/units">Units</Link>

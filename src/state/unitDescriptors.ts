@@ -1,6 +1,10 @@
 import { create } from "zustand";
-import { UnitDescriptor } from "../data/units";
+import { UnitDescriptor, defaultUnits } from "../data/units";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+if (!localStorage.getItem("unit-descriptors")) {
+    localStorage.setItem("unit-descriptors", JSON.stringify({ state: { descriptors: defaultUnits, version: 0 } }));
+}
 
 export interface UnitDescriptorStore {
     descriptors: { [key: string ] : UnitDescriptor };
@@ -9,7 +13,7 @@ export interface UnitDescriptorStore {
 };
 
 /**
- *  This is an application-wide store with all unit descriptors for ,ser to use.
+ *  This is an application-wide store with all unit descriptors for user to use.
  *  It can be used to define new units, remove definitions, and use it as a unit
  *  stats block.
  */
@@ -20,14 +24,14 @@ export const useUnitDescriptorsStore = create<UnitDescriptorStore>()(
             set(state => ({
                 descriptors: {
                     ...state.descriptors,
-                    ...{ [unit.key]: unit }
+                    ...{ [unit.id]: unit }
                 }
             }))
         },
         remove: (unit: UnitDescriptor) => {
             set(state => {
                 const copy = { ...state };
-                delete copy.descriptors[unit.key];
+                delete copy.descriptors[unit.id];
                 return copy;
             })
         }

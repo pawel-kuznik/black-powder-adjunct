@@ -55,7 +55,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                 {affiliations.map(a => (<option key={a} value={a}/>))}
             </datalist>
             <div className="uniteditor-firstline">
-                <WrittenField name="key" placeholder="Unit name..." defaultValue={unit?.key}/>
+                <WrittenField name="name" placeholder="Unit name..." defaultValue={unit?.name}/>
                 <WrittenField name="affiliation" placeholder="Affiliated by..." list="uniteditor-affiliation-suggestions" defaultValue={unit?.affiliation}/>
                 <span>{points} points</span>
                 {onCancel && <button type="button" onClick={handleCancel}>Cancel</button>}

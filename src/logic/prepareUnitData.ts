@@ -61,7 +61,7 @@ export function prepareUnitData(input: object, fallback: UnitDescriptor = { ...b
     if ('id' in input) unit.id = String(input.id);
     else unit.id = uuid();
 
-    if ('key' in input) unit.key = String(input.key);
+    if ('name' in input) unit.name = String(input.name);
 
     if ('handToHand' in input) unit.handToHand = prepareNumber(input.handToHand, fallback.handToHand);
     if ('morale' in input) unit.morale = prepareNumber(input.morale, fallback.morale);

@@ -18,7 +18,7 @@ export function UnitPicker({ onPick, onRemove } : UnitPickerProps) {
     return (
         <div>
             <ColumnsHeader/>
-            {descriptors.map(u => (<UnitItem key={u.key} unit={u} onPick={onPick} onRemove={onRemove}/>))}
+            {descriptors.map(u => (<UnitItem key={u.id} unit={u} onPick={onPick} onRemove={onRemove}/>))}
         </div>
     );
 }

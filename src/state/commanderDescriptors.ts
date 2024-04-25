@@ -15,14 +15,14 @@ export const useCommanderDescriptorsStore = create<CommanderDescriptorsStore>()(
             set(state => ({
                 descriptors: {
                     ...state.descriptors,
-                    ...{ [commander.name] : commander }
+                    ...{ [commander.id] : commander }
                 }
             }))
         },
         remove: (commander: CommanderDescriptor) => {
             set(state => {
                 const copy = { ...state };
-                delete copy.descriptors[commander.name];
+                delete copy.descriptors[commander.id];
                 return copy;
             })
         }

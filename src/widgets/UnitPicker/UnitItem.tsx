@@ -37,7 +37,7 @@ export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
             )}
             <StatsColumns sizePreset="listing">
                 <div className="unitpicker-unititem-name">
-                    <Flag which={unit.affiliation}/> {unit.key} <small>{t(`unit-type.label.${unit.type}`)}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>
+                    <Flag which={unit.affiliation}/> {unit.name} <small>{t(`unit-type.label.${unit.type}`)}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>
                     <SpecialTags specials={unit.special}/>
                 </div>
                 <div className="unitpicker-unititem-arnament">

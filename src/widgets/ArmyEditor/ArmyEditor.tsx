@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CommanderDescriptor } from "../../data/commanders";
 import { BrigadeDescriptor } from "../../data/brigades";
 import { WrittenField } from "../WrittenField";
@@ -7,19 +7,30 @@ import { ChooseCommanderDialog } from "./ChooseCommanderDialog";
 import { prepareArmyData } from "../../logic/prepareArmyData";
 import { calcArmyCost, prepareBrigadeData } from "../../logic";
 import { BrigadeEditor } from "../BrigadeEditor";
+import { useArmyDescriptorsStore } from "../../state/armyDescriptors";
+import { useNavigate } from "react-router";
 
-export function ArmyEditor() {
+export interface ArmyEditorProps {
+    id?: string;
+};
+
+export function ArmyEditor({ id = '' } : ArmyEditorProps) {
 
     const { show } = useModalControls();
+    const navigate = useNavigate();
 
-    const [ points, setPoints ] = useState<number>(0);
-    const [ commander, setCommander ] = useState<CommanderDescriptor|undefined>(undefined);
-    const [ brigades, setBrigades ] = useState<BrigadeDescriptor[]>([]);
+    const armyDescriptors = useArmyDescriptorsStore();
 
-    const updatePoints = (general: CommanderDescriptor | undefined, brigades: BrigadeDescriptor[]) => {
+    const army = armyDescriptors.descriptors[id] || prepareArmyData({ }); 
 
-        const brigade = prepareArmyData({ general, brigades });
-        setPoints(calcArmyCost(brigade));
+    const nameRef = useRef<string>(army.name);
+    const [ points, setPoints ] = useState<number>(calcArmyCost(army));
+    const [ commander, setCommander ] = useState<CommanderDescriptor>(army.general);
+    const [ brigades, setBrigades ] = useState<BrigadeDescriptor[]>(army.brigades);
+
+    const updatePoints = (general: CommanderDescriptor, brigades: BrigadeDescriptor[]) => {
+
+        setPoints(calcArmyCost(prepareArmyData({ general, brigades })));
     };
 
     const handleCommanderPick = (commander: CommanderDescriptor) => {
@@ -39,10 +50,42 @@ export function ArmyEditor() {
         setBrigades([ ...brigades, newBrigade ]);
     };
 
+    const handleBrigadeChange = (brigade: BrigadeDescriptor) => {
+
+        const idx = brigades.findIndex(b => b.id === brigade.id);
+        if (idx === -1) return;
+
+        brigades.splice(idx, 1, brigade);
+        const updated = [...brigades];
+        setBrigades(updated);
+        updatePoints(commander, updated);
+    };
+
+    const handleClickSave = () => {
+
+        const army = prepareArmyData({
+            id,
+            name: nameRef.current,
+            general: commander,
+            brigades
+        });
+
+        armyDescriptors.store(army);
+    };
+
+    const handleClickRemove = () => {
+
+        armyDescriptors.remove(army);
+
+        navigate("/lists");
+    };
+
     return (
         <div>
-            <WrittenField name="name" placeholder="Army name"/>
+            <WrittenField name="name" placeholder="Army name" valueRef={nameRef}/>
             {points} points
+            <button type="button" onClick={handleClickSave}>Save</button>
+            <button type="button" onClick={handleClickRemove}>Remove</button>
             <button type="button" onClick={handleClickChooseCommander}>Choose commander</button>
             <button type="button" onClick={handleClickBrigade}>Add brigade</button>
 
@@ -51,7 +94,7 @@ export function ArmyEditor() {
             </div>
 
             <div>
-                {brigades.map(b => <BrigadeEditor key={b.id}/>)}
+                {brigades.map(b => <BrigadeEditor key={b.id} brigade={b} onChange={handleBrigadeChange}/>)}
             </div>
         </div>
     );

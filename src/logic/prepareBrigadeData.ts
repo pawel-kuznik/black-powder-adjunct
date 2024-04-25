@@ -7,7 +7,7 @@ export function prepareBrigadeData(input: object, fallback: BrigadeDescriptor = 
 
     const brigade = { ...fallback };
 
-    if ('id' in input) brigade.id = String(input.id);
+    if ('id' in input && input.id) brigade.id = String(input.id);
     else brigade.id = uuid();
 
     if ('name' in input) brigade.name = String(input.name);

@@ -22,7 +22,7 @@ export function UnitCard({ unit }: UnitCardProps) {
     return (
         <div className="unitcard">
             <div className="unitcard-header">
-                <Flag which={unit.affiliation}/> {unit.key} <Badge>{points} pts</Badge>
+                <Flag which={unit.affiliation}/> {unit.name} <Badge>{points} pts</Badge>
             </div>
             <div className="unitcard-statsheader">
                 <div>

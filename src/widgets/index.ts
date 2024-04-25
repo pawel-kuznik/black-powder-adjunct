@@ -2,6 +2,7 @@ import "./styles/index.css";
 
 
 export * from "./ArmyEditor";
+export * from "./ArmyPicker";
 export * from "./Badge";
 export * from "./BasicForm";
 export * from "./BrigadeEditor";
@@ -10,7 +11,6 @@ export * from "./CommanderEditor";
 export * from "./CommanderPicker";
 export * from "./Flag";
 export * from "./FormField";
-export * from "./ListEditor";
 export * from "./Page";
 export * from "./SelectInput";
 export * from "./ShootingField";

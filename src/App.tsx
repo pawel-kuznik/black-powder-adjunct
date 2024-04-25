@@ -6,6 +6,7 @@ import { ListsPage } from './pages/ListsPage';
 import { AboutPage } from './pages/AboutPage';
 import { ScenariosPage } from './pages/ScenariosPage';
 import { CommandersPage } from './pages/CommandersPage';
+import { ListPage } from './pages/ListPage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/scenarios" element={<ScenariosPage />} />
                     <Route path="/rules" element={<RulesPage />} />
                     <Route path="/lists" element={<ListsPage />} />
+                    <Route path="/list/:listId" element={<ListPage />}/>
                     <Route path="/about" element={<AboutPage />} />
                 </Routes>
             </ModalRoot>
