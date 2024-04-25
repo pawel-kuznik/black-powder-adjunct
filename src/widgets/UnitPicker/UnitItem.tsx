@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { UnitDescriptor } from "../../data/units";
 import { calcUnitCost, calcWeaponRange } from "../../logic";
 import { Badge } from "../Badge";
@@ -15,6 +16,7 @@ export interface UnitItemProps {
 
 export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
 
+    const { t } = useTranslation();
     const range = calcWeaponRange(unit.arnament);
 
     const handlePickClick = () => {
@@ -35,11 +37,11 @@ export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
             )}
             <StatsColumns sizePreset="listing">
                 <div className="unitpicker-unititem-name">
-                    <Flag which={unit.affiliation}/> {unit.key} <small>{unit.type}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>
+                    <Flag which={unit.affiliation}/> {unit.key} <small>{t(`unit-type.label.${unit.type}`)}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>
                     <SpecialTags specials={unit.special}/>
                 </div>
                 <div className="unitpicker-unititem-arnament">
-                    {unit.arnament}
+                    {t(`weapon.label.${unit.arnament}`)}
                 </div>
                 <div className="unitpicker-unititem-arnament">
                     {unit.handToHand}

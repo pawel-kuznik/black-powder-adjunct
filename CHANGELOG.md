@@ -5,6 +5,7 @@
 - Localized weapons.
 - Localized special traits.
 - Added setup for localization.
+- Updated README.md
 
 ## [0.0.0] - 25/04/2024
 

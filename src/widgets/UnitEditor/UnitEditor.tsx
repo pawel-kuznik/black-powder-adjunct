@@ -62,7 +62,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                 <button>Save</button>
             </div>
             <StatsColumns>
-                <FormField label={t("uniteditor.label.type")} type="select" name="type" options={unitTypes} labels={(o: string) => o} defaultValue={unit?.type}/>
+                <FormField label={t("uniteditor.label.type")} type="select" name="type" options={unitTypes} labels={(o: string) => t(`unit-type.label.${o}`)} defaultValue={unit?.type}/>
                 <FormField label={t("uniteditor.label.arnament")} type="select" name="arnament" options={weaponsTypes} labels={(o: string) => t(`weapon.label.${o}`)} onChange={handleWeaponChange} defaultValue={unit?.arnament}/>
                 <FormField label={t("uniteditor.label.hand-to-hand")} name="handToHand" type="number" min="1" defaultValue={unit?.handToHand}/>
                 <ShootingField label={t("uniteditor.label.shooting")} name="shooting" weapon={weapon} defaultValue={unit?.shooting}/>

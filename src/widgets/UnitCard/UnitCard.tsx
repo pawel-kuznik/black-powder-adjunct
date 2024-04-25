@@ -3,7 +3,6 @@ import { UnitDescriptor } from "../../data/units";
 import { calcUnitCost } from "../../logic";
 import { Badge } from "../Badge";
 import { Flag } from "../Flag";
-import { SpecialTag } from "../SpecialTag";
 import { SpecialTags } from "../SpecialTags";
 
 import "./UnitCard.css";
@@ -12,6 +11,9 @@ export interface UnitCardProps {
     unit: UnitDescriptor;
 };
 
+/**
+ *  This is a component that should be used to present unit information.
+ */
 export function UnitCard({ unit }: UnitCardProps) {
 
     const { t } = useTranslation();
