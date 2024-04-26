@@ -1,4 +1,8 @@
 {
+    "armyeditor.choosecommanderdialog.title": "Choose army general",
+    "armyeditor.choosecommanderdialog.cancel.label": "Belay",
+    "armyeditor.choosecommanderdialog.create.label": "Draft new general",
+    "armyeditor.createcommanderdialog.title": "Draft new general",
     "uniteditor.label.type": "Type",
     "uniteditor.label.arnament": "Arnament",
     "uniteditor.label.hand-to-hand": "Hand to hand",
