@@ -17,9 +17,14 @@ export function ChooseCommanderDialog({ onPick, onClose } : ChooseCommanderDialo
         onClose();
     };
 
+    const handleCancel = () => {
+        onClose();
+    };
+
     return (
         <Page modal>
             <Title text="Choose commander"/>
+            <button onClick={handleCancel}>Cancel</button>
             <CommanderPicker onPick={handlePick}/>
         </Page>
     );

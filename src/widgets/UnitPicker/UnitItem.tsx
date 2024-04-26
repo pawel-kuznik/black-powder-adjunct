@@ -28,7 +28,7 @@ export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
         onRemove?.(unit);
     };
 
-    const leftControls = (onPick || onRemove) ? (
+    const rightControls = (onPick || onRemove) ? (
         <>
             {onPick && (<button type="button" onClick={handlePickClick}>Pick</button>)}
             {onRemove && (<button type="button" onClick={handleRemoveClick}>Remove</button>)}
@@ -37,7 +37,7 @@ export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
 
     return (
         <div className="unitpicker-unititem">
-            <ControlsWrapper left={leftControls}>
+            <ControlsWrapper right={rightControls}>
                 <StatsColumns sizePreset="listing">
                     <div className="unitpicker-unititem-name">
                         <Flag which={unit.affiliation}/> {unit.name} <small>{t(`unit-type.label.${unit.type}`)}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>

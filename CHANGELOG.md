@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+- Added cancel buttons to choose unit dialog and choose commander dialogs.
+- It's possible to remove unit from a brigade.
+
 ## [0.1.0] - 25/04/2024
 
 - Added changelog page.

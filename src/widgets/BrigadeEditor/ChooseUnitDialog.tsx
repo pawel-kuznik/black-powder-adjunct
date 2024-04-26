@@ -17,9 +17,14 @@ export function ChooseUnitDialog({ onPick, onClose } : ChooseUnitDialogProps) {
         onClose();
     };
 
+    const handleCancel = () => {
+        onClose();
+    };
+
     return (
         <Page modal>
             <Title text="Choose unit"/>
+            <button onClick={handleCancel}>Cancel</button>
             <UnitPicker onPick={handlePick}/> 
         </Page>
     );
