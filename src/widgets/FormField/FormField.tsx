@@ -6,6 +6,7 @@ export interface FormFieldProps {
     layout?: "inline" | "column";
     label: string;
     name: string;
+    list?: string;
     type?: "number" | "text" | "select";
     options?: string[] | readonly string[];
     labels?: string[] | ((option: string) => string);
@@ -15,13 +16,14 @@ export interface FormFieldProps {
     onChange?: (value: string) => void;
 };
 
-export function FormField({ layout = "column", label, name, type, min, max, options, labels, defaultValue, onChange }: FormFieldProps) {
+export function FormField({ layout = "column", label, name, type, min, max, list, options, labels, defaultValue, onChange }: FormFieldProps) {
 
     const inputArgs: any = {
         type,
         name,
         min,
         max,
+        list,
         options,
         labels
     };

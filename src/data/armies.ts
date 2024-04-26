@@ -6,11 +6,13 @@ export interface ArmyDescriptor {
     name: string;
     general: CommanderDescriptor;
     brigades: BrigadeDescriptor[];
+    affiliation: string;
 };
 
 export const baseArmy: ArmyDescriptor = {
     id: "",
     name: "",
     general: baseCommander,
-    brigades: []
+    brigades: [],
+    affiliation: ""
 };

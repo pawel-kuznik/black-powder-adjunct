@@ -8,10 +8,10 @@ import { StatsColumns } from "../StatsColumns";
 import { ShootingField } from "../ShootingField";
 import { SpecialsField } from "../SpecialsField";
 import { WrittenField } from "../WrittenField";
+import { useTranslation } from "react-i18next";
+import { useAffiliations } from "../../state/useAffiliations";
 
 import "./UnitEditor.css";
-import { useUnitDescriptorsStore } from "../../state";
-import { useTranslation } from "react-i18next";
 
 export interface UnitEditorProps {
 
@@ -26,7 +26,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
 
     const [ weapon, setWeapon ] = useState<WeaponType>("pistols");
     const [ points, setPoints ] = useState<number>(unit ? calcUnitCost(unit) : 0);
-    const unitDescriptorStore = useUnitDescriptorsStore();
+    const affiliations = useAffiliations();
 
     const handleSubmit = (data: object) => {
 
@@ -46,8 +46,6 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
     const handleCancel = () => {
         onCancel?.();
     };
-
-    const affiliations = [...new Set(Object.values(unitDescriptorStore.descriptors).map(u => u.affiliation).filter(s => String(s)))];
 
     return (
         <BasicForm onChange={handleChange} onSubmit={handleSubmit}>

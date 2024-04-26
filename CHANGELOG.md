@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+- It's possible to assign affiliation to a commander.
+- It's possible to create a commander while editing a brigade.
+- It's possible to create a general while editing an army.
 - Added cancel buttons to choose unit dialog and choose commander dialogs.
 - It's possible to remove unit from a brigade.
 
