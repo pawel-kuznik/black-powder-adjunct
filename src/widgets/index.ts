@@ -12,6 +12,7 @@ export * from "./CommanderPicker";
 export * from "./ControlsWrapper";
 export * from "./Flag";
 export * from "./FormField";
+export * from "./Input";
 export * from "./Page";
 export * from "./SelectInput";
 export * from "./ShootingField";

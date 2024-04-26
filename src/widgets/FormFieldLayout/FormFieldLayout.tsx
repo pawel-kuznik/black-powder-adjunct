@@ -4,10 +4,11 @@ import "./FormFieldLayout.css";
 export interface FormFieldLayoutProps {
     layout?: "inline" | "column";
     label: string;
+    description? : ReactNode | string;
     children?: ReactNode;
 };
 
-export function FormFieldLayout({ layout = "column", label, children }: FormFieldLayoutProps) {
+export function FormFieldLayout({ layout = "column", label, description, children }: FormFieldLayoutProps) {
 
     const css = [ 'formfieldlayout' ];
     css.push(`formfieldlayout-layout-${layout}`);
@@ -16,6 +17,7 @@ export function FormFieldLayout({ layout = "column", label, children }: FormFiel
         <div className={css.join(' ')}>
             {label && (<label>{label}</label>)}
             {children}
+            {description && (<div>{description}</div>)}
         </div>
     );
 };

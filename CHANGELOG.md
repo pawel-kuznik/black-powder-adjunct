@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+- Improved layout of commander editor.
+- Localization of staff rating.
+- Localization of commander's personalities.
 - It's possible to assign affiliation to a commander.
 - It's possible to create a commander while editing a brigade.
 - It's possible to create a general while editing an army.

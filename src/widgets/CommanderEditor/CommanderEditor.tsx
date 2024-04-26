@@ -5,8 +5,10 @@ import { BasicForm } from "../BasicForm";
 import { FormField } from "../FormField";
 import { WrittenField } from "../WrittenField";
 import { useAffiliations } from "../../state/useAffiliations";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Badge } from "../Badge";
+
+import "./CommanderEditor.css";
 
 export interface CommanderEditorProps {
 
@@ -24,6 +26,9 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
     const { t } = useTranslation();
     const affiliations = useAffiliations();
     const [ points, setPoints ] = useState<number>(commander ? calcCommanderCost(commander) : 0);
+    const staffRatingRef = useRef<string>("");
+    const movementRef = useRef<string>("");
+    const personalityRef = useRef<string>("");
 
     const handleSubmit = (data: object) => {
 
@@ -45,12 +50,16 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
             <datalist id="commandereditor-affiliation-suggestions">
                 {affiliations.map(a => (<option key={a} value={a}/>))}
             </datalist>
-            <WrittenField name="name" defaultValue={commander?.name}/>
-            <Badge>{points} pts</Badge>
-            <FormField label="Staff rating" type="number" name="staffRating" min="1" max="10" defaultValue={commander?.staffRating || 7}/>
-            <FormField label="Movement" type="select" name="move" options={commanderMovementTypes} labels={(o: string) => o} defaultValue={commander?.move}/>
-            <FormField label="Affiliation" type="text" name="affiliation" list="commandereditor-affiliation-suggestions" defaultValue={commander?.affiliation}/>
-            <FormField label="Personality" type="select" name="personality" options={commanderPersonalityTypes} labels={(o: string) => o} defaultValue={commander?.personality}/>
+            <div className="commandereditor-firstline">
+                <WrittenField name="name" defaultValue={commander?.name}/>
+                <FormField label="Affiliation" type="text" name="affiliation" list="commandereditor-affiliation-suggestions" defaultValue={commander?.affiliation}/>
+                <Badge>{points} pts</Badge>
+            </div>
+            <div className="commandereditor-secondline">
+                <FormField label="Staff rating" type="number" name="staffRating" min="4" max="10" defaultValue={commander?.staffRating || 7}/>
+                <FormField label="Movement" type="select" name="move" options={commanderMovementTypes} labels={(o: string) => o} defaultValue={commander?.move}/>
+                <FormField label="Personality" type="select" name="personality" options={commanderPersonalityTypes} labels={(o: string) => t(`commander.personality.${o}.label`)} titles={(o: string) => t(`commander.personality.${o}.description`)} defaultValue={commander?.personality}/>
+            </div>
             {onCancel && <button type="button" onClick={handleCancel}>{t("commandereditor.cancel.cancel")}</button>}
             <button>{t("commandereditor.save.cancel")}</button>
         </BasicForm>

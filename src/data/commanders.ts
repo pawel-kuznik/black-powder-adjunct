@@ -11,7 +11,7 @@ export const commanderMoveRange = {
 } as const;
 
 export const commanderPersonalityTypes = [
-    "aggresive",
+    "aggressive",
     "decisive",
     "diffident",
     "headstrong",

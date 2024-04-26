@@ -14,7 +14,7 @@ export function useAffiliations() {
         ...Object.values(commanderDescriptorStore.descriptors).map(c => c.affiliation),
         ...Object.values(unitDescriptorsStore.descriptors).map(u => u.affiliation),
         ...affiliations
-    ];
+    ].filter(a => a);
 
     return [...new Set(allAffiliations)];
 };
