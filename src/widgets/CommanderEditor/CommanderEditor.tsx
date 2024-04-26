@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { CommanderDescriptor, commanderMovementTypes, commanderPersonalityTypes } from "../../data/commanders";
-import { prepareCommanderData } from "../../logic";
+import { calcCommanderCost, prepareCommanderData } from "../../logic";
 import { BasicForm } from "../BasicForm";
 import { FormField } from "../FormField";
 import { WrittenField } from "../WrittenField";
 import { useAffiliations } from "../../state/useAffiliations";
+import { useState } from "react";
+import { Badge } from "../Badge";
 
 export interface CommanderEditorProps {
 
@@ -21,10 +23,17 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
 
     const { t } = useTranslation();
     const affiliations = useAffiliations();
+    const [ points, setPoints ] = useState<number>(commander ? calcCommanderCost(commander) : 0);
 
     const handleSubmit = (data: object) => {
 
         onSubmit?.(prepareCommanderData({ id: commander?.id, ...data }));
+    };
+
+    const handleChange = (data: object) => {
+
+        const updated = prepareCommanderData({ id: commander?.id, ...data });
+        setPoints(calcCommanderCost(updated));
     };
 
     const handleCancel = () => {
@@ -32,14 +41,15 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
     };
 
     return (
-        <BasicForm onSubmit={handleSubmit}>
+        <BasicForm onSubmit={handleSubmit} onChange={handleChange}>
             <datalist id="commandereditor-affiliation-suggestions">
                 {affiliations.map(a => (<option key={a} value={a}/>))}
             </datalist>
             <WrittenField name="name" defaultValue={commander?.name}/>
-            <FormField label="Staff rating" type="number" name="staffRating" defaultValue={commander?.staffRating}/>
+            <Badge>{points} pts</Badge>
+            <FormField label="Staff rating" type="number" name="staffRating" min="1" max="10" defaultValue={commander?.staffRating || 7}/>
             <FormField label="Movement" type="select" name="move" options={commanderMovementTypes} labels={(o: string) => o} defaultValue={commander?.move}/>
-            <FormField label="Affiliation" type="text" name="affiliation" list="commandereditor-affiliation-suggestions"/>
+            <FormField label="Affiliation" type="text" name="affiliation" list="commandereditor-affiliation-suggestions" defaultValue={commander?.affiliation}/>
             <FormField label="Personality" type="select" name="personality" options={commanderPersonalityTypes} labels={(o: string) => o} defaultValue={commander?.personality}/>
             {onCancel && <button type="button" onClick={handleCancel}>{t("commandereditor.cancel.cancel")}</button>}
             <button>{t("commandereditor.save.cancel")}</button>
