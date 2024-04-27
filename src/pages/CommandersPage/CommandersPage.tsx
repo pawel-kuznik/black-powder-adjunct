@@ -1,5 +1,4 @@
 import { CommanderDescriptor } from "../../data/commanders";
-import { prepareCommanderData } from "../../logic";
 import { useCommanderDescriptorsStore } from "../../state";
 import { CommanderPicker, Page, Title, useModalControls } from "../../widgets";
 import { CommanderDialog } from "./CommanderDialog";
@@ -16,7 +15,7 @@ export function CommandersPage() {
 
     const handleNewCommanderClick = () => {
 
-        show("edit-commander", CommanderDialog, { commander: prepareCommanderData({ }) });
+        show("edit-commander", CommanderDialog, { });
     };
 
     const handleRemove = (commander: CommanderDescriptor) => {

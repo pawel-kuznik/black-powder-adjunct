@@ -1,0 +1,17 @@
+.pointsbadge-column
+{
+    display: inline-grid;
+    grid-template-rows: 1fr auto;
+}
+
+.pointsbadge-column > strong,
+.pointsbadge-column > span
+{
+    text-align: center;
+}
+
+.pointsbadge-column > strong
+{
+    font-size: 1.4em;
+    line-height: 1.2rem;
+}

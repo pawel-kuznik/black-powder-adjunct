@@ -1,20 +1,38 @@
+import { useReducer } from "react";
 import { useTranslation } from "react-i18next";
-import { CommanderDescriptor, commanderMovementTypes, commanderPersonalityTypes } from "../../data/commanders";
-import { calcCommanderCost, prepareCommanderData } from "../../logic";
+import { CommanderDescriptor, commanderMoveRange, commanderMovementTypes, commanderPersonalityTypes } from "../../data/commanders";
+import { calcCommanderCost, formatDistance, prepareCommanderData } from "../../logic";
 import { BasicForm } from "../BasicForm";
 import { FormField } from "../FormField";
 import { WrittenField } from "../WrittenField";
 import { useAffiliations } from "../../state/useAffiliations";
-import { useRef, useState } from "react";
-import { Badge } from "../Badge";
+import { PointsBadge } from "../PointsBadge";
 
 import "./CommanderEditor.css";
 
+
 export interface CommanderEditorProps {
 
+    /**
+     *  Pass a commander object to edit.
+     */
     commander?: CommanderDescriptor;
+    
+    /**
+     *  A submit callback that is called when user is happy
+     *  with the commander.
+     */
     onSubmit?: (commander: CommanderDescriptor) => void;
+
+    /**
+     *  A cancel callback that is called when user doesn't want
+     *  to proceed with editing a commander.
+     */
     onCancel?: () => void;
+};
+
+function composeCommander(state: CommanderDescriptor, action: Partial<CommanderDescriptor>) : CommanderDescriptor {
+    return { ...state, ...action };
 };
 
 /**
@@ -25,10 +43,7 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
 
     const { t } = useTranslation();
     const affiliations = useAffiliations();
-    const [ points, setPoints ] = useState<number>(commander ? calcCommanderCost(commander) : 0);
-    const staffRatingRef = useRef<string>("");
-    const movementRef = useRef<string>("");
-    const personalityRef = useRef<string>("");
+    const [ currentCommander, changeCommander ] = useReducer(composeCommander, { }, () => commander || prepareCommanderData({ }));
 
     const handleSubmit = (data: object) => {
 
@@ -37,31 +52,68 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
 
     const handleChange = (data: object) => {
 
-        const updated = prepareCommanderData({ id: commander?.id, ...data });
-        setPoints(calcCommanderCost(updated));
+        changeCommander(data);
     };
 
     const handleCancel = () => {
+
         onCancel?.();
     };
 
     return (
-        <BasicForm onSubmit={handleSubmit} onChange={handleChange}>
-            <datalist id="commandereditor-affiliation-suggestions">
-                {affiliations.map(a => (<option key={a} value={a}/>))}
-            </datalist>
-            <div className="commandereditor-firstline">
-                <WrittenField name="name" defaultValue={commander?.name}/>
-                <FormField label="Affiliation" type="text" name="affiliation" list="commandereditor-affiliation-suggestions" defaultValue={commander?.affiliation}/>
-                <Badge>{points} pts</Badge>
-            </div>
-            <div className="commandereditor-secondline">
-                <FormField label="Staff rating" type="number" name="staffRating" min="4" max="10" defaultValue={commander?.staffRating || 7}/>
-                <FormField label="Movement" type="select" name="move" options={commanderMovementTypes} labels={(o: string) => o} defaultValue={commander?.move}/>
-                <FormField label="Personality" type="select" name="personality" options={commanderPersonalityTypes} labels={(o: string) => t(`commander.personality.${o}.label`)} titles={(o: string) => t(`commander.personality.${o}.description`)} defaultValue={commander?.personality}/>
-            </div>
-            {onCancel && <button type="button" onClick={handleCancel}>{t("commandereditor.cancel.cancel")}</button>}
-            <button>{t("commandereditor.save.cancel")}</button>
-        </BasicForm>
+        <div className="commandereditor">
+            <BasicForm onSubmit={handleSubmit} onChange={handleChange}>
+                <datalist id="commandereditor-affiliation-suggestions">
+                    {affiliations.map(a => (<option key={a} value={a}/>))}
+                </datalist>
+                <div className="commandereditor-firstline">
+                    <WrittenField
+                        name="name"
+                        placeholder={String(t("commandereditor.name.placeholder"))}
+                        defaultValue={currentCommander?.name}
+                    />
+                    <PointsBadge layout="column" points={calcCommanderCost(currentCommander)}/>
+                    {onCancel && <button type="button" onClick={handleCancel}>{t("commandereditor.cancel.label")}</button>}
+                    {onSubmit && <button>{t("commandereditor.save.label")}</button>}
+                </div>
+                <div className="commandereditor-secondline">
+                    <FormField
+                        label={t("commandereditor.affiliation.label")}
+                        type="text"
+                        name="affiliation"
+                        list="commandereditor-affiliation-suggestions"
+                        defaultValue={currentCommander?.affiliation}
+                    />
+                    <FormField
+                        label={t("commandereditor.staffrating.label")}
+                        type="number"
+                        name="staffRating"
+                        min="4"
+                        max="10"
+                        defaultValue={currentCommander?.staffRating || 7}
+                        description={`${t(`staffrating.${currentCommander.staffRating}.label`)} - ${t(`staffrating.${currentCommander.staffRating}.description`)}`}
+                    />
+                    <FormField
+                        label={t("commandereditor.movement.label")}
+                        type="select"
+                        name="move"
+                        options={commanderMovementTypes}
+                        labels={(o: string) => t(`commandereditor.movement.${o}.label`)}
+                        defaultValue={currentCommander?.move}
+                        description={t(`commandereditor.movement.${currentCommander.move}.description`, { distance: formatDistance(commanderMoveRange[currentCommander.move])})}
+                    />
+                    <FormField
+                        label={t("commandereditor.personality.label")}
+                        type="select"
+                        name="personality"
+                        options={commanderPersonalityTypes} 
+                        labels={(o: string) => t(`commander.personality.${o}.label`)} 
+                        titles={(o: string) => t(`commander.personality.${o}.description`)} 
+                        defaultValue={currentCommander?.personality || "blank"}
+                        description={t(`commander.personality.${currentCommander.personality}.description`)}
+                    />
+                </div>
+            </BasicForm>
+        </div>
     );
 };

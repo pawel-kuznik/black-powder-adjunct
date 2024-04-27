@@ -108,7 +108,6 @@ export function FormField({ layout = "column", description, label, name, type, m
     return (
         <FormFieldLayout label={label} layout={layout} description={description}>
             {type === "select" ? <SelectInput {...inputArgs} /> : <Input {...inputArgs}/>}
-            {description && <div>{description}</div>}
         </FormFieldLayout>
     );
 };

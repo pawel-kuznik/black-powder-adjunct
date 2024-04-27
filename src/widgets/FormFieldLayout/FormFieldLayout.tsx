@@ -17,7 +17,7 @@ export function FormFieldLayout({ layout = "column", label, description, childre
         <div className={css.join(' ')}>
             {label && (<label>{label}</label>)}
             {children}
-            {description && (<div>{description}</div>)}
+            {!!description && (<div className="formfieldlayout-description">{description}</div>)}
         </div>
     );
 };

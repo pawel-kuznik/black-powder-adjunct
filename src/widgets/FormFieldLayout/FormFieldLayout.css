@@ -4,8 +4,15 @@
     font-size: 0.8em;
 }
 
-.formfieldlayout-layout-column
+.formfieldlayout-layout-column > *
 {
-    display: grid;
-    grid-auto-flow: row;
+    display: block;
+    width: 100%;
+}
+
+.formfieldlayout-description
+{
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    opacity: 0.75;
 }

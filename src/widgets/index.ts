@@ -14,6 +14,7 @@ export * from "./Flag";
 export * from "./FormField";
 export * from "./Input";
 export * from "./Page";
+export * from "./PointsBadge";
 export * from "./SelectInput";
 export * from "./ShootingField";
 export * from "./ShootingInput";

@@ -33,7 +33,7 @@ export interface CommanderDescriptor {
 
 export const baseCommander: CommanderDescriptor = {
     id: '',
-    name: "commander",
+    name: "",
     staffRating: 7,
     move: "horse",
     personality: "blank",
