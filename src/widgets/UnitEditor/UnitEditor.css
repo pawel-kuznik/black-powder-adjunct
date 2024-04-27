@@ -1,6 +1,39 @@
-.uniteditor-firstline
+.uniteditor-firstline,
+.uniteditor-secondline,
+.uniteditor-thirdline
 {
     display: grid;
-    grid-template-columns: 3fr 1fr auto auto auto;
-    column-gap: 1em;
+    column-gap: var(--columns-gap);
+}
+
+.uniteditor-secondline,
+.uniteditor-thirdline
+{
+    min-height: 120px;
+}
+
+.uniteditor-firstline
+{
+    grid-template-columns: 3fr;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+}
+
+.uniteditor-secondline
+{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.uniteditor-thirdline
+{
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.uniteditor-firstline,
+.uniteditor-secondline,
+.uniteditor-thirdline,
+.uniteditor-fourthline
+{
+    margin-top: var(--form-row-spacing);
+    margin-bottom: var(--form-row-spacing);
 }

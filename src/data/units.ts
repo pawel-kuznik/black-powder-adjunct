@@ -6,9 +6,9 @@ export const unitTypes = [
     "irregular-infantry",
     "regular-cavalry",
     "irregular-cavalry",
-    "artillery",
-    "regular-artillery",
-    "light-artillery"
+    "foot-artillery",
+    "horse-artillery",
+    "manhandled-artillery"
 ] as const;
 
 export type UnitType = typeof unitTypes[number];
@@ -39,6 +39,16 @@ export const baseUnit : UnitDescriptor = {
     stamina: 3,
     special: [],
     affiliation: undefined
+} as const;
+
+export const unitMovement = {
+    "regular-infantry" : 12,
+    "irregular-infantry" : 12,
+    "regular-cavalry" : 18,
+    "irregular-cavalry" : 18,
+    "foot-artillery" : 12,
+    "horse-artillery" : 18, 
+    "manhandled-artillery" : 6
 } as const;
 
 export const defaultUnits : UnitDescriptor[] = [
@@ -93,7 +103,7 @@ export const defaultUnits : UnitDescriptor[] = [
     {
         id: "default-british-foot-artillery",
         name: "Foot artillery",
-        type: "artillery",
+        type: "foot-artillery",
         arnament: "smoothbore-artillery",
         handToHand: 1,
         shooting: "artillery",
@@ -129,7 +139,7 @@ export const defaultUnits : UnitDescriptor[] = [
     {
         id: "default-french-foot-artillery",
         name: "Foot artillery",
-        type: "regular-artillery",
+        type: "foot-artillery",
         arnament: "smoothbore-artillery",
         handToHand: 1,
         shooting: "artillery",
