@@ -12,6 +12,10 @@ import { useNavigate } from "react-router";
 import { CommanderCard } from "../CommanderCard";
 import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
+import { Title } from "../Title";
+import { PointsBadge } from "../PointsBadge";
+
+import "./ArmyEditor.css";
 
 export interface ArmyEditorProps {
     id?: string;
@@ -51,7 +55,7 @@ export function ArmyEditor({ id = '' } : ArmyEditorProps) {
     const handleClickBrigade = () => {
 
         const newBrigade = prepareBrigadeData({ });
-        setBrigades([ ...brigades, newBrigade ]);
+        setBrigades([ newBrigade, ...brigades ]);
     };
 
     const handleRemoveBrigade = (brigade: BrigadeDescriptor) => {
@@ -97,21 +101,27 @@ export function ArmyEditor({ id = '' } : ArmyEditorProps) {
         </>
     );
 
+    const brigadeTitleControls = (
+        <Button submit={false} label={t("armyeditor.add-brigade.label")} onClick={handleClickBrigade}/>
+    );
+
     return (
         <div>
-            <WrittenField name="name" placeholder="Army name" valueRef={nameRef}/>
-            {points} points
-            <button type="button" onClick={handleClickSave}>Save</button>
-            <button type="button" onClick={handleClickRemove}>Remove</button>
-            <button type="button" onClick={handleClickBrigade}>Add brigade</button>
-
+            <Title text={t("armyeditor.title")}/>
+            <div className="armyeditor-meta">
+                <WrittenField name="name" placeholder="Army name" valueRef={nameRef}/>
+                <PointsBadge points={points} layout="column"/>
+                <Button submit={false} label={t("armyeditor.save.label")} onClick={handleClickSave}/>
+                <Button submit={false} label={t("armyeditor.remove.label")} onClick={handleClickRemove} style="red"/>    
+            </div>
+            
             <div>
-                <h2>{t("armyeditor.general.title")}</h2>
+                <Title level={2} text={t("armyeditor.general.title")} controls={brigadeTitleControls}/>
                 <CommanderCard commander={commander} controls={commanderControls}/>
             </div>
 
             <div>
-                <h2>{t("armyeditor.brigades.title")}</h2>
+                <Title level={2} text={t("armyeditor.brigades.title")}/>
                 {brigades.map(b => <BrigadeEditor
                     key={b.id}
                     brigade={b}
