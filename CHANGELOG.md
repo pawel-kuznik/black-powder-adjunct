@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.0-beta] - 29/04/2024
+
 - Improved army editor layout.
 - It's possible to remove whole brigades from an army.
 - Improved layout of brigade editor.
