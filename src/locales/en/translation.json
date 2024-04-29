@@ -74,6 +74,7 @@
     "unit-type.label.regular-cavalry": "Regular cavalry",
     "unit-type.label.irregular-cavalry": "Irregular cavalry",
     "unit-type.label.artillery": "Artillery",
+    "unit-type.label.foot-artillery": "Foot artillery",
     "unit-type.label.regular-artillery": "Regular artillery",
     "unit-type.label.light-artillery": "Light artillery",
     "specialsinput.add": "Add special trait",
