@@ -7,17 +7,31 @@ import { ChooseUnitDialog } from "./ChooseUnitDialog";
 import { WrittenField } from "../WrittenField";
 import { calcBrigadeCost, prepareAnew, prepareBrigadeData } from "../../logic";
 import { BrigadeDescriptor } from "../../data/brigades";
-import { UnitCard } from "../UnitCard";
-
-import "./BrigadeEditor.css";
 import { CommanderCard } from "../CommanderCard";
 import { BrigadeUnit } from "./BrigadeUnit";
+import { useTranslation } from "react-i18next";
+import { Button } from "../Button";
+
+import "./BrigadeEditor.css";
+import { PointsBadge } from "../PointsBadge";
+
 
 export interface BrigadeEditorProps {
 
+    /**
+     *  The brigade to edit.
+     */
     brigade: BrigadeDescriptor;
 
+    /**
+     *  A callback called when user edits the brigade.
+     */
     onChange?: (brigade: BrigadeDescriptor) => void;
+
+    /**
+     *  A callback called when user wants to remove the brigade.
+     */
+    onRemove?: (brigade: BrigadeDescriptor) => void;
 };
 
 /**
@@ -29,8 +43,9 @@ export interface BrigadeEditorProps {
  *  brigades. It's an interesting idea, but these limits will be
  *  omitted from the editor. 
  */
-export function BrigadeEditor({ brigade, onChange } : BrigadeEditorProps) {
+export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorProps) {
 
+    const { t } = useTranslation();
     const { show } = useModalControls();
 
     const [ points, setPoints ] = useState<number>(calcBrigadeCost(brigade));
@@ -85,18 +100,29 @@ export function BrigadeEditor({ brigade, onChange } : BrigadeEditorProps) {
         onChange?.(updated);
     };
 
+    const handleBrigadeRemove = () =>{
+
+        onRemove?.(prepareBrigadeData({ id: brigade.id, name: nameRef.current, commander, units }));
+    };
+
+    const commanderControls = (
+        <> 
+            <Button label={t("brigadeeditor.choose-commander.label")} onClick={handleClickChooseCommander}/>
+        </>
+    );
+
     return (
         <section className="brigadeeditor">
             <div className="brigadeeditor-meta">
                 <div className="brigadeeditor-data">
-                    <WrittenField name="name" placeholder="Brigade name" valueRef={nameRef} onChange={handleNameChange}/>
-                    <header>
-                        <span> {points} points</span>
-                    </header>
+                    <div className="brigadeeditor-data-inner">
+                        <WrittenField name="name" placeholder={String(t("brigadeeditor.name.placeholder"))} valueRef={nameRef} onChange={handleNameChange}/>
+                        <PointsBadge layout="column" points={points}/>
+                        {onRemove && <Button label={t("brigadeeditor.remove-brigade.label")} style="red" submit={false} onClick={handleBrigadeRemove}/>}
+                    </div>
                 </div>
                 <div className="brigadeeditor-commander">
-                    <CommanderCard commander={commander}/>
-                    <button type="button" onClick={handleClickChooseCommander}>Choose commander</button>
+                    <CommanderCard commander={commander} controls={commanderControls}/>
                 </div>    
             </div>
             <div className="brigadeeditor-composition">
@@ -104,7 +130,11 @@ export function BrigadeEditor({ brigade, onChange } : BrigadeEditorProps) {
                     <BrigadeUnit key={u.id} unit={u} onRemove={handleUnitRemove}/>
                 ))}
                 <div className="brigadeeditor-addunit">
-                    <button type="button" onClick={handleClickChooseUnit}>Add unit</button>
+                    <Button
+                        submit={false}
+                        onClick={handleClickChooseUnit}
+                        label={t("brigadeeditor.add-unit.label")}
+                    />
                 </div>
             </div>
         </section>

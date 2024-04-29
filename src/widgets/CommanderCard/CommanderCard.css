@@ -1,5 +1,29 @@
 .commandercard
 {
-    padding: 2px;
+    padding: var(--card-padding);
     border: 1px solid var(--color-ink-blue);
+}
+
+.commandercard-header
+{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    column-gap: var(--columns-gap);
+}
+
+.commandercard-stats
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--columns-gap);
+}
+
+.commandercard-stats > div > strong,
+.commandercard-personality > strong
+{
+    display: block;
+    font-size: 0.8em;
+    opacity: var(--sidenotes-opacity);
 }

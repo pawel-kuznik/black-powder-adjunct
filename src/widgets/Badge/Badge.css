@@ -13,3 +13,9 @@
     color: var(--color-background-light);
     background: var(--color-ink-red);
 }
+
+.badge.badge-teal
+{
+    color: var(--color-background-light);
+    background: var(--color-ink-teal);
+}

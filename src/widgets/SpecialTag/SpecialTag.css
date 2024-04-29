@@ -9,3 +9,10 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+.specialtag-description
+{
+    display: inline-block;
+    font-size: 0.8em;
+    opacity: var(--sidenotes-opacity);
+}

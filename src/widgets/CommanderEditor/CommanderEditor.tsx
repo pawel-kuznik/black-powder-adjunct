@@ -9,6 +9,7 @@ import { useAffiliations } from "../../state/useAffiliations";
 import { PointsBadge } from "../PointsBadge";
 
 import "./CommanderEditor.css";
+import { useScaleStore } from "../../state";
 
 
 export interface CommanderEditorProps {
@@ -42,6 +43,7 @@ function composeCommander(state: CommanderDescriptor, action: Partial<CommanderD
 export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEditorProps) {
 
     const { t } = useTranslation();
+    const { scale } = useScaleStore();
     const affiliations = useAffiliations();
     const [ currentCommander, changeCommander ] = useReducer(composeCommander, { }, () => commander || prepareCommanderData({ }));
 
@@ -100,7 +102,7 @@ export function CommanderEditor({ commander, onSubmit, onCancel } : CommanderEdi
                         options={commanderMovementTypes}
                         labels={(o: string) => t(`commandereditor.movement.${o}.label`)}
                         defaultValue={currentCommander?.move}
-                        description={t(`commandereditor.movement.${currentCommander.move}.description`, { distance: formatDistance(commanderMoveRange[currentCommander.move])})}
+                        description={t(`commandereditor.movement.${currentCommander.move}.description`, { distance: formatDistance(commanderMoveRange[currentCommander.move], scale)})}
                     />
                     <FormField
                         label={t("commandereditor.personality.label")}

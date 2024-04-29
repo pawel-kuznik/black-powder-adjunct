@@ -1,7 +1,16 @@
+@keyframes page-modal-show {
+    0% { 
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .page
 {
     background: var(--color-background-light);
-
   
     width: 960px;
     margin-left: auto;
@@ -12,6 +21,10 @@
     border: 1px solid var(--color-letter-border);
 
     padding: 8px;
+
+    animation-name: page-modal-show;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
 }
 
 .page.page-full
@@ -22,7 +35,9 @@
 .page.page-modal
 {
     min-height: 30px;
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 40px;
+
+    box-shadow: 5px 5px 5px 5px var(--color-shadow);
 }

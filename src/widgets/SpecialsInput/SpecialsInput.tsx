@@ -5,7 +5,23 @@ import { SpecialTags } from "../SpecialTags";
 import { useTranslation } from "react-i18next";
 
 export interface SpecialsInputProps {
+
+    /**
+     *  The name of the input.
+     */
     name: string;
+
+    /**
+     *  Should the input display a list of all assigned special traits or an
+     *  inline comma separated text?
+     */
+    layout?: "list" | "inline";
+    
+    /**
+     *  The default value for the input. It can be either a comma separated values
+     *  with all special traits or an array of special traits. The component will
+     *  parse them internally into a string when submitting the form. 
+     */
     defaultValue?: string | string[];
 };
 
@@ -16,7 +32,7 @@ export interface SpecialsInputProps {
  *  When the list of special traits is modified, it can be detected as a DOM "change"
  *  event. Useful for when looking for changes inside a form.
  */
-export function SpecialsInput({ name, defaultValue }: SpecialsInputProps) {
+export function SpecialsInput({ name, layout, defaultValue }: SpecialsInputProps) {
 
     const { t } = useTranslation();
 
@@ -65,7 +81,7 @@ export function SpecialsInput({ name, defaultValue }: SpecialsInputProps) {
     return (
         <div>
             <input type="hidden" name={name} value={value}/>
-            <SpecialTags specials={specials} onClick={handleOnRemove}/>
+            <SpecialTags layout={layout} specials={specials} onClick={handleOnRemove}/>
             {adding && (<SelectInput options={[ "---", ...sortedSpecialTypes]} labels={translateLabel} titles={translateDescription} onChange={handleOnChange}/>)}
             {!adding && (<button onClick={handleAddClick}>{t("specialsinput.add")}</button>)}
         </div>

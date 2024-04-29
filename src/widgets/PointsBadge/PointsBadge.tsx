@@ -16,7 +16,7 @@ export function PointsBadge({ points, layout = "dense" } : PointsBadgeProps) {
     const { t } = useTranslation();
 
     if (layout === "column") return (
-        <Badge>
+        <Badge color="teal">
             <span className="pointsbadge-column">
                 <strong>{points}</strong>
                 <span>{t("pointsbadge.column.label")}</span>
@@ -24,5 +24,5 @@ export function PointsBadge({ points, layout = "dense" } : PointsBadgeProps) {
         </Badge>
     );
 
-    return (<Badge>{t("pointsbadge.dense.label", { points })}</Badge>)
+    return (<Badge color="teal">{t("pointsbadge.dense.label", { points })}</Badge>)
 };

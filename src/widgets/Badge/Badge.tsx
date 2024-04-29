@@ -5,12 +5,16 @@ import "./Badge.css";
 export interface BadgeProps {
 
     children?: ReactNode;
+
+    color?: "red" | "teal";
 }
 
-export function Badge({ children }: BadgeProps) {
+export function Badge({ children, color = "red" }: BadgeProps) {
+
+    const css = [ "badge", `badge-${color}` ];
 
     return (
-        <span className="badge badge-red">
+        <span className={css.join(" ")}>
             {children}
         </span>
     );

@@ -1,5 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { UnitDescriptor } from "../../data/units";
-import { ControlsWrapper } from "../ControlsWrapper";
+import { Button } from "../Button";
 import { UnitCard } from "../UnitCard";
 
 export interface BrigadeUnitProps {
@@ -9,21 +10,21 @@ export interface BrigadeUnitProps {
 
 export function BrigadeUnit({ unit, onRemove } : BrigadeUnitProps) {
 
+    const { t } = useTranslation();
+
     const handleRemoveClick = () => {
         onRemove(unit);
     };
 
-    const rightControls = (
+    const controls = (
         <>
-            <button onClick={handleRemoveClick}>Remove</button>
+            <Button style="red" submit={false} onClick={handleRemoveClick} label={t("brigadeeditor.brigadeunit.remove.label")}/>
         </>
     );
 
     return (
         <div className="brigadeeditor-unit">
-            <ControlsWrapper right={rightControls}>
-                <UnitCard unit={unit}/>
-            </ControlsWrapper>
+            <UnitCard unit={unit} controls={controls}/>
         </div>
     );
 };

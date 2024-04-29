@@ -6,10 +6,14 @@
     column-gap: var(--columns-gap);
 }
 
-.uniteditor-secondline,
-.uniteditor-thirdline
+.uniteditor-secondline
 {
     min-height: 120px;
+}
+
+.uniteditor-thirdline
+{
+    
 }
 
 .uniteditor-firstline

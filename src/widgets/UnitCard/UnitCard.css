@@ -5,6 +5,11 @@
     border: 1px solid var(--color-ink-blue);   
 }
 
+.unitcard-controls
+{
+    float: right;
+}
+
 .unitcard-header
 {
     border-bottom: 1px solid var(--color-ink-blue);   
@@ -14,24 +19,34 @@
 .unitcard-statsrow
 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr) repeat(4, 120px);
-    border-bottom: 1px solid var(--color-ink-blue);
+    grid-template-columns: repeat(2, 1fr) repeat(6, 80px)
+    /* border-bottom: 1px solid var(--color-ink-blue); */
+}
+
+.unitcard-statsheader > *:nth-child(n + 3),
+.unitcard-statsrow > *:nth-child(n + 3)
+{
+    text-align: center;
+}
+
+.unitcard-statsheader > div,
+.unitcard-specialsrow > strong
+{
+    font-size: .8em; 
+    font-weight: bold;
+    opacity: var(--sidenotes-opacity);
 }
 
 .unitcard-header,
 .unitcard-statsheader > div,
-.unitcard-statsrow > div
+.unitcard-statsrow > div,
+.unitcard-specialsrow
 {
-    padding: 2px;
-}
-
-.unitcard-statsheader > div
-{
-    font-size: .8em;
+    padding: 2px 4px;
 }
 
 .unitcard-statsheader > div:not(:last-of-type),
 .unitcard-statsrow > div:not(:last-of-type)
 {
-    border-right: 1px solid var(--color-ink-blue);
+    /* border-right: 1px solid var(--color-ink-blue); */
 }

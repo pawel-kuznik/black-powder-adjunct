@@ -3,8 +3,13 @@
     --color-ink-black: #38303B;
     --color-ink-blue: #0A1D55;
     --color-ink-red: #A31C2B;
+    --color-ink-teal: #1D5754;
 
     --color-letter-border: #efe1cc;
+
+    --sidenotes-opacity: 0.75;
+
+    --color-shadow: #38303b38;
 
     /* --color-background: #FFF0D9; */
     --color-background: rgba(200, 200, 200, .2);

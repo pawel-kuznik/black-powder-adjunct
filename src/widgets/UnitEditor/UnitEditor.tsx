@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import { calcUnitCost, formatDistance, isUnitArtilery, isWeaponArtillery, isWeaponMelee, isWeaponRanged, prepareUnitData } from "../../logic";
+import { calcUnitCost, formatDistance, isWeaponArtillery, isWeaponRanged, prepareUnitData } from "../../logic";
 import { BasicForm } from "../BasicForm";
 import { FormField } from "../FormField";
 import { WeaponType, weaponsRange, weaponsTypes } from "../../data/weapons";
@@ -12,6 +12,7 @@ import { useAffiliations } from "../../state/useAffiliations";
 import { PointsBadge } from "../PointsBadge";
 
 import "./UnitEditor.css";
+import { useScaleStore } from "../../state";
 
 export interface UnitEditorProps {
 
@@ -27,6 +28,7 @@ function composeUnit(state: UnitDescriptor, action: Partial<UnitDescriptor>) : U
 export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
 
     const { t } = useTranslation();
+    const { scale } = useScaleStore();
     const affiliations = useAffiliations();
 
     const [ weapon, setWeapon ] = useState<WeaponType>("pistols");
@@ -52,12 +54,12 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
 
     const typeDescription = (() => {
 
-        return t(`uniteditor.type.${currentUnit.type}.description`, { distance: formatDistance(unitMovement[currentUnit.type])});
+        return t(`uniteditor.type.${currentUnit.type}.description`, { distance: formatDistance(unitMovement[currentUnit.type], scale)});
     })();
 
     const arnamentDescription = (() => {
-        if (isWeaponArtillery(currentUnit.arnament)) return t("uniteditor.arnament.artillery.description", { distance: formatDistance(weaponsRange[currentUnit.arnament as keyof typeof weaponsRange]) });
-        if (isWeaponRanged(currentUnit.arnament)) return t("uniteditor.arnament.shooting.description", { distance: formatDistance(weaponsRange[currentUnit.arnament as keyof typeof weaponsRange]) });
+        if (isWeaponArtillery(currentUnit.arnament)) return t("uniteditor.arnament.artillery.description", { distance: formatDistance(weaponsRange[currentUnit.arnament as keyof typeof weaponsRange], scale) });
+        if (isWeaponRanged(currentUnit.arnament)) return t("uniteditor.arnament.shooting.description", { distance: formatDistance(weaponsRange[currentUnit.arnament as keyof typeof weaponsRange], scale) });
         return t("uniteditor.arnament.melee.description");
     })();
 
@@ -134,7 +136,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                 />
             </div>
             <div className="uniteditor-fourthline">
-                <SpecialsField label={t("uniteditor.special.label")} name="special" defaultValue={currentUnit?.special} />
+                <SpecialsField label={t("uniteditor.special.label")} layout="list" name="special" defaultValue={currentUnit?.special} />
             </div>
         </BasicForm>
     );

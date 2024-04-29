@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+- Improved army editor layout.
+- It's possible to remove whole brigades from an army.
+- Improved layout of brigade editor.
+- Improved layout of the unit card.
+- Localized unit card.
 - Added explanations to staff rating in commander editor.
 - Added explanations to personality input in commander editor.
 - Added explanations to weapons type input in unit editor.

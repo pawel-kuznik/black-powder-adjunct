@@ -9,6 +9,9 @@ import { calcArmyCost, prepareBrigadeData } from "../../logic";
 import { BrigadeEditor } from "../BrigadeEditor";
 import { useArmyDescriptorsStore } from "../../state/armyDescriptors";
 import { useNavigate } from "react-router";
+import { CommanderCard } from "../CommanderCard";
+import { useTranslation } from "react-i18next";
+import { Button } from "../Button";
 
 export interface ArmyEditorProps {
     id?: string;
@@ -16,6 +19,7 @@ export interface ArmyEditorProps {
 
 export function ArmyEditor({ id = '' } : ArmyEditorProps) {
 
+    const { t } = useTranslation();
     const { show } = useModalControls();
     const navigate = useNavigate();
 
@@ -50,6 +54,13 @@ export function ArmyEditor({ id = '' } : ArmyEditorProps) {
         setBrigades([ ...brigades, newBrigade ]);
     };
 
+    const handleRemoveBrigade = (brigade: BrigadeDescriptor) => {
+
+        const filtered = brigades.filter(b => b.id !== brigade.id);
+        setBrigades(filtered);
+        updatePoints(commander, filtered);
+    };
+
     const handleBrigadeChange = (brigade: BrigadeDescriptor) => {
 
         const idx = brigades.findIndex(b => b.id === brigade.id);
@@ -80,21 +91,33 @@ export function ArmyEditor({ id = '' } : ArmyEditorProps) {
         navigate("/lists");
     };
 
+    const commanderControls = (
+        <>
+            <Button label={t("armyeditor.swith-commander.label")} onClick={handleClickChooseCommander} />
+        </>
+    );
+
     return (
         <div>
             <WrittenField name="name" placeholder="Army name" valueRef={nameRef}/>
             {points} points
             <button type="button" onClick={handleClickSave}>Save</button>
             <button type="button" onClick={handleClickRemove}>Remove</button>
-            <button type="button" onClick={handleClickChooseCommander}>Choose commander</button>
             <button type="button" onClick={handleClickBrigade}>Add brigade</button>
 
             <div>
-                Commander {commander?.name}
+                <h2>{t("armyeditor.general.title")}</h2>
+                <CommanderCard commander={commander} controls={commanderControls}/>
             </div>
 
             <div>
-                {brigades.map(b => <BrigadeEditor key={b.id} brigade={b} onChange={handleBrigadeChange}/>)}
+                <h2>{t("armyeditor.brigades.title")}</h2>
+                {brigades.map(b => <BrigadeEditor
+                    key={b.id}
+                    brigade={b}
+                    onChange={handleBrigadeChange}
+                    onRemove={handleRemoveBrigade}
+                />)}
             </div>
         </div>
     );
