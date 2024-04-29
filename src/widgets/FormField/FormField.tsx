@@ -96,7 +96,8 @@ export function FormField({ layout = "column", description, label, name, type, m
         options,
         labels,
         titles,
-        valueRef
+        valueRef,
+        onChange
     };
 
     // only pass default value when there is a defined value
