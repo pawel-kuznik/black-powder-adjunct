@@ -1,0 +1,12 @@
+.armycard
+{
+    border: 1px solid var(--color-ink-blue);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+
+    column-gap: var(--columns-gap);
+
+    padding: var(--card-padding);
+}

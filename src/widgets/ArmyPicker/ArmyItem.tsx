@@ -1,24 +1,34 @@
+import { useTranslation } from "react-i18next";
 import { ArmyDescriptor } from "../../data/armies";
-import { calcArmyCost } from "../../logic";
-import { Badge } from "../Badge";
+import { ArmyCard } from "../ArmyCard/ArmyCard";
+import { Button } from "../Button";
 
 export interface ArmyItemProps {
     army: ArmyDescriptor;
     onPick?: (army: ArmyDescriptor) => void;
+    onRemove? : (army: ArmyDescriptor) => void;
 };
 
-export function ArmyItem({ army, onPick } : ArmyItemProps) {
+export function ArmyItem({ army, onPick, onRemove } : ArmyItemProps) {
 
-    const handleClick = () => {
+    const { t } = useTranslation();
+
+    const handlePickClick = () => {
         onPick?.(army);
     };
 
-    const points = calcArmyCost(army);
-    
+    const handleRemoveClick = () => {
+        onRemove?.(army);
+    };
+
+    const controls = (
+        <>
+            {onPick && <Button label={t("armypicker.armyitem.edit.label")} onClick={handlePickClick}/>}
+            {onRemove && <Button label={t("armypicker.armyitem.remove.label")} style="red" onClick={handleRemoveClick}/>}
+        </>
+    );
+
     return (
-        <div onClick={handleClick}>
-            {army.name}
-            <Badge>{points} pts</Badge>
-        </div>
+        <ArmyCard army={army} controls={controls}/>
     );
 };

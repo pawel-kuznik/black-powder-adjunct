@@ -4,9 +4,10 @@ import { ArmyItem } from "./ArmyItem";
 
 export interface ArmyPickerProps {
     onPick?: (army: ArmyDescriptor) => void;
+    onRemove?: (army: ArmyDescriptor) => void;
 };
 
-export function ArmyPicker({ onPick }: ArmyPickerProps) {
+export function ArmyPicker({ onPick, onRemove }: ArmyPickerProps) {
 
     const armyDescriptorsStore = useArmyDescriptorsStore();
 
@@ -14,7 +15,9 @@ export function ArmyPicker({ onPick }: ArmyPickerProps) {
 
     return (
         <div>
-            {armies.map(a => <ArmyItem key={a.id} onPick={onPick} army={a}/>)}
+            {armies.map(a => (
+                <ArmyItem key={a.id} onPick={onPick} onRemove={onRemove} army={a}/>
+            ))}
         </div>
     );
 };

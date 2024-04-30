@@ -15,6 +15,11 @@ export function ListsPage() {
         navigate(`/list/${army.id}`);
     };
 
+    const handleArmyRemove = (army: ArmyDescriptor) => {
+
+        armyDescriptorsStore.remove(army);
+    };
+
     const handleCreateNewClick = () => {
 
         const army = prepareArmyData({ });
@@ -27,7 +32,7 @@ export function ListsPage() {
         <Page>
             <Title text="Lists"/>
             <button onClick={handleCreateNewClick}>Create new</button>
-            <ArmyPicker onPick={handleArmyPick}/>
+            <ArmyPicker onPick={handleArmyPick} onRemove={handleArmyRemove}/>
         </Page>
     );
 };

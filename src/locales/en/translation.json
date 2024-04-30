@@ -14,6 +14,8 @@
     "armyeditor.choosecommanderdialog.cancel.label": "Belay",
     "armyeditor.choosecommanderdialog.create.label": "Draft new general",
     "armyeditor.createcommanderdialog.title": "Draft new general",
+    "armypicker.armyitem.edit.label": "Edit",
+    "armypicker.armyitem.remove.label": "Remove",
     "brigadeeditor.choosecommanderdialog.title": "Choose brigade commander",
     "brigadeeditor.choosecommanderdialog.cancel.label": "Belay",
     "brigadeeditor.choosecommanderdialog.create.label": "Draft new commander",
