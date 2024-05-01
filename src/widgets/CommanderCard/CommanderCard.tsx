@@ -35,7 +35,7 @@ export function CommanderCard({ commander, controls }: CommanderCardProps) {
     const movement = commanderMoveRange[commander.move];
 
     return (
-        <div className="commandercard">
+        <div className="commandercard common-cardbox">
             <div className="commandercard-header">
                 <Flag which={commander.affiliation}/>
                 <span>{commander.name}</span>

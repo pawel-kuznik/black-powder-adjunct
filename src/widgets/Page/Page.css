@@ -35,9 +35,12 @@
 .page.page-modal
 {
     min-height: 30px;
+    max-height: 80%;
     position: fixed;
     top: 60px;
     left: 40px;
+
+    overflow-y: auto;
 
     box-shadow: 5px 5px 5px 5px var(--color-shadow);
 }

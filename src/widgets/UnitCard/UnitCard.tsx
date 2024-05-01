@@ -13,6 +13,12 @@ import { useScaleStore } from "../../state";
 export interface UnitCardProps {
 
     /**
+     *  The style of the unit card. It mainly tells how much space, and
+     *  by that how much information, the card will present to the user.
+     */
+    style?: "infomative" | "dense";
+
+    /**
      *  The unit to show in the card
      */
     unit: UnitDescriptor;
@@ -28,7 +34,7 @@ export interface UnitCardProps {
 /**
  *  This is a component that should be used to present unit information.
  */
-export function UnitCard({ unit, controls }: UnitCardProps) {
+export function UnitCard({ unit, controls, style = "infomative" }: UnitCardProps) {
 
     const { t } = useTranslation();
     const { scale } = useScaleStore();
@@ -38,10 +44,10 @@ export function UnitCard({ unit, controls }: UnitCardProps) {
     const range = Number(weaponsRange[unit.arnament as keyof typeof weaponsRange] || 0);
 
     return (
-        <div className="unitcard">
+        <div className="unitcard common-cardbox">
             <div className="unitcard-header">
-                <Flag which={unit.affiliation}/> {unit.name} <PointsBadge points={points}/>
-                {controls && <div className="unitcard-controls">{controls}</div>}
+                <Flag which={unit.affiliation}/> {unit.name} <PointsBadge layout="column" points={points}/>
+                {controls}
             </div>
             <div className="unitcard-statsheader">
                 <div>
@@ -97,7 +103,7 @@ export function UnitCard({ unit, controls }: UnitCardProps) {
             </div>
             <div className="unitcard-specialsrow">
                 <strong>{t("unitcard.stats.special.label")}</strong>
-                <SpecialTags layout="list" specials={unit.special}/>
+                <SpecialTags layout={style === "dense" ? "inline" : "list"} specials={unit.special}/>
                 {unit.special.length === 0 && "---"}
             </div>
         </div>

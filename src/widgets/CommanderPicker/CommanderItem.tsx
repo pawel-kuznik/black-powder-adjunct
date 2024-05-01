@@ -1,10 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { CommanderDescriptor } from "../../data/commanders";
-import { calcCommanderCost } from "../../logic";
-import { Badge } from "../Badge";
-import { Flag } from "../Flag";
-import { StatsColumns } from "../StatsColumns";
-
-import "./CommanderItem.css"
+import { Button } from "../Button";
+import { CommanderCard } from "../CommanderCard";
 
 export interface CommanderItemProps {
 
@@ -15,7 +12,12 @@ export interface CommanderItemProps {
     onRemove?: (commander: CommanderDescriptor) => void;
 };
 
+/**
+ *  A component reprensenting a commander inside the CommanderPicker.
+ */
 export function CommanderItem({ commander, onPick, onRemove }: CommanderItemProps) {
+
+    const { t } = useTranslation();
 
     const handlePickClick = () => {
 
@@ -26,31 +28,10 @@ export function CommanderItem({ commander, onPick, onRemove }: CommanderItemProp
         onRemove?.(commander);
     };
 
-    const points = calcCommanderCost(commander);
+    const controls = (<>
+        {onPick && <Button label={t("commanderpicker.commanderitem.pick.label")} onClick={handlePickClick}/>}
+        {onRemove && <Button label={t("commanderpicker.commanderitem.remove.label")} style="red" onClick={handleRemoveClick}/>}
+    </>);
 
-    return (
-        <div className="commanderpicker-commanderitem">
-            {(onPick || onRemove) && (
-                <div className="commanderpicker-commanderitem-controls">
-                    {onPick && (<button type="button" onClick={handlePickClick}>Pick</button>)}
-                    {onRemove && (<button type="button" onClick={handleRemoveClick}>Remove</button>)}
-                </div>
-            )}
-            <StatsColumns>
-                <div className="commanderpicker-commanderitem-name">
-                    <Flag which={commander.affiliation}/>
-                    {commander.name} <Badge>{points} pts</Badge>
-                </div>
-                <div className="commanderpicker-commanderitem-cell">
-                    {commander.staffRating}
-                </div>
-                <div className="commanderpicker-commanderitem-cell">
-                    {commander.personality}
-                </div>
-                <div className="commanderpicker-commanderitem-cell">
-                    {commander.move}
-                </div>
-            </StatsColumns>
-        </div>
-    );
+    return (<CommanderCard commander={commander} controls={controls} />);
 };

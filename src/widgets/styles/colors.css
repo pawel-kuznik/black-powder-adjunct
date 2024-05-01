@@ -11,6 +11,9 @@
 
     --color-shadow: #38303b38;
 
+    --card-background: rgba(220, 220, 200, 0.2);
+    --card-background-hover: rgba(240, 240, 240, 0.15);
+
     /* --color-background: #FFF0D9; */
     --color-background: rgba(200, 200, 200, .2);
     --color-background-light: #f7f1e9;

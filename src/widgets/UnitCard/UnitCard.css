@@ -1,18 +1,12 @@
-.unitcard
-{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-ink-blue);   
-}
-
-.unitcard-controls
-{
-    float: right;
-}
-
 .unitcard-header
 {
     border-bottom: 1px solid var(--color-ink-blue);   
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    column-gap: var(--columns-gap);
 }
 
 .unitcard-statsheader,
@@ -35,6 +29,11 @@
     font-size: .8em; 
     font-weight: bold;
     opacity: var(--sidenotes-opacity);
+}
+
+.unitcard-specialsrow > strong
+{
+    display: block;
 }
 
 .unitcard-header,

@@ -1,0 +1,13 @@
+.common-cardbox
+{
+    border: 1px solid var(--color-ink-blue);   
+    background: var(--card-background);
+    background-clip: content-box;
+
+    transition: background-color .2s;
+}
+
+.common-cardbox:hover
+{
+    background-color: var(--card-background-hover);
+}

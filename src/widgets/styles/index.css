@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Tangerine:wght@400;700&display=swap');
 
 @import "./colors.css";
+@import "./common.css";
 @import "./body.css";
 @import "./typography.css";
 @import "./inputs.css";

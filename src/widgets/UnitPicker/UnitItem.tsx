@@ -1,13 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { UnitDescriptor } from "../../data/units";
-import { calcUnitCost, calcWeaponRange } from "../../logic";
-import { Badge } from "../Badge";
-import { Flag } from "../Flag";
-import { SpecialTags } from "../SpecialTags";
-import { StatsColumns } from "../StatsColumns";
 
 import "./UnitItem.css";
-import { ControlsWrapper } from "../ControlsWrapper";
+import { UnitCard } from "../UnitCard";
+import { Button } from "../Button";
 
 export interface UnitItemProps {
     unit: UnitDescriptor;
@@ -18,7 +14,6 @@ export interface UnitItemProps {
 export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
 
     const { t } = useTranslation();
-    const range = calcWeaponRange(unit.arnament);
 
     const handlePickClick = () => {
         onPick?.(unit);
@@ -28,38 +23,14 @@ export function UnitItem({ unit, onPick, onRemove } : UnitItemProps) {
         onRemove?.(unit);
     };
 
-    const rightControls = (onPick || onRemove) ? (
+    const controls = (onPick || onRemove) ? (
         <>
-            {onPick && (<button type="button" onClick={handlePickClick}>Pick</button>)}
-            {onRemove && (<button type="button" onClick={handleRemoveClick}>Remove</button>)}
+            {onPick && (<Button label={t("unitpicker.unititem.pick.label")} onClick={handlePickClick}/>)}
+            {onRemove && (<Button label={t("unitpicker.unititem.remove.label")} onClick={handleRemoveClick} style="red"/>)}
         </>
     ) : undefined;
 
     return (
-        <div className="unitpicker-unititem">
-            <ControlsWrapper right={rightControls}>
-                <StatsColumns sizePreset="listing">
-                    <div className="unitpicker-unititem-name">
-                        <Flag which={unit.affiliation}/> {unit.name} <small>{t(`unit-type.label.${unit.type}`)}</small> <Badge>{calcUnitCost(unit)} pts</Badge><br/>
-                        <SpecialTags specials={unit.special}/>
-                    </div>
-                    <div className="unitpicker-unititem-arnament">
-                        {t(`weapon.label.${unit.arnament}`)}
-                    </div>
-                    <div className="unitpicker-unititem-arnament">
-                        {unit.handToHand}
-                    </div>
-                    <div className="unitpicker-unititem-number">
-                        {unit.shooting} {range ? (<span>at {range}''</span>) : ''}
-                    </div>
-                    <div className="unitpicker-unititem-number">
-                        {unit.morale}+
-                    </div>
-                    <div className="unitpicker-unititem-number">
-                        {unit.stamina}
-                    </div>
-                </StatsColumns>
-            </ControlsWrapper>
-        </div>
+        <UnitCard unit={unit} style="dense" controls={controls}/>
     );
 }

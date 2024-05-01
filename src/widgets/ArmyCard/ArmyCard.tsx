@@ -23,7 +23,7 @@ export function ArmyCard({ army, controls } : ArmyCardProps) {
     const points = calcArmyCost(army);
     
     return (
-        <div className="armycard">
+        <div className="armycard common-cardbox">
             <span>
                 {army.name}
             </span>

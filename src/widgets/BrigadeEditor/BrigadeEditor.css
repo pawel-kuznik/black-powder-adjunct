@@ -3,14 +3,6 @@
     border-left: 0px solid var(--color-ink-blue);
 }
 
-.brigadeeditor-commander,
-.brigadeeditor-unit,
-.brigadeeditor-data
-{
-    background: rgba(220, 220, 200, 0.2);
-    background-clip: content-box;
-}
-
 .brigadeeditor-unit
 {
     position: relative;
@@ -26,7 +18,6 @@
 
 .brigadeeditor-data
 {
-    border: 1px solid var(--color-ink-blue);
     padding: var(--card-padding);
 }
 
@@ -83,6 +74,13 @@
     margin-bottom: 1rem;
 }
 
+.brigadeeditor-unit,
+.brigadeeditor-addunit
+{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .brigadeeditor-commander
 {
     position: relative
@@ -117,7 +115,7 @@
     position: absolute;
     content: "";
     display: block;
-    height: 100%;
-    transform: translateY(-0.75rem);
+    height: calc(100% - 0.25rem);
+    transform: translateY(-0.5rem);
     border-left: 1px solid var(--color-ink-blue);
 }

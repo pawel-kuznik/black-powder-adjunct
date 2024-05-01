@@ -114,7 +114,7 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
     return (
         <section className="brigadeeditor">
             <div className="brigadeeditor-meta">
-                <div className="brigadeeditor-data">
+                <div className="brigadeeditor-data common-cardbox">
                     <div className="brigadeeditor-data-inner">
                         <WrittenField name="name" placeholder={String(t("brigadeeditor.name.placeholder"))} valueRef={nameRef} onChange={handleNameChange}/>
                         <PointsBadge layout="column" points={points}/>

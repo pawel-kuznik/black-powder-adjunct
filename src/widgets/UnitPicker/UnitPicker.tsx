@@ -1,6 +1,6 @@
 import { UnitDescriptor } from "../../data/units";
 import { useUnitDescriptorsStore } from "../../state";
-import { ColumnsHeader } from "./ColumnsHeader";
+import { CardsList } from "../CardsList";
 import { UnitItem } from "./UnitItem";
 
 export interface UnitPickerProps {
@@ -16,9 +16,8 @@ export function UnitPicker({ onPick, onRemove } : UnitPickerProps) {
     const descriptors = Object.values(unitDescriptorStore.descriptors);
 
     return (
-        <div>
-            <ColumnsHeader/>
+        <CardsList>
             {descriptors.map(u => (<UnitItem key={u.id} unit={u} onPick={onPick} onRemove={onRemove}/>))}
-        </div>
+        </CardsList>
     );
 }

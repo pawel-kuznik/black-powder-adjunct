@@ -1,0 +1,6 @@
+.cardslist
+{
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 0.5rem;
+}
