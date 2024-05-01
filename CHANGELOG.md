@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+- Commander picker users commander cards.
+- Unit picker uses unit cards.
+- Army picker uses army cards.
+
 ## [0.2.0-beta] - 29/04/2024
 
 - Improved army editor layout.
