@@ -1,0 +1,16 @@
+.stat.stat-align-center
+{
+    text-align: center;
+}
+
+.stat.stat-align-right
+{
+    text-align: right;
+}
+
+.stat .stat-label
+{
+    font-size: .8em;
+    font-weight: bold;
+    opacity: var(--label-opacity);
+}

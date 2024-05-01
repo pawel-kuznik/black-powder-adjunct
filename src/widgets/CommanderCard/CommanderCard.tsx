@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 import "./CommanderCard.css";
 import { useScaleStore } from "../../state";
+import { Stat } from "../Stat";
 
 export interface CommanderCardProps {
 
@@ -39,22 +40,22 @@ export function CommanderCard({ commander, controls }: CommanderCardProps) {
             <div className="commandercard-header">
                 <Flag which={commander.affiliation}/>
                 <span>{commander.name}</span>
-                <PointsBadge layout="column" points={points}/>
+                <PointsBadge layout="brick" points={points}/>
                 {controls}
             </div>
             <div className="commandercard-stats">
-                <div>
-                    <strong>{t("commandercard.staffrating.label")}</strong>
-                    <span>{commander.staffRating} - {t(`staffrating.${commander.staffRating}.label`)}</span>
-                </div>
-                <div>
-                    <strong>{t("commandercard.movement.label")}</strong>
-                    <span>{formatDistance(movement, scale)}</span>
-                </div>
+                <Stat label={t("commandercard.staffrating.label")}>
+                    {commander.staffRating} - {t(`staffrating.${commander.staffRating}.label`)}
+                </Stat>
+                <Stat label={t("commandercard.movement.label")} align="center">
+                    {formatDistance(movement, scale)}
+                </Stat>
+                <Stat label={t("commandercard.personality.label")}>
+                    {t(`commander.personality.${commander.personality}.label`)} - {t(`commander.personality.${commander.personality}.description`)}
+                </Stat>
             </div>
             <div className="commandercard-personality">
-                <strong>{t("commandercard.personality.label")}</strong>
-                {t(`commander.personality.${commander.personality}.label`)} - {t(`commander.personality.${commander.personality}.description`)}
+                
             </div>
         </div>
     );

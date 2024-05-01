@@ -6,9 +6,11 @@ import { weaponsRange } from "../../data/weapons";
 import { PointsBadge } from "../PointsBadge";
 import { Flag } from "../Flag";
 import { SpecialTags } from "../SpecialTags";
+import { useScaleStore } from "../../state";
+import { Stat } from "../Stat";
 
 import "./UnitCard.css";
-import { useScaleStore } from "../../state";
+
 
 export interface UnitCardProps {
 
@@ -46,65 +48,40 @@ export function UnitCard({ unit, controls, style = "infomative" }: UnitCardProps
     return (
         <div className="unitcard common-cardbox">
             <div className="unitcard-header">
-                <Flag which={unit.affiliation}/> {unit.name} <PointsBadge layout="column" points={points}/>
+                <Flag which={unit.affiliation}/> {unit.name} <PointsBadge layout="brick" points={points}/>
                 {controls}
             </div>
-            <div className="unitcard-statsheader">
-                <div>
-                    {t("unitcard.stats.type.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.arnament.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.movement.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.handToHand.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.range.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.shooting.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.morale.label")}
-                </div>
-                <div>
-                    {t("unitcard.stats.stamina.label")}
-                </div>
-            </div>
             <div className="unitcard-statsrow">
-                <div>
+                <Stat label={t("unitcard.stats.type.label")}>
                     {t(`unit-type.label.${unit.type}`)}
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.arnament.label")}>
                     {t(`weapon.label.${unit.arnament}`)}
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.movement.label")} align="center">
                     {formatDistance(movement, scale)}
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.handToHand.label")} align="center">
                     {unit.handToHand}
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.range.label")} align="center">
                     {range ? formatDistance(range, scale) : '---'}
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.shooting.label")} align="center">
                     {range ? (unit.shooting === "artillery" ? "3-2-1" : unit.shooting) : '---'}
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.morale.label")} align="center">
                     {unit.morale}+
-                </div>
-                <div>
+                </Stat>
+                <Stat label={t("unitcard.stats.stamina.label")} align="center">
                     {unit.stamina}
-                </div>
+                </Stat>
             </div>
             <div className="unitcard-specialsrow">
-                <strong>{t("unitcard.stats.special.label")}</strong>
-                <SpecialTags layout={style === "dense" ? "inline" : "list"} specials={unit.special}/>
-                {unit.special.length === 0 && "---"}
+                <Stat label={t("unitcard.stats.special.label")}>
+                    <SpecialTags layout={style === "dense" ? "inline" : "list"} specials={unit.special}/>
+                    {unit.special.length === 0 && "---"}
+                </Stat>
             </div>
         </div>
     );

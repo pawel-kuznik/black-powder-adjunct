@@ -26,7 +26,7 @@ export * from "./Modal";
 export * from "./SpecialsInput";
 export * from "./SpecialTag";
 export * from "./SpecialTags";
-export * from "./StatsColumns";
+export * from "./Stat";
 export * from "./Title";
 export * from "./UnitEditor";
 export * from "./UnitPicker";

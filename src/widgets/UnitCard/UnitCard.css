@@ -9,7 +9,6 @@
     column-gap: var(--columns-gap);
 }
 
-.unitcard-statsheader,
 .unitcard-statsrow
 {
     display: grid;
@@ -17,13 +16,6 @@
     /* border-bottom: 1px solid var(--color-ink-blue); */
 }
 
-.unitcard-statsheader > *:nth-child(n + 3),
-.unitcard-statsrow > *:nth-child(n + 3)
-{
-    text-align: center;
-}
-
-.unitcard-statsheader > div,
 .unitcard-specialsrow > strong
 {
     font-size: .8em; 
@@ -37,14 +29,12 @@
 }
 
 .unitcard-header,
-.unitcard-statsheader > div,
 .unitcard-statsrow > div,
 .unitcard-specialsrow
 {
     padding: 2px 4px;
 }
 
-.unitcard-statsheader > div:not(:last-of-type),
 .unitcard-statsrow > div:not(:last-of-type)
 {
     /* border-right: 1px solid var(--color-ink-blue); */

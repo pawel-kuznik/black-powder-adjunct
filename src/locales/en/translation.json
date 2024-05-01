@@ -75,6 +75,7 @@
     "unitcard.stats.special.label": "Special traits",
     "pointsbadge.dense.label": "{{points}} pts",
     "pointsbadge.column.label": "Points",
+    "pointsbadge.brick.label": "pts",
     "unit-type.label.regular-infantry": "Regular infantry",
     "unit-type.label.irregular-infantry": "Irregular infantry",
     "unit-type.label.regular-cavalry": "Regular cavalry",

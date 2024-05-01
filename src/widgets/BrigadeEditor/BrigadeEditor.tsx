@@ -117,7 +117,7 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
                 <div className="brigadeeditor-data common-cardbox">
                     <div className="brigadeeditor-data-inner">
                         <WrittenField name="name" placeholder={String(t("brigadeeditor.name.placeholder"))} valueRef={nameRef} onChange={handleNameChange}/>
-                        <PointsBadge layout="column" points={points}/>
+                        <PointsBadge layout="brick" points={points}/>
                         {onRemove && <Button label={t("brigadeeditor.remove-brigade.label")} style="red" submit={false} onClick={handleBrigadeRemove}/>}
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import "./PointsBadge.css";
 
 export interface PointsBadgeProps {
     points: number;
-    layout?: "dense" | "column";
+    layout?: "dense" | "column" | "brick";
 }
 
 /**
@@ -20,6 +20,15 @@ export function PointsBadge({ points, layout = "dense" } : PointsBadgeProps) {
             <span className="pointsbadge-column">
                 <strong>{points}</strong>
                 <span>{t("pointsbadge.column.label")}</span>
+            </span>
+        </Badge>
+    );
+
+    if (layout === "brick") return (
+        <Badge color="teal" padding="button">
+            <span className="pointsbadge-brick">
+                <strong>{points}</strong>
+                <span>{t("pointsbadge.brick.label")}</span>
             </span>
         </Badge>
     );

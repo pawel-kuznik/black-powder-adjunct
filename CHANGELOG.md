@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Improved layout of cards.
 - Commander picker users commander cards.
 - Unit picker uses unit cards.
 - Army picker uses army cards.

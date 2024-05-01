@@ -15,3 +15,16 @@
     font-size: 1.4em;
     line-height: 1.2rem;
 }
+
+.pointsbadge-brick
+{
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    column-gap: .5ch;
+    align-items: baseline;
+}
+
+.pointsbadge-brick > strong
+{
+    font-size: 1.4em;
+}
