@@ -1,0 +1,30 @@
+.brigadeeditor-unit
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+}
+
+.brigadeeditor-unit .brigadeeditor-unit-multiplier
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 44px;
+
+    border-right: none;
+}
+
+.brigadeeditor-unit:hover .brigadeeditor-unit-multiplier
+{
+    background-color: var(--card-background-hover);
+}
+
+.brigadeeditor-unit .brigadeeditor-unit-multiplier > input
+{
+    font-size: 1.1em;
+    min-width: 32px;
+    width: 32px;
+    border: none;
+    padding: 3.5px 0px;
+    text-align: center;
+}

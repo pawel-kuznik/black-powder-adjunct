@@ -1,3 +1,7 @@
+## [Unreleased]
+
+- Brigade editor can group units and assign number of units.
+
 ## [0.2.1-beta] - 1/05/2024
 
 - Improved layout of cards.

@@ -6,7 +6,7 @@ import { UnitDescriptor } from "../../data/units";
 import { ChooseUnitDialog } from "./ChooseUnitDialog";
 import { WrittenField } from "../WrittenField";
 import { calcBrigadeCost, prepareAnew, prepareBrigadeData } from "../../logic";
-import { BrigadeDescriptor } from "../../data/brigades";
+import { BrigadeDescriptor, BrigadeUnitDescriptor } from "../../data/brigades";
 import { CommanderCard } from "../CommanderCard";
 import { BrigadeUnit } from "./BrigadeUnit";
 import { useTranslation } from "react-i18next";
@@ -51,7 +51,7 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
     const [ points, setPoints ] = useState<number>(calcBrigadeCost(brigade));
     const nameRef = useRef<string>(brigade.name);
     const [ commander, setCommander ] = useState<CommanderDescriptor>(brigade.commander);
-    const [ units, setUnits ] = useState<UnitDescriptor[]>(brigade.units);
+    const [ units, setUnits ] = useState<BrigadeUnitDescriptor[]>(brigade.units);
 
     const updatePoints = (brigade: BrigadeDescriptor) => {
 
@@ -73,9 +73,22 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
 
     const handleUnitPick = (unit: UnitDescriptor) => {
         
-        const updatedUnits = [ ...units, prepareAnew(unit) ]; 
+        const updatedUnits = [ ...units, { count: 1, unit: prepareAnew(unit) } ]; 
         setUnits(updatedUnits);
         const updated = prepareBrigadeData({ id: brigade.id, name: nameRef.current, commander, units: updatedUnits });
+        updatePoints(updated);
+        onChange?.(updated);
+    };
+
+    const handleUnitChange = (unit: BrigadeUnitDescriptor) => {
+
+        const idx = units.findIndex(u => u.unit.id === unit.unit.id);
+        if (idx === -1) return;
+
+        const copy = [...units];
+        copy[idx] = unit;
+        setUnits(copy);
+        const updated = prepareBrigadeData({ id: brigade.id, name: nameRef.current, commander, units: copy });
         updatePoints(updated);
         onChange?.(updated);
     };
@@ -91,9 +104,9 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
         onChange?.(updated);
     };
 
-    const handleUnitRemove = (unit: UnitDescriptor) => {
+    const handleUnitRemove = (unit: BrigadeUnitDescriptor) => {
         
-        const filteredUnits = units.filter(u => u.id !== unit.id);
+        const filteredUnits = units.filter(u => u.unit.id !== unit.unit.id);
         setUnits(filteredUnits);
         const updated = prepareBrigadeData({ id: brigade.id, name: nameRef.current, commander, units: filteredUnits });
         updatePoints(updated);
@@ -127,7 +140,7 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
             </div>
             <div className="brigadeeditor-composition">
                 {units.map(u => (
-                    <BrigadeUnit key={u.id} unit={u} onRemove={handleUnitRemove}/>
+                    <BrigadeUnit key={u.unit.id} unit={u} onChange={handleUnitChange} onRemove={handleUnitRemove}/>
                 ))}
                 <div className="brigadeeditor-addunit">
                     <Button

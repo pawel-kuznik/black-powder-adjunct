@@ -15,6 +15,16 @@ export type UnitType = typeof unitTypes[number];
 
 export type ShotingType = number | "artillery" | "melee";
 
+export const unitSizes = [
+    "tiny",
+    "artillery",
+    "small",
+    "regular",
+    "large"
+] as const;
+
+export type UnitSize = typeof unitSizes[number];
+
 export interface UnitDescriptor {
     id: string;
     name: string;
