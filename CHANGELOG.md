@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- It's possible to edit units inside a brigade.
 - Brigade editor can group units and assign number of units.
 
 ## [0.2.1-beta] - 1/05/2024
