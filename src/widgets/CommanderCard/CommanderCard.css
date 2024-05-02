@@ -22,3 +22,9 @@
 {
     padding: var(--card-padding);
 }
+
+.commandercard-personality-description
+{
+    font-size: 0.8em;
+    opacity: var(--sidenotes-opacity);
+}

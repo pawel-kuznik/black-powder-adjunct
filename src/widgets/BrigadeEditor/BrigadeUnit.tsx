@@ -2,9 +2,13 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
 import { UnitCard } from "../UnitCard";
 import { BrigadeUnitDescriptor } from "../../data/brigades";
+import { useRef } from "react";
+import { useModalControls } from "../Modal";
 
 import "./BrigadeUnit.css";
-import { useRef } from "react";
+import { EditUnitDialog } from "./EditUnitDialog";
+import { UnitDescriptor } from "../../data/units";
+
 
 export interface BrigadeUnitProps {
     unit: BrigadeUnitDescriptor;
@@ -15,6 +19,7 @@ export interface BrigadeUnitProps {
 export function BrigadeUnit({ unit, onChange, onRemove } : BrigadeUnitProps) {
 
     const { t } = useTranslation();
+    const { show } = useModalControls();
     const inputRef = useRef<HTMLInputElement|null>(null);
 
     const handleRemoveClick = () => {
@@ -28,8 +33,20 @@ export function BrigadeUnit({ unit, onChange, onRemove } : BrigadeUnitProps) {
         });
     };
 
+    const handleUnitChange = (unit: UnitDescriptor) => {
+        onChange({
+            count: Number(inputRef.current?.value) || 0,
+            unit
+        });
+    };
+
+    const handleEditClick = () => {
+        show("brigadeeditor-editunit", EditUnitDialog, { unit: unit.unit, onSubmit: handleUnitChange });
+    };
+
     const controls = (
         <>
+            <Button submit={false} onClick={handleEditClick} label={t("brigadeeditor.brigadeunit.edit.label")}/>
             <Button style="red" submit={false} onClick={handleRemoveClick} label={t("brigadeeditor.brigadeunit.remove.label")}/>
         </>
     );

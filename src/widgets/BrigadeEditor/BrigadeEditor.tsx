@@ -83,6 +83,7 @@ export function BrigadeEditor({ brigade, onChange, onRemove } : BrigadeEditorPro
     const handleUnitChange = (unit: BrigadeUnitDescriptor) => {
 
         const idx = units.findIndex(u => u.unit.id === unit.unit.id);
+        console.log('unit-change', idx, unit, units);
         if (idx === -1) return;
 
         const copy = [...units];

@@ -51,7 +51,7 @@ export function CommanderCard({ commander, controls }: CommanderCardProps) {
                     {formatDistance(movement, scale)}
                 </Stat>
                 <Stat label={t("commandercard.personality.label")}>
-                    {t(`commander.personality.${commander.personality}.label`)} - {t(`commander.personality.${commander.personality}.description`)}
+                    {t(`commander.personality.${commander.personality}.label`)} - <span className="commandercard-personality-description">{t(`commander.personality.${commander.personality}.description`)}</span>
                 </Stat>
             </div>
             <div className="commandercard-personality">

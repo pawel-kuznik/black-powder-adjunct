@@ -36,7 +36,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
 
     const handleSubmit = (data: object) => {
 
-        onSubmit?.(prepareUnitData(data));
+        onSubmit?.(prepareUnitData({ ...currentUnit, ...data }));
     };
 
     const handleChange = (data: object) => {
