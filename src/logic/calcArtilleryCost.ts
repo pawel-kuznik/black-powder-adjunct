@@ -12,7 +12,7 @@ import { calcSpecialsCost } from "./calcSpecialsCost";
 export function calcArtilleryCost(unit: UnitDescriptor) {
 
     return calcArtilleryHandToHandCost(unit.handToHand)
-        + calcArtilleryWeaponCost(unit.arnament)
+        + calcArtilleryWeaponCost(unit.armament)
         + calcArtilleryMoraleCost(unit.morale)
         + calcArtilleryStaminaCost(unit.stamina)
         + calcSpecialsCost(unit.special, unit);

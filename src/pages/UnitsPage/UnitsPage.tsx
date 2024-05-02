@@ -10,6 +10,7 @@ export function UnitsPage() {
 
 
     const handlePick = (unit: UnitDescriptor) => {
+        console.log("unit", unit);
         show("edit-unit", UnitDialog, { unit });
     };
 

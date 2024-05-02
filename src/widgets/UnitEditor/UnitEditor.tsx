@@ -57,10 +57,10 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
         return t(`uniteditor.type.${currentUnit.type}.description`, { distance: formatDistance(unitMovement[currentUnit.type], scale)});
     })();
 
-    const arnamentDescription = (() => {
-        if (isWeaponArtillery(currentUnit.arnament)) return t("uniteditor.arnament.artillery.description", { distance: formatDistance(weaponsRange[currentUnit.arnament as keyof typeof weaponsRange], scale) });
-        if (isWeaponRanged(currentUnit.arnament)) return t("uniteditor.arnament.shooting.description", { distance: formatDistance(weaponsRange[currentUnit.arnament as keyof typeof weaponsRange], scale) });
-        return t("uniteditor.arnament.melee.description");
+    const armamentDescription = (() => {
+        if (isWeaponArtillery(currentUnit.armament)) return t("uniteditor.armament.artillery.description", { distance: formatDistance(weaponsRange[currentUnit.armament as keyof typeof weaponsRange], scale) });
+        if (isWeaponRanged(currentUnit.armament)) return t("uniteditor.armament.shooting.description", { distance: formatDistance(weaponsRange[currentUnit.armament as keyof typeof weaponsRange], scale) });
+        return t("uniteditor.armament.melee.description");
     })();
 
     return (
@@ -96,14 +96,14 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                     description={typeDescription}
                 />
                 <FormField
-                    label={t("uniteditor.arnament.label")}
+                    label={t("uniteditor.armament.label")}
                     type="select"
-                    name="arnament"
+                    name="armament"
                     options={weaponsTypes}
                     labels={(o: string) => t(`weapon.label.${o}`)}
                     onChange={handleWeaponChange}
-                    defaultValue={currentUnit?.arnament}
-                    description={arnamentDescription}
+                    defaultValue={currentUnit?.armament}
+                    description={armamentDescription}
                 />
             </div>
             <div className="uniteditor-thirdline">

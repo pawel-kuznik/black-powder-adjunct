@@ -43,7 +43,7 @@ export function UnitCard({ unit, controls, style = "infomative" }: UnitCardProps
     const points = calcUnitCost(unit);
 
     const movement = unitMovement[unit.type];
-    const range = Number(weaponsRange[unit.arnament as keyof typeof weaponsRange] || 0);
+    const range = Number(weaponsRange[unit.armament as keyof typeof weaponsRange] || 0);
 
     return (
         <div className="unitcard common-cardbox">
@@ -55,8 +55,8 @@ export function UnitCard({ unit, controls, style = "infomative" }: UnitCardProps
                 <Stat label={t("unitcard.stats.type.label")}>
                     {t(`unit-type.label.${unit.type}`)}
                 </Stat>
-                <Stat label={t("unitcard.stats.arnament.label")}>
-                    {t(`weapon.label.${unit.arnament}`)}
+                <Stat label={t("unitcard.stats.armament.label")}>
+                    {t(`weapon.label.${unit.armament}`)}
                 </Stat>
                 <Stat label={t("unitcard.stats.movement.label")} align="center">
                     {formatDistance(movement, scale)}

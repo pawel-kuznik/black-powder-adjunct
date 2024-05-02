@@ -9,7 +9,7 @@ function prepareNumber(input: any, fallback: number) : number {
     return Number.isNaN(value) ? fallback : value;
 }
 
-function prepareArnament(input:any, fallback: WeaponType) : WeaponType {
+function prepareArmament(input:any, fallback: WeaponType) : WeaponType {
 
     if (weaponsTypes.includes(input)) return input;
     return fallback;
@@ -49,7 +49,7 @@ function prepareAffiliation(input: any, fallback: string | undefined) : string |
 /**
  *  This is a function that prepare unit data based on some input. The input
  *  can be any kind of object. When specific properties (key, handToHand, morale,
- *  stamina, shooting, arnament, type, and special) are found in the object, 
+ *  stamina, shooting, armament, type, and special) are found in the object, 
  *  the function will attempt to parse it and assign values to a new descriptor.
  *  If an expected value can't be found in the input, the functin will fallback
  *  on the passed fallback unit. 
@@ -68,7 +68,7 @@ export function prepareUnitData(input: object, fallback: UnitDescriptor = { ...b
     if ('stamina' in input) unit.stamina = prepareNumber(input.stamina, fallback.stamina);
     if ('shooting' in input) unit.shooting = prepareShooting(input.shooting, fallback.shooting);
 
-    if ('arnament' in input) unit.arnament = prepareArnament(input.arnament, fallback.arnament);
+    if ('armament' in input) unit.armament = prepareArmament(input.armament, fallback.armament);
     if ('type' in input) unit.type = prepareType(input.type, unit.type);
 
     if ('special' in input) unit.special = prepareSpecial(input.special, unit.special);

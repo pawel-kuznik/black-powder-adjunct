@@ -10,7 +10,7 @@
 }
 
 .unitpicker-unititem-name, 
-.unitpicker-unititem-arnament,
+.unitpicker-unititem-armament,
 .unitpicker-unititem-number
 {
     padding: 2px;
@@ -23,7 +23,7 @@
 }
 
 .unitpicker-unititem-number,
-.unitpicker-unititem-arnament
+.unitpicker-unititem-armament
 {
     text-align: center;
 }
