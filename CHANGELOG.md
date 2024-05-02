@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Added animation on points badge to make it more visible which points change.
 - It's possible to edit units inside a brigade.
 - Brigade editor can group units and assign number of units.
 
