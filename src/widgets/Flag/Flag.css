@@ -1,9 +1,9 @@
 .flag
 {
-    width: 18px;
-    height: 15px;
+    display: inline-block;
 
-    margin-bottom: -1px;
+    width: 22px;
+    height: 18px;
 
     border-radius: 2px;
 

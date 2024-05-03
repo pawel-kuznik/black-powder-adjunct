@@ -21,6 +21,8 @@ export function Flag({ which }: FlagProps) {
 
 
     return (
-        <img className="flag" alt={which} src={svg}/>
+        <div>
+            <img className="flag" alt={which} src={svg}/>
+        </div>
     );
 }
