@@ -18,7 +18,7 @@ export function calcSpecialCost(special: SpecialType, unit: UnitDescriptor) {
             if (unit.morale >= 4) return 3;
             return 4;
         case 'determined-charge': return -5;
-        case 'elite': return 6;
+        case 'elite-4': return 6;
         case 'fanatic': 
             if (isUnitInfantry(unit)) return 8;
             if (isUnitCavalry(unit)) return 10;
@@ -47,6 +47,9 @@ export function calcSpecialCost(special: SpecialType, unit: UnitDescriptor) {
         case 'untested': return 0;
         case 'valiant': return 3;
         case 'wavering': return unit.stamina * 2 * -1;
+        case 'pas-de-charge': return 2;
+        case 'mixed-formation': return 1;
+        case "steady-line": return 1;
     }
 
     // @todo: handle "skirmishers" 

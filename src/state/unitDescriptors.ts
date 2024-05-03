@@ -3,13 +3,15 @@ import { UnitDescriptor, defaultUnits } from "../data/units";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 if (!localStorage.getItem("unit-descriptors")) {
-    localStorage.setItem("unit-descriptors", JSON.stringify({ state: { descriptors: defaultUnits, version: 0 } }));
+    localStorage.setItem("unit-descriptors", JSON.stringify({ state: { descriptors: arrayToDescriptor(defaultUnits), version: 0 } }));
 }
 
 export interface UnitDescriptorStore {
     descriptors: { [key: string ] : UnitDescriptor };
     store: (unit: UnitDescriptor) => void;
     remove: (unit: UnitDescriptor) => void;
+    replaceAll: (replacement: { [key: string ] : UnitDescriptor }) => void;
+    restoreDefaults: () => void;
 };
 
 /**
@@ -26,17 +28,34 @@ export const useUnitDescriptorsStore = create<UnitDescriptorStore>()(
                     ...state.descriptors,
                     ...{ [unit.id]: unit }
                 }
-            }))
+            }));
         },
         remove: (unit: UnitDescriptor) => {
             set(state => {
                 const copy = { ...state };
                 delete copy.descriptors[unit.id];
                 return copy;
-            })
+            });
+        },
+        replaceAll: (replacement: { [key: string ] : UnitDescriptor }) => {
+            set(() => ({ descriptors: replacement }));  
+        },
+        restoreDefaults: () => {
+            set(() => ({ descriptors: arrayToDescriptor(defaultUnits) }));
         }
     }), {
         name: "unit-descriptors",
         storage: createJSONStorage(() => localStorage),
     })
 );
+
+function arrayToDescriptor(input: UnitDescriptor[]) : { [ key: string ] : UnitDescriptor } {
+
+    const data : { [ key: string ] : UnitDescriptor } = { };
+
+    input.forEach(u => {
+        data[u.id] = u;
+    });
+
+    return data;
+};

@@ -16,6 +16,16 @@
     column-gap: var(--columns-gap);
 }
 
+.title .title-controls
+{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    column-gap: var(--columns-gap);
+
+    padding: 2px;
+}
+
 h1.title
 {
     font-size: 3em;

@@ -15,6 +15,7 @@ export * from "./ControlsWrapper";
 export * from "./Flag";
 export * from "./FormField";
 export * from "./Input";
+export * from "./JSONField";
 export * from "./Page";
 export * from "./PointsBadge";
 export * from "./SelectInput";
