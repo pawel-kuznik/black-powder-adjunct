@@ -18,7 +18,9 @@ export function calcSpecialCost(special: SpecialType, unit: UnitDescriptor) {
             if (unit.morale >= 4) return 3;
             return 4;
         case 'determined-charge': return -5;
+        case 'elite-3': return 8;
         case 'elite-4': return 6;
+        case 'elite-5': return 4;
         case 'fanatic': 
             if (isUnitInfantry(unit)) return 8;
             if (isUnitCavalry(unit)) return 10;

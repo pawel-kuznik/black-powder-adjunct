@@ -21,6 +21,7 @@ export * from "./calcSpecialCost";
 export * from "./calcSpecialsCost";
 export * from "./calcUnitCost";
 export * from "./calcWeaponRange";
+export * from "./filterUnits";
 export * from "./formatDistance";
 export * from "./isUnitArtillery";
 export * from "./isUnitCavalry";

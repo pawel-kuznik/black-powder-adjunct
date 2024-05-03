@@ -1,0 +1,10 @@
+.unitpicker-filter
+{
+    padding: 2px;
+}
+
+.unitpicker-filter > input[type="search"]
+{
+    display: block;
+    width: 100%;
+}
