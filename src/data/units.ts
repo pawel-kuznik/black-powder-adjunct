@@ -289,7 +289,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "must-form-square", "mixed-formation", "can-form-skirmish", "columns-of-companies" ],
+        special: [ "must-form-square", "lie-down", "mixed-formation", "can-form-skirmish", "columns-of-companies" ],
         affiliation: "prussian"
     },
     // Prussian usiliers
@@ -302,7 +302,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "sharp-shooters", "skirmishers", "must-form-square", "mixed-formation", "can-form-skirmish" ],
+        special: [ "sharp-shooters", "skirmishers", "lie-down", "must-form-square", "mixed-formation", "can-form-skirmish" ],
         affiliation: "prussian"
     },
     // Prussian landwehr
@@ -315,7 +315,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "unreliable", "must-form-square", "mixed-formation", "can-form-skirmish", "columns-of-companies" ],
+        special: [ "unreliable", "must-form-square", "lie-down", "mixed-formation", "can-form-skirmish", "columns-of-companies" ],
         affiliation: "prussian"
     },
     // Prussian jagers
@@ -328,7 +328,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "reliable", "elite-5", "must-form-square", "mixed-formation", "columns-of-companies", "skirmish", "sharp-shooters" ],
+        special: [ "reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "columns-of-companies", "skirmish", "sharp-shooters" ],
         affiliation: "prussian"
     },
     {
@@ -340,7 +340,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 2,
         morale: 4,
         stamina: 2,
-        special: [ "reliable", "elite-5", "must-form-square", "mixed-formation", "columns-of-companies", "skirmish", "sharp-shooters" ],
+        special: [ "reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "columns-of-companies", "skirmish", "sharp-shooters" ],
         affiliation: "prussian"
     },
     {
@@ -352,7 +352,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 1,
         morale: 4,
         stamina: 1,
-        special: [ "reliable", "elite-5", "must-form-square", "mixed-formation", "columns-of-companies", "skirmish", "sharp-shooters" ],
+        special: [ "reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "columns-of-companies", "skirmish", "sharp-shooters" ],
         affiliation: "prussian"
     },
     // Prussian dragoons
@@ -443,7 +443,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "sharp-shooters", "skirmish", "pas-de-charge", "must-form-square", "mixed-formation", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "sharp-shooters", "skirmish", "lie-down", "pas-de-charge", "must-form-square", "mixed-formation", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Young Guard
@@ -456,7 +456,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "elite-5", "pas-de-charge", "skirmish", "must-form-square", "mixed-order", "can-form-skirmish" ],
+        special: [ "reliable", "elite-5", "lie-down", "pas-de-charge", "skirmish", "must-form-square", "mixed-order", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Old Guard Chasseurs
@@ -469,7 +469,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "elite-3", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Middle Guard Chasseurs
@@ -482,7 +482,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "elite-4", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "reliable", "elite-4", "lie-down", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Combined Grenadiers
@@ -495,7 +495,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 2,
-        special: [ "elite-5", "pas-de-charge", "must-form-square", "mixed-formation", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "elite-5", "pas-de-charge", "lie-down", "must-form-square", "mixed-formation", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Old Guard Grenadiers
@@ -508,7 +508,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "elite-3", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Middle Guard Grenadiers
@@ -521,7 +521,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "elite-4", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "reliable", "elite-4", "lie-down", "pas-de-charge", "must-form-square", "mixed-order", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Combined Voltigeurs
@@ -534,7 +534,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 2,
-        special: [ "skirmish", "sharp-shooters", "must-form-square", "mixed-formation", "columns-of-companies", "can-form-skirmish" ],
+        special: [ "skirmish", "sharp-shooters", "lie-down", "must-form-square", "mixed-formation", "columns-of-companies", "can-form-skirmish" ],
         affiliation: "french"
     },
     // French Marines of the Guard
@@ -547,7 +547,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 2,
         morale: 3,
         stamina: 2,
-        special: [ "reliable", "elite-4" ],
+        special: [ "reliable", "elite-4", "lie-down" ],
         affiliation: "french"
     },
     {
@@ -559,7 +559,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 1,
         morale: 3,
         stamina: 1,
-        special: [ "reliable", "elite-4" ],
+        special: [ "reliable", "elite-4", "lie-down" ],
         affiliation: "french"
     },
     // French Carabiniers
