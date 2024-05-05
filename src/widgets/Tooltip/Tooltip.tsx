@@ -25,7 +25,6 @@ export function Tooltip({ locked, onDismiss, children }: TooltipProps) {
             <div className="tooltip-contents">
                 {children}
             </div>
-            {!locked && <div className="tooltip-locker"></div>}
         </div>
     );
 };

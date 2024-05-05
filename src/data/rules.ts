@@ -11,6 +11,14 @@ export const rulesTypes = [
     "gallop-at-anything",
     "deep-formation",
     "half-battery",
+    // base rules
+    "form-square",
+    "first-fire",
+    "lancers",
+    "marauders",
+    "heavy-cavalry+d3",
+    "heavy-cavalry+1",
+    "freshly-raised"
 
 ] as const;
 

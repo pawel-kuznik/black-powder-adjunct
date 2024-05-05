@@ -2,21 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TooltipAnchor } from './TooltipAnchor';
 import { Tooltip, TooltipProps } from '..';
 
-interface TestTooltipProps extends TooltipProps {
-
-};
+interface TestTooltipProps extends TooltipProps { };
 
 function TestTooltip(props: TestTooltipProps) {
 
     return (
         <Tooltip {...props}>
-            TEST TOOLTIP
+            Interesting content tooltip
             <div><TooltipAnchor tooltip={TestTooltip}>More interesting content</TooltipAnchor></div>
         </Tooltip>
     );
 };
 
-function TooltipTest() {
+interface TooltipTestProps { };
+
+function TooltipTest({ } : TooltipTestProps) {
     return (
         <div>
             <TooltipAnchor tooltip={TestTooltip}>Interesting content</TooltipAnchor>
