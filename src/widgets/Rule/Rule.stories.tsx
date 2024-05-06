@@ -13,9 +13,57 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Brave: Story = {
+    args: {
+        rule: "brave"
+    }
+};
+
+export const Crack: Story = {
+    args: {
+        rule: "crack"
+    }
+};
+
+export const Elite3: Story = {
+    args: {
+        rule: "elite-3"
+    }
+};
+
+export const Elite4: Story = {
+    args: {
+        rule: "elite-4"
+    }
+};
+
+export const Elite5: Story = {
+    args: {
+        rule: "elite-5"
+    }
+};
+
+export const Elite6: Story = {
+    args: {
+        rule: "elite-6"
+    }
+};
+
 export const FirstFire: Story = {
     args: {
         rule: "first-fire"
+    }
+};
+
+export const Fanatics: Story = {
+    args: {
+        rule: "fanatics"
+    }
+};
+
+export const FerociousCharge: Story = {
+    args: {
+        rule: "ferocious-charge"
     }
 };
 
