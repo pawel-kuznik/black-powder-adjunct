@@ -79,6 +79,36 @@ export const FreshlyRaised: Story = {
     }
 };
 
+export const MountedInfantry: Story = {
+    args: {
+        rule: "mounted-infantry"
+    }
+};
+
+export const PoorShooters: Story = {
+    args: {
+        rule: "poor-shooters"
+    }
+};
+
+export const Reliable: Story = {
+    args: {
+        rule: "reliable"
+    }
+};
+
+export const SharpShooters: Story = {
+    args: {
+        rule: "sharp-shooters"
+    }
+};
+
+export const Steady: Story = {
+    args: {
+        rule: "steady"
+    }
+};
+
 export const LieDown: Story = {
     args: {
         rule: "lie-down"

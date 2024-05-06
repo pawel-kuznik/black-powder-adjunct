@@ -4,6 +4,7 @@ import { RuleLayout } from "./RuleLayout";
 import { LieDown } from "./Rules/LieDown";
 import { FreshlyRaised } from "./Rules/FreshlyRaised";
 import { Fanatics } from "./Rules/Fanatics";
+import { MountedInfantry } from "./Rules/MountedInfantry";
 
 export interface RuleProps {
 
@@ -16,6 +17,7 @@ export function Rule({ rule } : RuleProps) {
 
     if (rule === "fanatics") return <Fanatics/>
     if (rule === "freshly-raised") return <FreshlyRaised/>
+    if (rule === "mounted-infantry") return <MountedInfantry/>
     if (rule === "lie-down") return <LieDown/>;
 
     return (

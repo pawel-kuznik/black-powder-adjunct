@@ -27,7 +27,12 @@ export const rulesTypes = [
     "marauders",
     "heavy-cavalry+d3",
     "heavy-cavalry+1",
-    "freshly-raised"
+    "freshly-raised",
+    "mounted-infantry",
+    "poor-shooters",
+    "reliable",
+    "sharp-shooters",
+    "steady"
 
 ] as const;
 
