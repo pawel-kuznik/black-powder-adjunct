@@ -10,7 +10,7 @@ export function MainMenu() {
     return (
         <nav className="mainmenu">
             <h1>Black Powder Adjunct</h1>
-            {/* <Link to="/rules">Rules</Link> */}
+            <Link to="/rules">Rules</Link>
             {/* <Link to="/scenarios">Scenarios</Link> */}
             <Link to="/about">About</Link>
             <Link to="/commanders">Commanders</Link>
