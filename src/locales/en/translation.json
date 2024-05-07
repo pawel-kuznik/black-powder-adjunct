@@ -98,10 +98,6 @@
     "unit-type.label.regular-artillery": "Regular artillery",
     "unit-type.label.light-artillery": "Light artillery",
     "specialsinput.add": "Add special trait",
-    
-    "special.label.skirmishers": "Skirmishers",
-    "special.description.skirmishers": "Can be deployed in skirmish order.",
-
     "weapon.label.swords": "Swords",
     "weapon.label.sabres": "Sabres",
     "weapon.label.lances": "Lances",

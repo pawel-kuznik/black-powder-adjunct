@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Adding more robust tooltips. They can hold complex data and spawn even more tooltip. (Similar functionality to Victoria 3 tooltips.)
+- Re-added page with rules. It contains a list of all rules in the game.
 - Added more default units data sheets.
 - Added animation on points badge to make it more visible which points change.
 - It's possible to edit units inside a brigade.
