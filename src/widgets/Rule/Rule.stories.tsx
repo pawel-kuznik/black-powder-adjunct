@@ -109,6 +109,60 @@ export const Steady: Story = {
     }
 };
 
+export const Stubborn: Story = {
+    args: {
+        rule: "stubborn"
+    }
+};
+
+export const SuperblyDrilled: Story = {
+    args: {
+        rule: "superbly-drilled"
+    }
+};
+
+export const TerrifyingCharge: Story = {
+    args: {
+        rule: "terrifying-charge"
+    }
+};
+
+export const ToughFighters: Story = {
+    args: {
+        rule: "tough-fighters"
+    }
+};
+
+export const Unreliable: Story = {
+    args: {
+        rule: "unreliable"
+    }
+};
+
+export const Untested: Story = {
+    args: {
+        rule: "untested"
+    }
+};
+
+export const Valiant: Story = {
+    args: {
+        rule: "valiant"
+    }
+};
+
+export const Wavering: Story = {
+    args: {
+        rule: "wavering"
+    }
+};
+
+export const Skirmishers: Story = {
+    args: {
+        rule: "skirmishers"
+    }
+};
+
 export const LieDown: Story = {
     args: {
         rule: "lie-down"

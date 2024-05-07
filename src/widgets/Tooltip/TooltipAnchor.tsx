@@ -5,11 +5,11 @@ const lockTimeout = 1200;
 
 export interface TooltipAnchorProps<TTooltipProps extends TooltipProps = TooltipProps> {
     tooltip: FunctionComponent<TTooltipProps>;
-    tooltipProps?: TTooltipProps;
+    tooltipProps?: Partial<TTooltipProps>;
     children: ReactNode;
 };
 
-export function TooltipAnchor({ children, tooltip, tooltipProps } : TooltipAnchorProps) {
+export function TooltipAnchor<TTooltipProps extends TooltipProps = TooltipProps>({ children, tooltip, tooltipProps } : TooltipAnchorProps<TTooltipProps>) {
 
     const [ timer, setTimer ] = useState<ReturnType<typeof window.setTimeout>>();
     const [ showing, setShowing ] = useState<boolean>(false);
@@ -57,7 +57,7 @@ export function TooltipAnchor({ children, tooltip, tooltipProps } : TooltipAncho
     return (
         <span onPointerEnter={handleEnter} onPointerLeave={handleLeave}>
             {children}
-            {showing && <TooltipComponent {...tooltipProps} locked={locked} onDismiss={handleDismiss}/>}
+            {showing && <TooltipComponent {...tooltipProps as any} locked={locked} onDismiss={handleDismiss}/>}
         </span>
     );
 };

@@ -1,17 +1,16 @@
-export const rulesTypes = [
-    // Albion Triumphant infantry rules
+export const specialTypes = [
+    // albion tiumphant
     "detached-ligh-companies",
     "four-deep-line",
     "cannot-form-attack-column",
     "column-of-companies",
     "rifle-mixed-formation",
     "lie-down",
-    // Albion Triumphan cavalry rules
     "ferocious-charge",
     "gallop-at-anything",
     "deep-formation",
     "half-battery",
-    // base rules
+    // base
     "brave",
     "crack",
     "elite-2",
@@ -32,8 +31,24 @@ export const rulesTypes = [
     "poor-shooters",
     "reliable",
     "sharp-shooters",
-    "steady"
+    "steady",
+    "stubborn",
+    "superbly-drilled",
+    "terrifying-charge",
+    "tough-fighters",
+    "unreliable",
+    "untested",
+    "valiant",
+    "wavering",
+    "skirmishers"
+] as const;
 
+export type SpecialType = typeof specialTypes[number];
+
+export const rulesTypes = [
+    ...specialTypes,
+    "break-test"
 ] as const;
 
 export type RuleType = typeof rulesTypes[number];
+
