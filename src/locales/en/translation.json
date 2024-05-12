@@ -262,5 +262,18 @@
     "rule.break-test.results.result.7.hand-to-hand.infantry.description": "The unit holds ground - it stays where is. The unit will continue fighting in the following combat round.",
     "rule.break-test.results.result.7.hand-to-hand.cavalry.description": "The unit retires one full move to its rear remaning formation and avoiding contact with the enemy. If unable to comply it becomes disordered and makes two moves to achieve tenable position. If unable to comply, the init breaks and it is removed from the game.",
     "rule.break-test.results.result.7.hand-to-hand.artillery.description": "The unit breaks and it's removed from the game.",
-    "": ""
+    "rule.detached-light-companies.label": "Detached Light Company",
+    "rule.detached-light-companies.description": "All battalions in the brigae lose their light company. The parent battalions lose their ability to form Mixed Order. If two battalions lose their light companies a Tiny unit is created that can be added to any infantry brigade in the army. The Light companies of three or four battalions create a small unit that can be added in the same way.",
+    "rule.four-deep-line.label": "Four-Deep Line",
+    "rule.four-deep-line.description": "A battalion in this formation assumes the shape of a column formation, but doesn't count as one. The battalion's shooting and hand-to-hand values are reduced by 1.",
+    "rule.cannot-form-attack-column.label": "Cannon Form Attack Column",
+    "rule.cannot-form-attack-column.description": "The unit can't operate in attack column formation. Note that unit can form an Attack Column in narrow places (like villages, towns, or narrow valleys), but it's only applicable when other formations wouldn't allow the unit to fit in narrow space.",
+    "rule.column-of-companies.label": "A Column of Companies",
+    "rule.column-of-companies.description.0": "The unit gains the ability to form a column of companies formation. This formation looks like a column formation.",
+    "rule.column-of-companies.description.1": "The commander ordering a column of companies unit receives a +1 to his Staff Rating. The bonus also applies when ordering a whole brigade in which all units are in column of companies formations.",
+    "rule.column-of-companies.description.2": "The unit in this formation shoots with one die in the shooting phase.",
+    "rule.column-of-companies.description.3": "The unit reduces its Hand-to-Hand value by 2. A regular sized unit would have a value of 4.",
+    "rule.column-of-companies.description.4": "The unit counts as an Attack Column when shot at by artillery, but it doesn't get the Morale bonus of an Attack Column when saving casualties.",
+    "rule.rifle-mixed-formation.label": "Rifle Mixed Formation",
+    "rile.rifle-mixed-formation.description": "[WIP]"
 }

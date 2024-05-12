@@ -195,6 +195,6 @@ export const Marauders: Story = {
 
 export const DetachedLightCompanies: Story = {
     args: {
-        rule: "detached-ligh-companies"
+        rule: "detached-light-companies"
     },
 };

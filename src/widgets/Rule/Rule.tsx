@@ -8,6 +8,7 @@ import { MountedInfantry } from "./Rules/MountedInfantry";
 import { Untested } from "./Rules/Untested";
 import { RuleAnchor } from "./RuleAnchor";
 import { BreakTest } from "./Rules/BreakTest";
+import { ColumnOfCompanies } from "./Rules/ColumnOfCompanies";
 
 export interface RuleProps {
 
@@ -20,6 +21,7 @@ export function Rule({ rule } : RuleProps) {
 
     if (rule === "break-test") return <BreakTest/>
 
+    if (rule === "column-of-companies") return <ColumnOfCompanies/>
     if (rule === "fanatics") return <Fanatics/>
     if (rule === "freshly-raised") return <FreshlyRaised/>
     if (rule === "mounted-infantry") return <MountedInfantry/>

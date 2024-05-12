@@ -1,6 +1,6 @@
 export const specialTypes = [
     // albion tiumphant
-    "detached-ligh-companies",
+    "detached-light-companies",
     "four-deep-line",
     "cannot-form-attack-column",
     "column-of-companies",

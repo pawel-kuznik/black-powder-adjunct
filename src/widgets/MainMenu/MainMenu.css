@@ -1,6 +1,24 @@
 .mainmenu
 {
-    float: left;
+    position: fixed;
+    width: 400px;
+
+    top: 0;
+    bottom: 0;
+
+    transition: left .2s;
+
+    background: linear-gradient(90deg, rgba(220,220,220,0.8) 0%, rgba(255,255,255,1) 75%, rgba(0,0,0,0) 100%);
+}
+
+.mainmenu.mainmenu-collapsed
+{
+    left: -600px;
+}
+
+.mainmenu.mainmenu-expanded
+{
+    left: 0px;
 }
 
 .mainmenu a
