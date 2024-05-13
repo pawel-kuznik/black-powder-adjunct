@@ -67,3 +67,20 @@
     color: #c05864;
 }
 
+.mainmenu-button
+{
+    position: fixed;
+    z-index: 2; 
+    
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    padding: 2px 8px;
+    font-weight: bold;
+}
+
+.mainmenu > img
+{
+    margin-top: 3rem;
+}

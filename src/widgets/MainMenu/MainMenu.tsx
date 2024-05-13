@@ -15,15 +15,19 @@ export function MainMenu() {
     const menuCss = [ "mainmenu", `mainmenu-${expanded ? "expanded" : "collapsed"}` ];
     const buttonCSS = [ "mainmenu-button", `mainmenu-button-${expanded ? "expanded" : "collapsed"}`];
 
+    const handleMainSectionClick = () => {
+        setExpanded(false);
+    };
+
     return (
         <div>
             <button className={buttonCSS.join(" ")} onClick={handleToggleClick}>MENU</button>
             <nav className={menuCss.join(" ")}>
-                <h1>Black Powder Adjunct</h1>
-                <div className="mainmenu-main">
-                    <Link to="/rules">Rules</Link>
+                <img src="/black-powder-adjunct/main_logo.svg" alt="Black Powder Adjunct logo"/>
+                <div className="mainmenu-main" onClick={handleMainSectionClick}>
                     {/* <Link to="/scenarios">Scenarios</Link> */}
                     <Link to="/about">About</Link>
+                    <Link to="/rules">Rules</Link>
                     <Link to="/commanders">Commanders</Link>
                     <Link to="/units">Units</Link>
                     <Link to="/lists">Lists</Link>

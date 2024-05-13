@@ -8,3 +8,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body
+{
+  background-image: url('/black-powder-adjunct/map_background.svg');
+  background-attachment: fixed;
+  background-position: center center;
+}
