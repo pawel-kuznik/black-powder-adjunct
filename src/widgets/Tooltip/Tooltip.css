@@ -38,6 +38,8 @@
     animation-iteration-count: 1;
 
     font-size: 11pt;
+
+    z-index: 1;
 }
 
 .tooltip-contents
@@ -56,21 +58,3 @@
     font-size: 0.5em;
 }
 
-.tooltip table {
-    border: 1px solid var(--color-ink-blue);
-    border-collapse: collapse;
-}
-
-.tooltip table td,
-.tooltip table th
-{
-    border: 1px solid var(--color-ink-blue);
-    padding: 2px;
-}
-
-.tooltip table th
-{
-    background: var(--color-ink-blue);
-    color: var(--color-letter-border);
-    font-weight: normal;
-}

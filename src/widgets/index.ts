@@ -14,6 +14,7 @@ export * from "./CommanderPicker";
 export * from "./ControlsWrapper";
 export * from "./Flag";
 export * from "./FormField";
+export * from "./HorizontalDecorator";
 export * from "./Input";
 export * from "./JSONField";
 export * from "./Page";

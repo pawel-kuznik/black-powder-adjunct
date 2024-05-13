@@ -1,4 +1,7 @@
 import { ReactNode } from "react";
+import { HorizontalDecorator } from "../HorizontalDecorator";
+
+import "./RuleLayout.css";
 
 export interface RuleLayoutProps {
     title: string;
@@ -8,8 +11,9 @@ export interface RuleLayoutProps {
 export function RuleLayout({ title, children } : RuleLayoutProps) {
 
     return (
-        <div>
+        <div className="rulelayout">
             <h4>{title}</h4>
+            <HorizontalDecorator/>
             <div>
                 {children}
             </div>

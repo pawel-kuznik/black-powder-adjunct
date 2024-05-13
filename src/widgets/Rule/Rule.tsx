@@ -3,7 +3,6 @@ import { RuleType } from "../../data/rules";
 import { RuleLayout } from "./RuleLayout";
 import { LieDown } from "./Rules/LieDown";
 import { FreshlyRaised } from "./Rules/FreshlyRaised";
-import { Fanatics } from "./Rules/Fanatics";
 import { MountedInfantry } from "./Rules/MountedInfantry";
 import { Untested } from "./Rules/Untested";
 import { RuleAnchor } from "./RuleAnchor";
@@ -22,7 +21,6 @@ export function Rule({ rule } : RuleProps) {
     if (rule === "break-test") return <BreakTest/>
 
     if (rule === "column-of-companies") return <ColumnOfCompanies/>
-    if (rule === "fanatics") return <Fanatics/>
     if (rule === "freshly-raised") return <FreshlyRaised/>
     if (rule === "mounted-infantry") return <MountedInfantry/>
     if (rule === "untested") return <Untested/>
@@ -31,6 +29,8 @@ export function Rule({ rule } : RuleProps) {
     return (
         <RuleLayout title={t(`rule.${rule}.label`)}>
             <Trans i18nKey={`rule.${rule}.description`} components={{
+                FerociousCharge: <RuleAnchor rule="ferocious-charge"/>,
+                TerrifyingCharge: <RuleAnchor rule="terrifying-charge"/>,
                 BreakTest: <RuleAnchor rule="break-test"/>
              }}/>
         </RuleLayout>

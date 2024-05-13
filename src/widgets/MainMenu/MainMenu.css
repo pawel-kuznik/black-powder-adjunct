@@ -50,18 +50,10 @@
 
 .mainmenu-main a::first-letter
 {
-    background: transparent;
-    border: 2px solid transparent;
-    padding: 2px;
     font-weight: bold;
     font-size: 1.1em;
-    margin-right: -3px;
 
-    transition:
-        color 2s,
-        border 2s,
-        background 2s;
-
+    transition: color 2s;
 }
 
 .mainmenu-main a:hover
@@ -72,7 +64,6 @@
 
 .mainmenu-main a:hover::first-letter
 {
-    border-color: #A31C2B;
-    background: #c05864;
+    color: #c05864;
 }
 

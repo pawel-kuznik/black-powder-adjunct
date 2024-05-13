@@ -1,0 +1,45 @@
+.rulelayout
+{
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.rulelayout > h4
+{
+    margin-top: 1em;
+    margin-bottom: .25em;
+}
+
+.rulelayout p
+{
+    margin-top: .25em;
+    margin-bottom: .25em;
+}
+
+.rulelayout table {
+    border: 1px solid var(--color-ink-blue);
+    border-collapse: collapse;
+}
+
+.rulelayout table td,
+.rulelayout table th
+{
+    border: 1px solid var(--color-ink-blue);
+    padding: 2px;
+}
+
+.rulelayout table th
+{
+    background: var(--color-ink-blue);
+    color: var(--color-letter-border);
+    font-weight: normal;
+}
+
+/* Special adjustments when RuleLayout is used insied a Tooltip */
+.tooltip .rulelayout > h4,
+.tooltip .rulelayout
+{
+    margin-top: .5em;
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+}

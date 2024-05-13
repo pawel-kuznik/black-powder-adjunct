@@ -1,0 +1,16 @@
+.horizontaldecorator
+{
+    width: 95%;
+    min-width: 300px;
+    margin-right: 2.5%;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.horizontaldecorator-line
+{
+    background: var(--color-ink-blue);
+    height: 1px;
+}

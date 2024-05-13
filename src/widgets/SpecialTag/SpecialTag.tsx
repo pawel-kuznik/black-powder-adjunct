@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import { SpecialType } from "../../data/special";
 
 import "./SpecialTag.css";
+import { RuleAnchor } from "../Rule";
+import { RuleType } from "../../data/rules";
 
 export interface SpecialTag {
     
@@ -36,13 +38,9 @@ export function SpecialTag({ special, expanded, onClick } : SpecialTag) {
     const css = [ "specialtag" ];
     if (onClick) css.push("spacialtag-clickable");
 
-    // when the expanded is not provided then we want to still give the hint
-    // about what is the spcial trait in a tooltip.
-    const title = !expanded ? String(t(`special.description.${special}`)) : "";
-
     return (
-        <span className={css.join(" ")} title={title} onClick={handleClick}>
-            {t(`special.label.${special}`)}
+        <span className={css.join(" ")} onClick={handleClick}>
+            <RuleAnchor rule={special as RuleType}>{t(`rule.${special}.label`)}</RuleAnchor>
             {expanded && (<div className="specialtag-description"> - {String(t(`special.description.${special}`))}</div>)}
         </span>
     );
