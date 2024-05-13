@@ -36,10 +36,14 @@
 }
 
 /* Special adjustments when RuleLayout is used insied a Tooltip */
-.tooltip .rulelayout > h4,
 .tooltip .rulelayout
 {
     margin-top: .5em;
     margin-left: 0.75em;
     margin-right: 0.75em;
+}
+
+.tooltip .rulelayout > h4
+{
+    margin-top: .5em;
 }

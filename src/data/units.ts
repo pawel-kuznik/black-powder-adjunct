@@ -72,7 +72,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "elite-3", "lie-down", "must-form-square", "columns-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column"  ],
+        special: [ "reliable", "elite-3", "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column"  ],
         affiliation: "british"
     },
     // British line infantry
@@ -85,7 +85,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "lie-down", "must-form-square", "columns-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
+        special: [ "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
         affiliation: "british"    
     },
     // British highland infantry
@@ -98,7 +98,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "tough-fighters", "lie-down", "must-form-square", "columns-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
+        special: [ "tough-fighters", "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
         affiliation: "british"
     },
     // British light infantry
