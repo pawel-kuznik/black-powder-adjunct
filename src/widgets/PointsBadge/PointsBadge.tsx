@@ -19,7 +19,7 @@ export function PointsBadge({ points, layout = "dense" } : PointsBadgeProps) {
     const { t } = useTranslation();
 
     const [ currentPoints, setCurrentPoints ] = useState<number>(() => points);
-    const [ timer, setTimer ] = useState<ReturnType<typeof setInterval>>(-1);
+    const [ timer, setTimer ] = useState<number>(-1);
 
     // this useEffect sets the currently displayed points to passed
     // value on component mount. This makes sure that we don't animate
@@ -54,7 +54,13 @@ export function PointsBadge({ points, layout = "dense" } : PointsBadgeProps) {
             setCurrentPoints(currentPoints + Math.max(Math.min(diff, numberChangeSpeed), -numberChangeSpeed));
         }, 50);
 
-        setTimer(t);
+        // we cast the timer id (which is returned from the setTimeout function) to unknown
+        // and then to a number cause the types of node.js Timeout is leaking. Node.js also
+        // has setTimeout, setInterval, and clearTimeout function which operates on instances
+        // of Timeout instead of timer ids. Configuration that vite comes with allows for this
+        // leak and at the moment of writing of this comment, I don't wanna fix configs to
+        // make this specifi line look nicer.
+        setTimer(t as unknown as number);
 
     }, [ points, currentPoints, setCurrentPoints ]);
 
