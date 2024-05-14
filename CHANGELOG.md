@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.3.0] - 14/05/2024
+
 - Adding more robust tooltips. They can hold complex data and spawn even more tooltip. (Similar functionality to Victoria 3 tooltips.)
 - Re-added page with rules. It contains a list of all rules in the game.
 - Added more default units data sheets.

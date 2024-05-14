@@ -2,7 +2,7 @@
   "name": "@pawel-kuznik/black-powder-adjunct",
   "private": true,
   "homepage": "https://pawel-kuznik.github.io/black-powder-adjunct",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
