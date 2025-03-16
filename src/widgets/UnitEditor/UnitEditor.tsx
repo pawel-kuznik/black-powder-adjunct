@@ -21,18 +21,18 @@ export interface UnitEditorProps {
     onCancel?: () => void;
 };
 
-function composeUnit(state: UnitDescriptor, action: Partial<UnitDescriptor>) : UnitDescriptor {
+function composeUnit(state: UnitDescriptor, action: Partial<UnitDescriptor>): UnitDescriptor {
     return prepareUnitData({ ...state, ...action });
 }
 
-export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
+export function UnitEditor({ unit, onSubmit, onCancel }: UnitEditorProps) {
 
     const { t } = useTranslation();
     const { scale } = useScaleStore();
     const affiliations = useAffiliations();
 
-    const [ weapon, setWeapon ] = useState<WeaponType>("pistols");
-    const [ currentUnit, changeUnit ] = useReducer(composeUnit, { }, () => unit || prepareUnitData({ })); 
+    const [weapon, setWeapon] = useState<WeaponType>("pistols");
+    const [currentUnit, changeUnit] = useReducer(composeUnit, {}, () => unit || prepareUnitData({}));
 
     const handleSubmit = (data: object) => {
 
@@ -54,7 +54,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
 
     const typeDescription = (() => {
 
-        return t(`uniteditor.type.${currentUnit.type}.description`, { distance: formatDistance(unitMovement[currentUnit.type], scale)});
+        return t(`uniteditor.type.${currentUnit.type}.description`, { distance: formatDistance(unitMovement[currentUnit.type], scale) });
     })();
 
     const armamentDescription = (() => {
@@ -66,7 +66,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
     return (
         <BasicForm onChange={handleChange} onSubmit={handleSubmit}>
             <datalist id="uniteditor-affiliation-suggestions">
-                {affiliations.map(a => (<option key={a} value={a}/>))}
+                {affiliations.map(a => (<option key={a} value={a} />))}
             </datalist>
             <div className="uniteditor-firstline">
                 <WrittenField
@@ -74,7 +74,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                     placeholder={String(t("uniteditor.name.placeholder"))}
                     defaultValue={currentUnit?.name}
                 />
-                <PointsBadge points={calcUnitCost(currentUnit)} layout="column"/> 
+                <PointsBadge points={calcUnitCost(currentUnit)} layout="column" />
                 {onCancel && <button type="button" onClick={handleCancel}>{t("uniteditor.cancel.label")}</button>}
                 {onSubmit && <button>{t("uniteditor.save.label")}</button>}
             </div>
@@ -136,7 +136,7 @@ export function UnitEditor({ unit, onSubmit, onCancel } : UnitEditorProps) {
                 />
             </div>
             <div className="uniteditor-fourthline">
-                <SpecialsField label={t("uniteditor.special.label")} layout="list" name="special" defaultValue={currentUnit?.special} />
+                <SpecialsField label={t("uniteditor.special.label")} name="special" defaultValue={currentUnit?.special} />
             </div>
         </BasicForm>
     );

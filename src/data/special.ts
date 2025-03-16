@@ -6,7 +6,7 @@ export const specialTypes = [
     "elite-3",
     "elite-4",
     "elite-5",
-    "fanatic",
+    "fanatics",
     "ferocious-charge",
     "first-fire",
     "form-square",

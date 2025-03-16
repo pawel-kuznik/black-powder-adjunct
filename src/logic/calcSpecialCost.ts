@@ -9,10 +9,10 @@ import { isUnitInfantry } from "./isUnitInfantry";
  */
 export function calcSpecialCost(special: SpecialType, unit: UnitDescriptor) {
 
-    switch(special) {
+    switch (special) {
         case 'bloodthirsty': return 3;
         case 'brave': return 5;
-        case 'crack': 
+        case 'crack':
             if (unit.morale >= 6) return 1;
             if (unit.morale >= 5) return 2;
             if (unit.morale >= 4) return 3;
@@ -21,7 +21,7 @@ export function calcSpecialCost(special: SpecialType, unit: UnitDescriptor) {
         case 'elite-3': return 8;
         case 'elite-4': return 6;
         case 'elite-5': return 4;
-        case 'fanatic': 
+        case 'fanatics':
             if (isUnitInfantry(unit)) return 8;
             if (isUnitCavalry(unit)) return 10;
             return 0;
