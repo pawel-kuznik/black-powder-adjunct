@@ -433,6 +433,20 @@ export const defaultUnits: UnitDescriptor[] = [
         special: ["marauders"],
         affiliation: "prussian"
     },
+
+    // French line infantry
+    {
+        id: "default-french-line-infantry-regular",
+        name: "Line Infantry",
+        type: "regular-infantry",
+        armament: "smoothbore-muskets",
+        handToHand: 6,
+        shooting: 3,
+        morale: 4,
+        stamina: 3,
+        special: ["pas-de-charge", "must-form-square", "mixed-formation", "can-form-skirmish"],
+        affiliation: "french"
+    },
     // French light infantry
     {
         id: "default-french-light-infantry-regular",
