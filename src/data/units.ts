@@ -486,6 +486,7 @@ export const defaultUnits: UnitDescriptor[] = [
         special: ["reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
+
     // French Middle Guard Chasseurs
     {
         id: "default-french-middle-guard-chasseurs-regular",
@@ -702,6 +703,44 @@ export const defaultUnits: UnitDescriptor[] = [
         morale: 3,
         stamina: 1,
         special: ["heavy-cavalry+d3", "reliable", "deep-formation"],
+        affiliation: "french"
+    },
+
+    // French Chasseurs a Chaval
+    {
+        id: "default-french-chasseurs-a-cheval-regular",
+        name: "Chasseurs a Cheval",
+        type: "regular-cavalry",
+        armament: "sabres",
+        handToHand: 6,
+        shooting: "melee",
+        morale: 4,
+        stamina: 3,
+        special: ["marauders"],
+        affiliation: "french"
+    },
+    {
+        id: "default-french-chasseurs-a-cheval-small",
+        name: "Chasseurs a Cheval Small",
+        type: "regular-cavalry",
+        armament: "sabres",
+        handToHand: 4,
+        shooting: "melee",
+        morale: 4,
+        stamina: 3,
+        special: ["marauders"],
+        affiliation: "french"
+    },
+    {
+        id: "default-french-chasseurs-a-cheval-large",
+        name: "Chasseurs a Cheval Large",
+        type: "regular-cavalry",
+        armament: "sabres",
+        handToHand: 8,
+        shooting: "melee",
+        morale: 4,
+        stamina: 3,
+        special: ["marauders"],
         affiliation: "french"
     },
     // French Chasseurs a Cheval of the Guard
