@@ -38,7 +38,7 @@ export interface UnitDescriptor {
     affiliation: undefined | string;
 };
 
-export const baseUnit : UnitDescriptor = {
+export const baseUnit: UnitDescriptor = {
     id: "",
     name: "",
     type: "regular-infantry",
@@ -52,16 +52,16 @@ export const baseUnit : UnitDescriptor = {
 } as const;
 
 export const unitMovement = {
-    "regular-infantry" : 12,
-    "irregular-infantry" : 12,
-    "regular-cavalry" : 18,
-    "irregular-cavalry" : 18,
-    "foot-artillery" : 12,
-    "horse-artillery" : 18, 
-    "manhandled-artillery" : 6
+    "regular-infantry": 12,
+    "irregular-infantry": 12,
+    "regular-cavalry": 18,
+    "irregular-cavalry": 18,
+    "foot-artillery": 12,
+    "horse-artillery": 18,
+    "manhandled-artillery": 6
 } as const;
 
-export const defaultUnits : UnitDescriptor[] = [
+export const defaultUnits: UnitDescriptor[] = [
     // British guard infantry
     {
         id: "default-british-guard-infantry-large",
@@ -72,7 +72,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "elite-3", "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column"  ],
+        special: ["reliable", "elite-3", "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "cannot-form-attack-column"],
         affiliation: "british"
     },
     // British line infantry
@@ -85,8 +85,8 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
-        affiliation: "british"    
+        special: ["lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "cannot-form-attack-column"],
+        affiliation: "british"
     },
     // British highland infantry
     {
@@ -98,7 +98,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "tough-fighters", "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
+        special: ["tough-fighters", "lie-down", "must-form-square", "column-of-companies", "mixed-formation", "can-form-skirmish", "first-fire", "steady-line", "four-deep-line", "cannot-form-attack-column"],
         affiliation: "british"
     },
     // British light infantry
@@ -111,7 +111,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "sharp-shooters", "skirmishers", "must-form-square", "column-of-companies", "lie-down", "mixed-formation", "first-fire", "steady-line", "four-deep-line", "no-attack-column" ],
+        special: ["sharp-shooters", "skirmishers", "must-form-square", "column-of-companies", "lie-down", "mixed-formation", "first-fire", "steady-line", "four-deep-line", "cannot-form-attack-column"],
         affiliation: "british"
     },
     // British riflemen
@@ -124,7 +124,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 4,
         stamina: 3,
-        special: [ "sharp-shooters", "skirmishers", "elite-4", "reliable", "lie-down", "must-form-square", "column-of-companies", "rifle-mixed-formation", "first-fire", "four-deep-line", "no-attack-column" ],
+        special: ["sharp-shooters", "skirmishers", "elite-4", "reliable", "lie-down", "must-form-square", "column-of-companies", "rifle-mixed-formation", "first-fire", "four-deep-line", "cannot-form-attack-column"],
         affiliation: "british"
     },
     {
@@ -136,7 +136,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 2,
-        special: [ "sharp-shooters", "skirmishers", "elite-4", "reliable", "lie-down", "must-form-square", "column-of-companies", "rifle-mixed-formation", "first-fire", "four-deep-line", "no-attack-column" ],
+        special: ["sharp-shooters", "skirmishers", "elite-4", "reliable", "lie-down", "must-form-square", "column-of-companies", "rifle-mixed-formation", "first-fire", "four-deep-line", "cannot-form-attack-column"],
         affiliation: "british"
     },
     {
@@ -148,7 +148,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 2,
         morale: 4,
         stamina: 1,
-        special: [ "sharp-shooters", "skirmishers", "elite-4", "reliable", "lie-down", "must-form-square", "column-of-companies", "rifle-mixed-formation", "first-fire", "four-deep-line", "no-attack-column" ],
+        special: ["sharp-shooters", "skirmishers", "elite-4", "reliable", "lie-down", "must-form-square", "column-of-companies", "rifle-mixed-formation", "first-fire", "four-deep-line", "cannot-form-attack-column"],
         affiliation: "british"
     },
     // British life guards
@@ -161,7 +161,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "heavy-cavalry+d3", "galop-at-anything", "deep-formation" ],
+        special: ["reliable", "heavy-cavalry+d3", "gallop-at-anything", "deep-formation"],
         affiliation: "british"
     },
     {
@@ -173,7 +173,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 2,
-        special: [ "reliable", "heavy-cavalry+d3", "galop-at-anything", "deep-formation" ],
+        special: ["reliable", "heavy-cavalry+d3", "gallop-at-anything", "deep-formation"],
         affiliation: "british"
     },
     // British royal horse guards
@@ -186,7 +186,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "heavy-cavalry+d3", "galop-at-anything", "deep-formation" ],
+        special: ["reliable", "heavy-cavalry+d3", "gallop-at-anything", "deep-formation"],
         affiliation: "british"
     },
     {
@@ -198,7 +198,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 2,
-        special: [ "reliable", "heavy-cavalry+d3", "galop-at-anything", "deep-formation" ],
+        special: ["reliable", "heavy-cavalry+d3", "gallop-at-anything", "deep-formation"],
         affiliation: "british"
     },
     // British dragoons
@@ -211,7 +211,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "heavy-cavalry+1", "galop-at-anything", "deep-formation" ],
+        special: ["heavy-cavalry+1", "gallop-at-anything", "deep-formation"],
         affiliation: "british"
     },
     // British dragoon Guards
@@ -224,7 +224,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "heavy-cavalry+1", "galop-at-anything", "deep-formation" ],
+        special: ["heavy-cavalry+1", "gallop-at-anything", "deep-formation"],
         affiliation: "british"
     },
     // British light dragoons
@@ -237,7 +237,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "marauders", "ferocious-charge", "deep-formation"],
+        special: ["marauders", "ferocious-charge", "deep-formation"],
         affiliation: "british"
     },
     // British hussars
@@ -250,7 +250,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "marauders", "ferocious-charge", "deep-formation" ],
+        special: ["marauders", "ferocious-charge", "deep-formation"],
         affiliation: "british"
     },
     // British royal horse artillery
@@ -263,7 +263,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 1,
-        special: [ "reliable", "marauders", "shrapnel" ],
+        special: ["reliable", "marauders", "shrapnel"],
         affiliation: "british"
     },
     // British royal artillery
@@ -276,7 +276,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 2,
-        special: [ "reliable", "shrapnel" ],
+        special: ["reliable", "shrapnel"],
         affiliation: "british"
     },
     // Prussian musketeers
@@ -289,7 +289,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "must-form-square", "lie-down", "mixed-formation", "can-form-skirmish", "column-of-companies" ],
+        special: ["must-form-square", "lie-down", "mixed-formation", "can-form-skirmish", "column-of-companies"],
         affiliation: "prussian"
     },
     // Prussian usiliers
@@ -302,7 +302,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "sharp-shooters", "skirmishers", "lie-down", "must-form-square", "mixed-formation", "can-form-skirmish" ],
+        special: ["sharp-shooters", "skirmishers", "lie-down", "must-form-square", "mixed-formation", "can-form-skirmish"],
         affiliation: "prussian"
     },
     // Prussian landwehr
@@ -315,7 +315,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "unreliable", "must-form-square", "lie-down", "mixed-formation", "can-form-skirmish", "column-of-companies" ],
+        special: ["unreliable", "must-form-square", "lie-down", "mixed-formation", "can-form-skirmish", "column-of-companies"],
         affiliation: "prussian"
     },
     // Prussian jagers
@@ -328,7 +328,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "column-of-companies", "skirmishers", "sharp-shooters" ],
+        special: ["reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "column-of-companies", "skirmishers", "sharp-shooters"],
         affiliation: "prussian"
     },
     {
@@ -340,7 +340,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 2,
         morale: 4,
         stamina: 2,
-        special: [ "reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "column-of-companies", "skirmishers", "sharp-shooters" ],
+        special: ["reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "column-of-companies", "skirmishers", "sharp-shooters"],
         affiliation: "prussian"
     },
     {
@@ -352,7 +352,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 1,
         morale: 4,
         stamina: 1,
-        special: [ "reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "column-of-companies", "skirmishers", "sharp-shooters" ],
+        special: ["reliable", "elite-5", "must-form-square", "lie-down", "mixed-formation", "column-of-companies", "skirmishers", "sharp-shooters"],
         affiliation: "prussian"
     },
     // Prussian dragoons
@@ -365,7 +365,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "heavy-cavalry+1", "deep-formation" ],
+        special: ["heavy-cavalry+1", "deep-formation"],
         affiliation: "prussian"
     },
     // Prussian uhlans
@@ -378,9 +378,9 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "lancers", "marauders" ],
+        special: ["lancers", "marauders"],
         affiliation: "prussian"
-    }, 
+    },
     // Prussian hussars
     {
         id: "default-prussian-hussars-regular",
@@ -391,7 +391,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "marauders" ],
+        special: ["marauders"],
         affiliation: "prussian"
     },
     // Prussian landwehr cavalry
@@ -404,7 +404,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "lancers", "marauders", "unreliable" ],
+        special: ["lancers", "marauders", "unreliable"],
         affiliation: "prussian"
     },
     // Prussian line foot artillery
@@ -417,7 +417,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 2,
-        special: [ ],
+        special: [],
         affiliation: "prussian"
     },
     // Prussian line horse artillery
@@ -430,8 +430,22 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 1,
-        special: [ "marauders" ],
+        special: ["marauders"],
         affiliation: "prussian"
+    },
+
+    // French line infantry
+    {
+        id: "default-french-line-infantry-regular",
+        name: "Line Infantry",
+        type: "regular-infantry",
+        armament: "smoothbore-muskets",
+        handToHand: 6,
+        shooting: 3,
+        morale: 4,
+        stamina: 3,
+        special: ["pas-de-charge", "must-form-square", "mixed-formation", "can-form-skirmish"],
+        affiliation: "french"
     },
     // French light infantry
     {
@@ -443,7 +457,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 3,
-        special: [ "sharp-shooters", "skirmishers", "lie-down", "pas-de-charge", "must-form-square", "mixed-formation", "column-of-companies", "can-form-skirmish" ],
+        special: ["sharp-shooters", "skirmishers", "lie-down", "pas-de-charge", "must-form-square", "mixed-formation", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Young Guard
@@ -456,7 +470,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "elite-5", "lie-down", "pas-de-charge", "skirmishers", "must-form-square", "mixed-order", "can-form-skirmish" ],
+        special: ["reliable", "elite-5", "lie-down", "pas-de-charge", "skirmishers", "must-form-square", "mixed-order", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Old Guard Chasseurs
@@ -469,9 +483,10 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish" ],
+        special: ["reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
+
     // French Middle Guard Chasseurs
     {
         id: "default-french-middle-guard-chasseurs-regular",
@@ -482,7 +497,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "elite-4", "lie-down", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish" ],
+        special: ["reliable", "elite-4", "lie-down", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Combined Grenadiers
@@ -495,7 +510,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 2,
-        special: [ "elite-5", "pas-de-charge", "lie-down", "must-form-square", "mixed-formation", "column-of-companies", "can-form-skirmish" ],
+        special: ["elite-5", "pas-de-charge", "lie-down", "must-form-square", "mixed-formation", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Old Guard Grenadiers
@@ -508,7 +523,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish" ],
+        special: ["reliable", "elite-3", "lie-down", "tough-fighters", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Middle Guard Grenadiers
@@ -521,7 +536,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 4,
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "elite-4", "lie-down", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish" ],
+        special: ["reliable", "elite-4", "lie-down", "pas-de-charge", "must-form-square", "mixed-order", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Combined Voltigeurs
@@ -534,7 +549,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 3,
         morale: 4,
         stamina: 2,
-        special: [ "skirmishers", "sharp-shooters", "lie-down", "must-form-square", "mixed-formation", "column-of-companies", "can-form-skirmish" ],
+        special: ["skirmishers", "sharp-shooters", "lie-down", "must-form-square", "mixed-formation", "column-of-companies", "can-form-skirmish"],
         affiliation: "french"
     },
     // French Marines of the Guard
@@ -547,7 +562,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 2,
         morale: 3,
         stamina: 2,
-        special: [ "reliable", "elite-4", "lie-down" ],
+        special: ["reliable", "elite-4", "lie-down"],
         affiliation: "french"
     },
     {
@@ -559,7 +574,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: 1,
         morale: 3,
         stamina: 1,
-        special: [ "reliable", "elite-4", "lie-down" ],
+        special: ["reliable", "elite-4", "lie-down"],
         affiliation: "french"
     },
     // French Carabiniers
@@ -572,7 +587,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "heavy-cavalry+d3", "deep-formation" ],
+        special: ["reliable", "heavy-cavalry+d3", "deep-formation"],
         affiliation: "french"
     },
     // French Cuirassiers
@@ -585,7 +600,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "heavy-cavalry+d3", "deep-formation" ],
+        special: ["reliable", "heavy-cavalry+d3", "deep-formation"],
         affiliation: "french"
     },
     // French Dragoons
@@ -598,7 +613,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "heavy-cavalry+1", "deep-formation" ],
+        special: ["heavy-cavalry+1", "deep-formation"],
         affiliation: "french"
     },
     // French Light Dragoons
@@ -611,7 +626,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "marauders", "deep-formation" ],
+        special: ["marauders", "deep-formation"],
         affiliation: "french"
     },
     // French Line Lancers
@@ -624,7 +639,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 4,
         stamina: 3,
-        special: [ "lancers", "marauders", "deep-formation" ],
+        special: ["lancers", "marauders", "deep-formation"],
         affiliation: "french"
     },
     // French Guard Heavy Cavalry
@@ -637,7 +652,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "heavy-cavalry+d3", "reliable", "deep-formation" ],
+        special: ["heavy-cavalry+d3", "reliable", "deep-formation"],
         affiliation: "french"
     },
     {
@@ -649,7 +664,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 4,
-        special: [ "heavy-cavalry+d3", "reliable", "deep-formation" ],
+        special: ["heavy-cavalry+d3", "reliable", "deep-formation"],
         affiliation: "french"
     },
     // French Empress Dragoons
@@ -662,7 +677,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "heavy-cavalry+d3", "reliable", "deep-formation" ],
+        special: ["heavy-cavalry+d3", "reliable", "deep-formation"],
         affiliation: "french"
     },
     {
@@ -674,7 +689,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 4,
-        special: [ "heavy-cavalry+d3", "reliable", "deep-formation" ],
+        special: ["heavy-cavalry+d3", "reliable", "deep-formation"],
         affiliation: "french"
     },
     // French Gendarme d'Elite
@@ -687,7 +702,45 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 1,
-        special: [ "heavy-cavalry+d3", "reliable", "deep-formation" ],
+        special: ["heavy-cavalry+d3", "reliable", "deep-formation"],
+        affiliation: "french"
+    },
+
+    // French Chasseurs a Chaval
+    {
+        id: "default-french-chasseurs-a-cheval-regular",
+        name: "Chasseurs a Cheval",
+        type: "regular-cavalry",
+        armament: "sabres",
+        handToHand: 6,
+        shooting: "melee",
+        morale: 4,
+        stamina: 3,
+        special: ["marauders"],
+        affiliation: "french"
+    },
+    {
+        id: "default-french-chasseurs-a-cheval-small",
+        name: "Chasseurs a Cheval Small",
+        type: "regular-cavalry",
+        armament: "sabres",
+        handToHand: 4,
+        shooting: "melee",
+        morale: 4,
+        stamina: 3,
+        special: ["marauders"],
+        affiliation: "french"
+    },
+    {
+        id: "default-french-chasseurs-a-cheval-large",
+        name: "Chasseurs a Cheval Large",
+        type: "regular-cavalry",
+        armament: "sabres",
+        handToHand: 8,
+        shooting: "melee",
+        morale: 4,
+        stamina: 3,
+        special: ["marauders"],
         affiliation: "french"
     },
     // French Chasseurs a Cheval of the Guard
@@ -700,7 +753,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "marauders", "deep-formation" ],
+        special: ["reliable", "marauders", "deep-formation"],
         affiliation: "french"
     },
     {
@@ -712,7 +765,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "marauders", "deep-formation" ],
+        special: ["reliable", "marauders", "deep-formation"],
         affiliation: "french"
     },
     // French Guard Lancers
@@ -725,7 +778,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 3,
-        special: [ "reliable", "marauders", "lancers", "deep-formation" ],
+        special: ["reliable", "marauders", "lancers", "deep-formation"],
         affiliation: "french"
     },
     {
@@ -737,7 +790,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "melee",
         morale: 3,
         stamina: 4,
-        special: [ "reliable", "marauders", "lancers", "deep-formation" ],
+        special: ["reliable", "marauders", "lancers", "deep-formation"],
         affiliation: "french"
     },
     // French Foot Artillery
@@ -750,7 +803,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 2,
-        special: [ ],
+        special: [],
         affiliation: "french"
     },
     // French Horse Artillery
@@ -763,7 +816,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 1,
-        special: [ "marauders" ],
+        special: ["marauders"],
         affiliation: "french"
     },
     // French Guard Heavy Artillery
@@ -776,7 +829,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 3,
-        special: [ "reliable", "elite-4" ],
+        special: ["reliable", "elite-4"],
         affiliation: "french"
     },
     // French Guard Marine Artillery
@@ -789,7 +842,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 3,
-        special: [ "reliable", "elite-4" ],
+        special: ["reliable", "elite-4"],
         affiliation: "french"
     },
     // French Guard Horse Artillery
@@ -802,7 +855,7 @@ export const defaultUnits : UnitDescriptor[] = [
         shooting: "artillery",
         morale: 4,
         stamina: 2,
-        special: [ "reliable", "elite-4", "marauders" ],
+        special: ["reliable", "elite-4", "marauders"],
         affiliation: "french"
     },
 ];
