@@ -7,6 +7,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ScenariosPage } from './pages/ScenariosPage';
 import { CommandersPage } from './pages/CommandersPage';
 import { ListPage } from './pages/ListPage';
+import { ListReaderPage } from './pages/ListReaderPage';
 import { ChangelogPage } from './pages/ChangelogPage';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/rules" element={<RulesPage />} />
                     <Route path="/lists" element={<ListsPage />} />
                     <Route path="/list/:listId" element={<ListPage />}/>
+                    <Route path="/list/:listId/read" element={<ListReaderPage />}/>
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/changelog" element={<ChangelogPage />} />
                 </Routes>

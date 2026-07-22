@@ -15,6 +15,11 @@ export function ListsPage() {
         navigate(`/list/${army.id}`);
     };
 
+    const handleArmyView = (army: ArmyDescriptor) => {
+
+        navigate(`/list/${army.id}/read`);
+    };
+
     const handleArmyRemove = (army: ArmyDescriptor) => {
 
         armyDescriptorsStore.remove(army);
@@ -32,7 +37,7 @@ export function ListsPage() {
         <Page>
             <Title text="Lists"/>
             <button onClick={handleCreateNewClick}>Create new</button>
-            <ArmyPicker onPick={handleArmyPick} onRemove={handleArmyRemove}/>
+            <ArmyPicker onPick={handleArmyPick} onView={handleArmyView} onRemove={handleArmyRemove}/>
         </Page>
     );
 };

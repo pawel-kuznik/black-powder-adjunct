@@ -1,0 +1,17 @@
+.brigadereader-unit
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+}
+
+.brigadereader-unit .brigadereader-unit-multiplier
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 44px;
+    justify-content: center;
+    align-items: center;
+
+    border-right: none;
+}

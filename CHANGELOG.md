@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+- Fixed ScaleSelector not changing the units across the website.
+- Added added horse artillery unit type (by jaredtmartin)
+- Added translations of must-form-square, can-form-skirmish, mixed-formation, steady-line, shrapnel, mixed-order, pas-de-charge, deep-formation, gallop-at-anything (by jaredtmartin)
+
 ## [0.3.0] - 14/05/2024
 
 - Adding more robust tooltips. They can hold complex data and spawn even more tooltip. (Similar functionality to Victoria 3 tooltips.)
